@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "langue.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,langueDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 @end

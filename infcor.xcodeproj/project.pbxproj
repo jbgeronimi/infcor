@@ -21,6 +21,11 @@
 		16F7569119814EA300CF9F80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F7567319814EA200CF9F80 /* UIKit.framework */; };
 		16F7569919814EA300CF9F80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16F7569719814EA300CF9F80 /* InfoPlist.strings */; };
 		16F7569B19814EA300CF9F80 /* infcorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F7569A19814EA300CF9F80 /* infcorTests.m */; };
+		16F756A71981990F00CF9F80 /* prefsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F756A61981990F00CF9F80 /* prefsViewController.m */; };
+		16F756AE19819B1100CF9F80 /* SideDismissalTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F756AB19819B1100CF9F80 /* SideDismissalTransition.m */; };
+		16F756AF19819B1100CF9F80 /* SideTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F756AD19819B1100CF9F80 /* SideTransition.m */; };
+		16FC7C1F1982522500CE1C0F /* langue.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FC7C1E1982522500CE1C0F /* langue.m */; };
+		16FC7C261984101500CE1C0F /* resultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FC7C251984101500CE1C0F /* resultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,16 @@
 		16F7569619814EA300CF9F80 /* infcorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "infcorTests-Info.plist"; sourceTree = "<group>"; };
 		16F7569819814EA300CF9F80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16F7569A19814EA300CF9F80 /* infcorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = infcorTests.m; sourceTree = "<group>"; };
+		16F756A51981990F00CF9F80 /* prefsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefsViewController.h; sourceTree = "<group>"; };
+		16F756A61981990F00CF9F80 /* prefsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = prefsViewController.m; sourceTree = "<group>"; };
+		16F756AA19819B1100CF9F80 /* SideDismissalTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideDismissalTransition.h; path = Transitions/SideDismissalTransition.h; sourceTree = "<group>"; };
+		16F756AB19819B1100CF9F80 /* SideDismissalTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideDismissalTransition.m; path = Transitions/SideDismissalTransition.m; sourceTree = "<group>"; };
+		16F756AC19819B1100CF9F80 /* SideTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideTransition.h; path = Transitions/SideTransition.h; sourceTree = "<group>"; };
+		16F756AD19819B1100CF9F80 /* SideTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideTransition.m; path = Transitions/SideTransition.m; sourceTree = "<group>"; };
+		16FC7C1D1982522500CE1C0F /* langue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = langue.h; sourceTree = "<group>"; };
+		16FC7C1E1982522500CE1C0F /* langue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = langue.m; sourceTree = "<group>"; };
+		16FC7C241984101500CE1C0F /* resultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resultViewController.h; sourceTree = "<group>"; };
+		16FC7C251984101500CE1C0F /* resultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = resultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +127,11 @@
 		16F7567519814EA200CF9F80 /* infcor */ = {
 			isa = PBXGroup;
 			children = (
-				16F7567E19814EA200CF9F80 /* AppDelegate.h */,
+				16FC7C1C198251FD00CE1C0F /* Models */,
+				16F756A819819A5000CF9F80 /* Transitions */,
+				16F756A4198198F400CF9F80 /* Controllers */,
 				16F7567F19814EA200CF9F80 /* AppDelegate.m */,
+				16F7567E19814EA200CF9F80 /* AppDelegate.h */,
 				16F7568119814EA200CF9F80 /* Main.storyboard */,
 				16F7568419814EA200CF9F80 /* ViewController.h */,
 				16F7568519814EA200CF9F80 /* ViewController.m */,
@@ -150,6 +168,37 @@
 				16F7569719814EA300CF9F80 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16F756A4198198F400CF9F80 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				16F756A51981990F00CF9F80 /* prefsViewController.h */,
+				16F756A61981990F00CF9F80 /* prefsViewController.m */,
+				16FC7C241984101500CE1C0F /* resultViewController.h */,
+				16FC7C251984101500CE1C0F /* resultViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		16F756A819819A5000CF9F80 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				16F756AA19819B1100CF9F80 /* SideDismissalTransition.h */,
+				16F756AB19819B1100CF9F80 /* SideDismissalTransition.m */,
+				16F756AC19819B1100CF9F80 /* SideTransition.h */,
+				16F756AD19819B1100CF9F80 /* SideTransition.m */,
+			);
+			name = Transitions;
+			sourceTree = "<group>";
+		};
+		16FC7C1C198251FD00CE1C0F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				16FC7C1D1982522500CE1C0F /* langue.h */,
+				16FC7C1E1982522500CE1C0F /* langue.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,8 +299,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				16F7568619814EA200CF9F80 /* ViewController.m in Sources */,
+				16F756AF19819B1100CF9F80 /* SideTransition.m in Sources */,
 				16F7568019814EA200CF9F80 /* AppDelegate.m in Sources */,
+				16F756AE19819B1100CF9F80 /* SideDismissalTransition.m in Sources */,
+				16FC7C1F1982522500CE1C0F /* langue.m in Sources */,
 				16F7567C19814EA200CF9F80 /* main.m in Sources */,
+				16F756A71981990F00CF9F80 /* prefsViewController.m in Sources */,
+				16FC7C261984101500CE1C0F /* resultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +433,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "infcor/infcor-Prefix.pch";
 				INFOPLIST_FILE = "infcor/infcor-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -392,6 +447,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "infcor/infcor-Prefix.pch";
 				INFOPLIST_FILE = "infcor/infcor-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -456,6 +512,7 @@
 				16F756A019814EA300CF9F80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16F756A119814EA300CF9F80 /* Build configuration list for PBXNativeTarget "infcorTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +521,7 @@
 				16F756A319814EA300CF9F80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

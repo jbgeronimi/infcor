@@ -7,12 +7,24 @@
 //
 
 #import "AppDelegate.h"
+#import "prefsViewController.h"
+
 
 @implementation AppDelegate
+
+
+- (id) shared:(NSString *)context
+{
+//  context.lng = "@co";
+//    NSString *lng = @"co";
+    return context;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 							

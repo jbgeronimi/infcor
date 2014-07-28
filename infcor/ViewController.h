@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "langue.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIViewControllerTransitioningDelegate, UITextFieldDelegate>
+@property (strong,nonatomic) UIButton *primu;
+@property (strong,nonatomic) NSString *alangue;
+@property (strong,nonatomic) UITextField *searchText;
 
 @end
