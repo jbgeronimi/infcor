@@ -13,5 +13,7 @@
 @property (strong,nonatomic) UIButton *primu;
 @property (strong,nonatomic) NSString *alangue;
 @property (strong,nonatomic) UITextField *searchText;
+@property (strong,nonatomic) NSURL *searchURL;
+
 
 @end

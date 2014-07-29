@@ -10,5 +10,6 @@
 
 @interface resultViewController : UIViewController
 @property (weak,nonatomic) NSString *text;
+@property (strong,nonatomic) NSURL *searchURL;
 
 @end

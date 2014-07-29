@@ -80,6 +80,8 @@
     [textField resignFirstResponder];
     resultViewController *risultati=[[resultViewController alloc] init];
     risultati.text = self.searchText.text;
+    NSString *cerca = [NSString stringWithFormat:@"http://adecec.net/infcor/iphone.php?mot=%@&langue=%@", risultati.text, self.alangue];
+    [risultati setSearchURL:[NSURL URLWithString:cerca]];
     [self presentViewController:risultati animated:YES completion:nil];
     NSLog(@"andemu");
     return YES;
