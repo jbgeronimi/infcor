@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface resultViewController : UIViewController
-@property (weak,nonatomic) NSString *text;
+@interface resultViewController : UITableViewController
+@property (weak,nonatomic) NSArray *risultati;
+@property (strong,nonatomic) NSString *text;
 @property (strong,nonatomic) NSURL *searchURL;
 
 @end

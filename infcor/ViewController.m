@@ -27,11 +27,7 @@
     
     prefsVC.modalPresentationStyle = UIModalPresentationCustom;
     prefsVC.transitioningDelegate = self;
-    if (!self.alangue) {
-        prefsVC.langue = @"co";
-    }else {
     prefsVC.langue = self.alangue;
-    }
     
     [self presentViewController:prefsVC animated:YES completion:nil];
 }
@@ -51,10 +47,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"INFCOR - ADECEC";
     NSString *langInit = @"Corsu - Francese";
+    self.alangue = @"co";
     self.view.backgroundColor = [UIColor whiteColor];
     self.primu = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.primu.frame = CGRectMake(80,30, 160, 25);
+    self.primu.frame = CGRectMake(80,80, self.view.frame.size.width - (self.view.frame.size.width / 5), 25);
     [self.primu.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [self.primu setTitle:langInit forState:UIControlStateNormal];
     [self.primu addTarget:self
@@ -63,14 +61,14 @@
     [self.view addSubview:self.primu];
     
     UIButton *prefBouton = [UIButton buttonWithType:UIButtonTypeSystem] ;
-    prefBouton.frame = CGRectMake(10, 30, 40, 40);
+    prefBouton.frame = CGRectMake(10, 80, 40, 40);
     [prefBouton setTitle: @"pref" forState:UIControlStateNormal];
     [prefBouton addTarget:self
                    action:@selector(preferences:)
          forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:prefBouton];
     
-    self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 65, 260, 25)];
+    self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 105, self.view.frame.size.width - (self.view.frame.size.width / 5), 25)];
     [self.searchText setBorderStyle:UITextBorderStyleLine];
     self.searchText.delegate = self;
     [self.view addSubview:self.searchText];
@@ -80,10 +78,18 @@
     [textField resignFirstResponder];
     resultViewController *risultati=[[resultViewController alloc] init];
     risultati.text = self.searchText.text;
-    NSString *cerca = [NSString stringWithFormat:@"http://adecec.net/infcor/iphone.php?mot=%@&langue=%@", risultati.text, self.alangue];
-    [risultati setSearchURL:[NSURL URLWithString:cerca]];
-    [self presentViewController:risultati animated:YES completion:nil];
-    NSLog(@"andemu");
+    //un identifiant unique pour la requete
+    NSString *UUID = [[NSUUID UUID] UUIDString];
+    NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/iphone.php?mot=%@&langue=%@&uuid=%@", risultati.text, self.alangue, UUID];
+    NSMutableURLRequest *cerca = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:cercaURL]];
+    [cerca setHTTPMethod:@"GET"];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:cerca delegate:self];
+    [connection start];
+    if (![risultati.text isEqualToString:@""]){
+        NSLog(@"URL = %@",cercaURL);
+        [self.navigationController pushViewController:risultati animated:YES];
+        //[self presentViewController:risultati animated:YES completion:nil];
+    }
     return YES;
 }
 
