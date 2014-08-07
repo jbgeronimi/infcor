@@ -1,4 +1,4 @@
-//
+ //
 //  motViewController.m
 //  infcor
 //
@@ -13,6 +13,10 @@
 @end
 
 @implementation motViewController
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

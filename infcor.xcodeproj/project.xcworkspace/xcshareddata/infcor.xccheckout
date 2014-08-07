@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>CBA8059A-D022-4891-B37C-9A3BC2AB6A8F</string>
+	<string>2BAC166A-5BBB-4069-A647-35BCAC7A4EC2</string>
 	<key>IDESourceControlProjectName</key>
-	<string>infcor</string>
+	<string>INFCOR</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>BBA6DF15-A588-48FA-9035-26B43472C892</key>
 		<string>https://github.com/jbgeronimi/infcor.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>infcor.xcodeproj/project.xcworkspace</string>
+	<string>INFCOR.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>BBA6DF15-A588-48FA-9035-26B43472C892</key>

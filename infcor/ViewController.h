@@ -7,13 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MLPAutoCompleteTextField.h"
 //#import "langue.h"
+@class motDataSource;
+@class MLPAutoCompleteTextField;
 
-@interface ViewController : UIViewController <UIViewControllerTransitioningDelegate, UITextFieldDelegate>
+@interface ViewController : UIViewController <UIViewControllerTransitioningDelegate, UITextFieldDelegate, MLPAutoCompleteTextFieldDelegate>
 @property (strong,nonatomic) UIButton *primu;
 @property (strong,nonatomic) NSString *alangue;
-@property (strong,nonatomic) UITextField *searchText;
+@property (strong, nonatomic) IBOutlet motDataSource *autocompleteDataSource;
+@property (weak) IBOutlet MLPAutoCompleteTextField *autocompleteTextField;
+@property (strong,nonatomic) MLPAutoCompleteTextField *searchText;
 @property (strong,nonatomic) NSURL *searchURL;
-
+@property (strong, nonatomic) IBOutlet UISegmentedControl *typeSwitch;
 
 @end

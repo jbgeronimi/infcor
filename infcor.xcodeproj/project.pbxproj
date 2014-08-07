@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		166995DC198D3D5B00FF4FFF /* MLPAutoCompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 166995D6198D3D5B00FF4FFF /* MLPAutoCompleteTextField.m */; };
+		166995DD198D3D5B00FF4FFF /* NSString+Levenshtein.m in Sources */ = {isa = PBXBuildFile; fileRef = 166995DB198D3D5B00FF4FFF /* NSString+Levenshtein.m */; };
+		166995E0198D41D000FF4FFF /* motDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 166995DF198D41D000FF4FFF /* motDataSource.m */; };
 		16C3B7F1198939E9000322E8 /* motViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C3B7F0198939E9000322E8 /* motViewController.m */; };
 		16C3B82019893C59000322E8 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C3B80E19893C59000322E8 /* AFHTTPClient.m */; };
 		16C3B82119893C59000322E8 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C3B81019893C59000322E8 /* AFHTTPRequestOperation.m */; };
@@ -17,6 +20,11 @@
 		16C3B82619893C59000322E8 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C3B81B19893C59000322E8 /* AFURLConnectionOperation.m */; };
 		16C3B82719893C59000322E8 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C3B81D19893C59000322E8 /* AFXMLRequestOperation.m */; };
 		16C3B82819893C59000322E8 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C3B81F19893C59000322E8 /* UIImageView+AFNetworking.m */; };
+		16C3B82A198A352B000322E8 /* CODE Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16C3B829198A352B000322E8 /* CODE Bold.otf */; };
+		16C3B82C198A353E000322E8 /* CODE Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16C3B82B198A353E000322E8 /* CODE Light.otf */; };
+		16C3B82F198A3AAF000322E8 /* Giorgio-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16C3B82D198A3AAF000322E8 /* Giorgio-Thin.ttf */; };
+		16C3B830198A3AAF000322E8 /* Giorgio.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16C3B82E198A3AAF000322E8 /* Giorgio.ttf */; };
+		16C3B832198A3B86000322E8 /* montre fonts in Resources */ = {isa = PBXBuildFile; fileRef = 16C3B831198A3B86000322E8 /* montre fonts */; };
 		16F7567019814EA200CF9F80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F7566F19814EA200CF9F80 /* Foundation.framework */; };
 		16F7567219814EA200CF9F80 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F7567119814EA200CF9F80 /* CoreGraphics.framework */; };
 		16F7567419814EA200CF9F80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F7567319814EA200CF9F80 /* UIKit.framework */; };
@@ -49,6 +57,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		166995D5198D3D5B00FF4FFF /* MLPAutoCompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextField.h; sourceTree = "<group>"; };
+		166995D6198D3D5B00FF4FFF /* MLPAutoCompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPAutoCompleteTextField.m; sourceTree = "<group>"; };
+		166995D7198D3D5B00FF4FFF /* MLPAutoCompleteTextFieldDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextFieldDataSource.h; sourceTree = "<group>"; };
+		166995D8198D3D5B00FF4FFF /* MLPAutoCompleteTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextFieldDelegate.h; sourceTree = "<group>"; };
+		166995D9198D3D5B00FF4FFF /* MLPAutoCompletionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompletionObject.h; sourceTree = "<group>"; };
+		166995DA198D3D5B00FF4FFF /* NSString+Levenshtein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Levenshtein.h"; sourceTree = "<group>"; };
+		166995DB198D3D5B00FF4FFF /* NSString+Levenshtein.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Levenshtein.m"; sourceTree = "<group>"; };
+		166995DE198D41D000FF4FFF /* motDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = motDataSource.h; sourceTree = "<group>"; };
+		166995DF198D41D000FF4FFF /* motDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = motDataSource.m; sourceTree = "<group>"; };
 		16C3B7EF198939E9000322E8 /* motViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = motViewController.h; sourceTree = "<group>"; };
 		16C3B7F0198939E9000322E8 /* motViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = motViewController.m; sourceTree = "<group>"; };
 		16C3B80D19893C59000322E8 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -70,23 +87,28 @@
 		16C3B81D19893C59000322E8 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		16C3B81E19893C59000322E8 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		16C3B81F19893C59000322E8 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		16F7566C19814EA200CF9F80 /* infcor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = infcor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16C3B829198A352B000322E8 /* CODE Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CODE Bold.otf"; sourceTree = "<group>"; };
+		16C3B82B198A353E000322E8 /* CODE Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CODE Light.otf"; sourceTree = "<group>"; };
+		16C3B82D198A3AAF000322E8 /* Giorgio-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Giorgio-Thin.ttf"; sourceTree = "<group>"; };
+		16C3B82E198A3AAF000322E8 /* Giorgio.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Giorgio.ttf; sourceTree = "<group>"; };
+		16C3B831198A3B86000322E8 /* montre fonts */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "montre fonts"; sourceTree = "<group>"; };
+		16F7566C19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = INFCOR.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F7566F19814EA200CF9F80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		16F7567119814EA200CF9F80 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		16F7567319814EA200CF9F80 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		16F7567719814EA200CF9F80 /* infcor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "infcor-Info.plist"; sourceTree = "<group>"; };
+		16F7567719814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "INFCOR.temp_caseinsensitive_rename-Info.plist"; sourceTree = "<group>"; };
 		16F7567919814EA200CF9F80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16F7567B19814EA200CF9F80 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		16F7567D19814EA200CF9F80 /* infcor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "infcor-Prefix.pch"; sourceTree = "<group>"; };
+		16F7567D19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "INFCOR.temp_caseinsensitive_rename-Prefix.pch"; sourceTree = "<group>"; };
 		16F7567E19814EA200CF9F80 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		16F7567F19814EA200CF9F80 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		16F7568219814EA200CF9F80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16F7568419814EA200CF9F80 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		16F7568519814EA200CF9F80 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		16F7568719814EA200CF9F80 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		16F7568D19814EA300CF9F80 /* infcorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = infcorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16F7568D19814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = INFCOR.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F7568E19814EA300CF9F80 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		16F7569619814EA300CF9F80 /* infcorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "infcorTests-Info.plist"; sourceTree = "<group>"; };
+		16F7569619814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "INFCOR.temp_caseinsensitive_renameTests-Info.plist"; sourceTree = "<group>"; };
 		16F7569819814EA300CF9F80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16F7569A19814EA300CF9F80 /* infcorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = infcorTests.m; sourceTree = "<group>"; };
 		16F756A51981990F00CF9F80 /* prefsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefsViewController.h; sourceTree = "<group>"; };
@@ -125,6 +147,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		166995D4198D3D5B00FF4FFF /* MLPAutoCompleteTextField */ = {
+			isa = PBXGroup;
+			children = (
+				166995D5198D3D5B00FF4FFF /* MLPAutoCompleteTextField.h */,
+				166995D6198D3D5B00FF4FFF /* MLPAutoCompleteTextField.m */,
+				166995D7198D3D5B00FF4FFF /* MLPAutoCompleteTextFieldDataSource.h */,
+				166995D8198D3D5B00FF4FFF /* MLPAutoCompleteTextFieldDelegate.h */,
+				166995D9198D3D5B00FF4FFF /* MLPAutoCompletionObject.h */,
+				166995DA198D3D5B00FF4FFF /* NSString+Levenshtein.h */,
+				166995DB198D3D5B00FF4FFF /* NSString+Levenshtein.m */,
+			);
+			path = MLPAutoCompleteTextField;
+			sourceTree = "<group>";
+		};
 		16C3B80C19893C59000322E8 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,8 +201,8 @@
 		16F7566D19814EA200CF9F80 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				16F7566C19814EA200CF9F80 /* infcor.app */,
-				16F7568D19814EA300CF9F80 /* infcorTests.xctest */,
+				16F7566C19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename.app */,
+				16F7568D19814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,6 +221,7 @@
 		16F7567519814EA200CF9F80 /* infcor */ = {
 			isa = PBXGroup;
 			children = (
+				166995D4198D3D5B00FF4FFF /* MLPAutoCompleteTextField */,
 				16FC7C1C198251FD00CE1C0F /* Models */,
 				16F756A819819A5000CF9F80 /* Transitions */,
 				16F756A4198198F400CF9F80 /* Controllers */,
@@ -195,6 +232,8 @@
 				16F7568519814EA200CF9F80 /* ViewController.m */,
 				16F7568719814EA200CF9F80 /* Images.xcassets */,
 				16F7567619814EA200CF9F80 /* Supporting Files */,
+				166995DE198D41D000FF4FFF /* motDataSource.h */,
+				166995DF198D41D000FF4FFF /* motDataSource.m */,
 			);
 			path = infcor;
 			sourceTree = "<group>";
@@ -202,10 +241,15 @@
 		16F7567619814EA200CF9F80 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				16F7567719814EA200CF9F80 /* infcor-Info.plist */,
+				16C3B831198A3B86000322E8 /* montre fonts */,
+				16C3B82D198A3AAF000322E8 /* Giorgio-Thin.ttf */,
+				16C3B82E198A3AAF000322E8 /* Giorgio.ttf */,
+				16C3B82B198A353E000322E8 /* CODE Light.otf */,
+				16C3B829198A352B000322E8 /* CODE Bold.otf */,
+				16F7567719814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename-Info.plist */,
 				16F7567819814EA200CF9F80 /* InfoPlist.strings */,
 				16F7567B19814EA200CF9F80 /* main.m */,
-				16F7567D19814EA200CF9F80 /* infcor-Prefix.pch */,
+				16F7567D19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -222,7 +266,7 @@
 		16F7569519814EA300CF9F80 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				16F7569619814EA300CF9F80 /* infcorTests-Info.plist */,
+				16F7569619814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests-Info.plist */,
 				16F7569719814EA300CF9F80 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -264,9 +308,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		16F7566B19814EA200CF9F80 /* infcor */ = {
+		16F7566B19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 16F7569E19814EA300CF9F80 /* Build configuration list for PBXNativeTarget "infcor" */;
+			buildConfigurationList = 16F7569E19814EA300CF9F80 /* Build configuration list for PBXNativeTarget "INFCOR.temp_caseinsensitive_rename" */;
 			buildPhases = (
 				16F7566819814EA200CF9F80 /* Sources */,
 				16F7566919814EA200CF9F80 /* Frameworks */,
@@ -276,14 +320,14 @@
 			);
 			dependencies = (
 			);
-			name = infcor;
+			name = INFCOR.temp_caseinsensitive_rename;
 			productName = infcor;
-			productReference = 16F7566C19814EA200CF9F80 /* infcor.app */;
+			productReference = 16F7566C19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename.app */;
 			productType = "com.apple.product-type.application";
 		};
-		16F7568C19814EA300CF9F80 /* infcorTests */ = {
+		16F7568C19814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 16F756A119814EA300CF9F80 /* Build configuration list for PBXNativeTarget "infcorTests" */;
+			buildConfigurationList = 16F756A119814EA300CF9F80 /* Build configuration list for PBXNativeTarget "INFCOR.temp_caseinsensitive_renameTests" */;
 			buildPhases = (
 				16F7568919814EA300CF9F80 /* Sources */,
 				16F7568A19814EA300CF9F80 /* Frameworks */,
@@ -294,9 +338,9 @@
 			dependencies = (
 				16F7569319814EA300CF9F80 /* PBXTargetDependency */,
 			);
-			name = infcorTests;
+			name = INFCOR.temp_caseinsensitive_renameTests;
 			productName = infcorTests;
-			productReference = 16F7568D19814EA300CF9F80 /* infcorTests.xctest */;
+			productReference = 16F7568D19814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -313,7 +357,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 16F7566719814EA200CF9F80 /* Build configuration list for PBXProject "infcor" */;
+			buildConfigurationList = 16F7566719814EA200CF9F80 /* Build configuration list for PBXProject "INFCOR" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -326,8 +370,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				16F7566B19814EA200CF9F80 /* infcor */,
-				16F7568C19814EA300CF9F80 /* infcorTests */,
+				16F7566B19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename */,
+				16F7568C19814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests */,
 			);
 		};
 /* End PBXProject section */
@@ -337,9 +381,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16C3B830198A3AAF000322E8 /* Giorgio.ttf in Resources */,
+				16C3B82A198A352B000322E8 /* CODE Bold.otf in Resources */,
 				16F7568819814EA200CF9F80 /* Images.xcassets in Resources */,
+				16C3B832198A3B86000322E8 /* montre fonts in Resources */,
+				16C3B82F198A3AAF000322E8 /* Giorgio-Thin.ttf in Resources */,
 				16F7567A19814EA200CF9F80 /* InfoPlist.strings in Resources */,
 				16F7568319814EA200CF9F80 /* Main.storyboard in Resources */,
+				16C3B82C198A353E000322E8 /* CODE Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +407,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				166995E0198D41D000FF4FFF /* motDataSource.m in Sources */,
 				16C3B82619893C59000322E8 /* AFURLConnectionOperation.m in Sources */,
+				166995DD198D3D5B00FF4FFF /* NSString+Levenshtein.m in Sources */,
 				16C3B82219893C59000322E8 /* AFImageRequestOperation.m in Sources */,
 				16C3B7F1198939E9000322E8 /* motViewController.m in Sources */,
 				16F7568619814EA200CF9F80 /* ViewController.m in Sources */,
@@ -368,6 +419,7 @@
 				16C3B82819893C59000322E8 /* UIImageView+AFNetworking.m in Sources */,
 				16F756AE19819B1100CF9F80 /* SideDismissalTransition.m in Sources */,
 				16C3B82019893C59000322E8 /* AFHTTPClient.m in Sources */,
+				166995DC198D3D5B00FF4FFF /* MLPAutoCompleteTextField.m in Sources */,
 				16C3B82519893C59000322E8 /* AFPropertyListRequestOperation.m in Sources */,
 				16FC7C1F1982522500CE1C0F /* langue.m in Sources */,
 				16F7567C19814EA200CF9F80 /* main.m in Sources */,
@@ -392,7 +444,7 @@
 /* Begin PBXTargetDependency section */
 		16F7569319814EA300CF9F80 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 16F7566B19814EA200CF9F80 /* infcor */;
+			target = 16F7566B19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename */;
 			targetProxy = 16F7569219814EA300CF9F80 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -501,10 +553,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "infcor/infcor-Prefix.pch";
-				INFOPLIST_FILE = "infcor/infcor-Info.plist";
+				GCC_PREFIX_HEADER = "infcor/INFCOR.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "infcor/INFCOR.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = INFCOR.temp_caseinsensitive_rename;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -515,10 +567,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "infcor/infcor-Prefix.pch";
-				INFOPLIST_FILE = "infcor/infcor-Info.plist";
+				GCC_PREFIX_HEADER = "infcor/INFCOR.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "infcor/INFCOR.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = INFCOR.temp_caseinsensitive_rename;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -538,8 +590,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "infcorTests/infcorTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "infcorTests/INFCOR.temp_caseinsensitive_renameTests-Info.plist";
+				PRODUCT_NAME = INFCOR.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -556,8 +608,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "infcor/infcor-Prefix.pch";
-				INFOPLIST_FILE = "infcorTests/infcorTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "infcorTests/INFCOR.temp_caseinsensitive_renameTests-Info.plist";
+				PRODUCT_NAME = INFCOR.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -566,7 +618,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		16F7566719814EA200CF9F80 /* Build configuration list for PBXProject "infcor" */ = {
+		16F7566719814EA200CF9F80 /* Build configuration list for PBXProject "INFCOR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16F7569C19814EA300CF9F80 /* Debug */,
@@ -575,7 +627,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		16F7569E19814EA300CF9F80 /* Build configuration list for PBXNativeTarget "infcor" */ = {
+		16F7569E19814EA300CF9F80 /* Build configuration list for PBXNativeTarget "INFCOR.temp_caseinsensitive_rename" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16F7569F19814EA300CF9F80 /* Debug */,
@@ -584,7 +636,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		16F756A119814EA300CF9F80 /* Build configuration list for PBXNativeTarget "infcorTests" */ = {
+		16F756A119814EA300CF9F80 /* Build configuration list for PBXNativeTarget "INFCOR.temp_caseinsensitive_renameTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16F756A219814EA300CF9F80 /* Debug */,

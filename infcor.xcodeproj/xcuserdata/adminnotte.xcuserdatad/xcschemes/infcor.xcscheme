@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "16F7566B19814EA200CF9F80"
-               BuildableName = "infcor.app"
-               BlueprintName = "infcor"
-               ReferencedContainer = "container:infcor.xcodeproj">
+               BuildableName = "INFCOR.temp_caseinsensitive_rename.app"
+               BlueprintName = "INFCOR.temp_caseinsensitive_rename"
+               ReferencedContainer = "container:INFCOR.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "16F7568C19814EA300CF9F80"
-               BuildableName = "infcorTests.xctest"
-               BlueprintName = "infcorTests"
-               ReferencedContainer = "container:infcor.xcodeproj">
+               BuildableName = "INFCOR.temp_caseinsensitive_renameTests.xctest"
+               BlueprintName = "INFCOR.temp_caseinsensitive_renameTests"
+               ReferencedContainer = "container:INFCOR.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "16F7566B19814EA200CF9F80"
-            BuildableName = "infcor.app"
-            BlueprintName = "infcor"
-            ReferencedContainer = "container:infcor.xcodeproj">
+            BuildableName = "INFCOR.temp_caseinsensitive_rename.app"
+            BlueprintName = "INFCOR.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:INFCOR.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "16F7566B19814EA200CF9F80"
-            BuildableName = "infcor.app"
-            BlueprintName = "infcor"
-            ReferencedContainer = "container:infcor.xcodeproj">
+            BuildableName = "INFCOR.temp_caseinsensitive_rename.app"
+            BlueprintName = "INFCOR.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:INFCOR.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "16F7566B19814EA200CF9F80"
-            BuildableName = "infcor.app"
-            BlueprintName = "infcor"
-            ReferencedContainer = "container:infcor.xcodeproj">
+            BuildableName = "INFCOR.temp_caseinsensitive_rename.app"
+            BlueprintName = "INFCOR.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:INFCOR.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

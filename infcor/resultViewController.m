@@ -8,8 +8,8 @@
 
 #import "resultViewController.h"
 #import "motViewController.h"
-#import "AFJSONRequestOperation.h"
-#import "AFNetworking.h"
+//#import "AFJSONRequestOperation.h"
+//#import "AFNetworking.h"
 
 @interface resultViewController ()
 
@@ -28,24 +28,36 @@
 
 - (void)viewDidLoad
 {
-    NSString *UUID = [[NSUUID UUID] UUIDString];
-    NSString *res = [NSString stringWithFormat:@"http://adecec.net/infcor/results/%@.json", UUID];
-    NSURL *url = [[NSURL alloc] initWithString:res];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+//    NSString *UUID = [[NSUUID UUID] UUIDString];
+//    NSString *res = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php"];
+//    NSURL *url = [[NSURL alloc] initWithString:res];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.searchURL];
+/*    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         self.risultati = JSON;
+        NSLog(@" JSON : %@",self.risultati);
+       [self.tableView reloadData];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"NSError: %@",[error localizedDescription]);
     }];
+ [operation start];
+  */
+    NSData *theData = [NSURLConnection sendSynchronousRequest:request
+                                            returningResponse:nil
+                                                        error:nil];
     
-    [operation start];
+    self.risultati = [NSJSONSerialization JSONObjectWithData:theData
+                                                            options:0
+                                                              error:nil];
+    
+    NSLog(@"Sync JSON: %@", self.risultati);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
     return self.risultati.count;
+    NSLog(@" count : %lu", self.risultati.count);
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -57,7 +69,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     }
 //a definir en fonction des resultats renvoyes par la base
-    cell.textLabel.text = self.risultati[indexPath.row][@"title"];
+    cell.textLabel.text = self.risultati[indexPath.row][@"id"];
+    NSLog(@" cell : %@",cell.textLabel.text);
 //    cell.detailTextLabel.text = self.images[indexPath.row][@"detail"];
 //    [cell.imageView setImageWithURL:[NSURL URLWithString:self.images[indexPath.row][@"thumbnail"]] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
     
