@@ -12,11 +12,6 @@
 #import "SideTransition.h"
 #import "AppDelegate.h"
 #import "resultViewController.h"
-#import "MLPAutoCompletionObject.h"
-#import "MLPAutoCompleteTextFieldDelegate.h"
-#import "MLPAutoCompleteTextFieldDataSource.h"
-#import "MLPAutoCompleteTextField.h"
-#import "motDataSource.h"
 //#import "langue.h"
 
 @interface ViewController ()
@@ -54,14 +49,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShowWithNotification:) name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHideWithNotification:) name:UIKeyboardDidHideNotification object:nil];
-    
-    [self.typeSwitch addTarget:self
-                        action:@selector(typeDidChange:)
-              forControlEvents:UIControlEventValueChanged];
-    
+
     UIFont *code = [UIFont fontWithName:@"Giorgio" size:20];
     
     NSString *langInit = @"Corsu - Francese";
@@ -86,11 +74,33 @@
          forControlEvents:UIControlEventTouchUpInside];
   //  [self.view addSubview:prefBouton];
     
-    self.searchText = [[MLPAutoCompleteTextField alloc] initWithFrame:CGRectMake(30, 115, 260, 25)];
+    self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 115, 260, 25)];
     [self.searchText setBorderStyle:UITextBorderStyleLine];
-    self.searchText.delegate = self;
+//    self.searchText.delegate = self;
+    [self.searchText addTarget:self
+                  action:@selector(editingChanged:)
+        forControlEvents:UIControlEventEditingChanged];
     self.searchText.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.searchText];
+}
+
+-(void)editingChanged:(id)sender {
+ //   NSLog(@" sender : %@", self.searchText.text);
+    NSString *cercaString = [NSString stringWithFormat:@"http://adecec.net/infcor/try/suggestion.php?mot=%@&langue=mot_corse", self.searchText.text];
+    NSLog(@"cerca : %@", cercaString);
+    NSURL *cercaURL = [[NSURL alloc] initWithString:cercaString];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:cercaURL];
+    // Requete ASynchrone
+       __block NSMutableArray *json;
+     [NSURLConnection sendAsynchronousRequest:request
+     queue:[NSOperationQueue mainQueue]
+     completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+     json = [NSJSONSerialization JSONObjectWithData:data
+     options:0
+     error:nil];
+     self.suggest = json;
+     NSLog(@"Async JSON: %@", self.suggest);
+     }];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -134,89 +144,5 @@
 }
 
 
-- (void)typeDidChange:(UISegmentedControl *)sender
-{
-    if(sender.selectedSegmentIndex == 0){
-        [self.autocompleteTextField setAutoCompleteTableAppearsAsKeyboardAccessory:NO];
-    } else {
-        [self.autocompleteTextField setAutoCompleteTableAppearsAsKeyboardAccessory:YES];
-    }
-    
-}
-
-
-
-- (void)keyboardDidShowWithNotification:(NSNotification *)aNotification
-{
-    [UIView animateWithDuration:0.3
-                          delay:0
-                        options:UIViewAnimationCurveEaseOut|UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-                         CGPoint adjust;
-                         switch (self.interfaceOrientation) {
-                             case UIInterfaceOrientationLandscapeLeft:
-                                 adjust = CGPointMake(-110, 0);
-                                 break;
-                             case UIInterfaceOrientationLandscapeRight:
-                                 adjust = CGPointMake(110, 0);
-                                 break;
-                             default:
-                                 adjust = CGPointMake(0, -60);
-                                 break;
-                         }
-                         CGPoint newCenter = CGPointMake(self.view.center.x+adjust.x, self.view.center.y+adjust.y);
-                         [self.view setCenter:newCenter];
-                         //[self.author setAlpha:0];
-                         //[self.demoTitle setAlpha:0];
-                         [self.typeSwitch setAlpha:0];
-                         
-                     }
-                     completion:nil];
-}
-
-
-- (void)keyboardDidHideWithNotification:(NSNotification *)aNotification
-{
-    [UIView animateWithDuration:0.3
-                          delay:0
-                        options:UIViewAnimationCurveEaseOut|UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-                         CGPoint adjust;
-                         switch (self.interfaceOrientation) {
-                             case UIInterfaceOrientationLandscapeLeft:
-                                 adjust = CGPointMake(110, 0);
-                                 break;
-                             case UIInterfaceOrientationLandscapeRight:
-                                 adjust = CGPointMake(-110, 0);
-                                 break;
-                             default:
-                                 adjust = CGPointMake(0, 60);
-                                 break;
-                         }
-                         CGPoint newCenter = CGPointMake(self.view.center.x+adjust.x, self.view.center.y+adjust.y);
-                         [self.view setCenter:newCenter];
-                         //[self.author setAlpha:1];
-                         //[self.demoTitle setAlpha:1];
-                         [self.typeSwitch setAlpha:1];
-                     }
-                     completion:nil];
-    
-    
-    [self.autocompleteTextField setAutoCompleteTableViewHidden:NO];
-}
-
-#pragma mark - MLPAutoCompleteTextField Delegate
-
-- (void)autoCompleteTextField:(MLPAutoCompleteTextField *)textField
-  didSelectAutoCompleteString:(NSString *)selectedString
-       withAutoCompleteObject:(id<MLPAutoCompletionObject>)selectedObject
-            forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(selectedObject){
-        NSLog(@"selected object from autocomplete menu %@ with string %@", selectedObject, [selectedObject autocompleteString]);
-    } else {
-        NSLog(@"selected string '%@' from autocomplete menu", selectedString);
-    }
-}
 
 @end

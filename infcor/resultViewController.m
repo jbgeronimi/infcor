@@ -28,19 +28,9 @@
 
 - (void)viewDidLoad
 {
-//    NSString *UUID = [[NSUUID UUID] UUIDString];
-//    NSString *res = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php"];
-//    NSURL *url = [[NSURL alloc] initWithString:res];
+
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.searchURL];
-/*    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        self.risultati = JSON;
-        NSLog(@" JSON : %@",self.risultati);
-       [self.tableView reloadData];
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"NSError: %@",[error localizedDescription]);
-    }];
- [operation start];
-  */
+// Requete synchrone
     NSData *theData = [NSURLConnection sendSynchronousRequest:request
                                             returningResponse:nil
                                                         error:nil];
@@ -50,13 +40,25 @@
                                                               error:nil];
     
     NSLog(@"Sync JSON: %@", self.risultati);
+// Requete ASynchrone
+ /*   __block NSArray *json;
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               json = [NSJSONSerialization JSONObjectWithData:data
+                                                                      options:0
+                                                                        error:nil];
+                               self.risultati = json;
+                               NSLog(@"Async JSON: %@", self.risultati);
+                           }];
+-- Fin */
 }
-
+    
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return self.risultati.count;
     NSLog(@" count : %lu", self.risultati.count);
+    return self.risultati.count;
 
 }
 
@@ -71,8 +73,6 @@
 //a definir en fonction des resultats renvoyes par la base
     cell.textLabel.text = self.risultati[indexPath.row][@"id"];
     NSLog(@" cell : %@",cell.textLabel.text);
-//    cell.detailTextLabel.text = self.images[indexPath.row][@"detail"];
-//    [cell.imageView setImageWithURL:[NSURL URLWithString:self.images[indexPath.row][@"thumbnail"]] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
     
     return cell;
 }
