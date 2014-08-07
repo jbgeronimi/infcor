@@ -86,7 +86,7 @@
 
 -(void)editingChanged:(id)sender {
  //   NSLog(@" sender : %@", self.searchText.text);
-    NSString *cercaString = [NSString stringWithFormat:@"http://adecec.net/infcor/try/suggestion.php?mot=%@&langue=mot_corse", self.searchText.text];
+    NSString *cercaString = [NSString stringWithFormat:@"http://adecec.net/infcor/try/suggestion.php?mot=%@&langue=%@", self.searchText.text, self.alangue];
     NSLog(@"cerca : %@", cercaString);
     NSURL *cercaURL = [[NSURL alloc] initWithString:cercaString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:cercaURL];
