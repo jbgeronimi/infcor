@@ -81,6 +81,11 @@
                   action:@selector(editingChanged:)
         forControlEvents:UIControlEventEditingChanged];
     self.searchText.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    UITableView *suggestTable=[[UITableView alloc] initWithFrame:CGRectMake(30, 140, 260, 200)];
+    suggestTable.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+ //   suggestTable.delegate = self;
+ //   suggestTable.dataSource = self.suggest;
+//    [self.view addSubview:suggestTable];
     [self.view addSubview:self.searchText];
 }
 
@@ -103,6 +108,42 @@
      }];
 }
 
+//Une Table pour les suggestions
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
+{
+    NSLog(@" count : %lu", self.suggest.count);
+    return self.suggest.count;
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+    }
+    cell.textLabel.text = self.suggest[indexPath.row][@"id"];
+    NSLog(@"cell : %@", cell.textLabel.text);
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    resultViewController *motVC = [[resultViewController alloc] init];
+    motVC.text = self.suggest[indexPath.row];
+    // on garde notre fichier JSON et on affiche d'autres champs
+    //    motVC.detail = self.risultati[indexPath.row][@"detail"];
+    //    motVC.synonyme = self.risultati[indexPath.row][@"synonyme"];
+    
+    [self.navigationController pushViewController:motVC animated:YES];
+}
+
+//si le mot a ete tape en entier et que "enter" a ete presse
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     resultViewController *risultatiVC=[[resultViewController alloc] init];
     risultatiVC.text = self.searchText.text;

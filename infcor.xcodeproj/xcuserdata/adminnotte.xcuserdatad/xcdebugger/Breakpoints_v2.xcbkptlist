@@ -81,7 +81,7 @@
                   symbolName = "-[motDataSource alangue]"
                   moduleName = "INFCOR.temp_caseinsensitive_rename"
                   urlString = "file:///Users/adminnotte/Documents/XCode/infcor%20(original)/infcor/motDataSource.h"
-                  timestampString = "429096189.069902"
+                  timestampString = "429205389.334993"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
@@ -95,7 +95,7 @@
                   symbolName = "-[motDataSource setAlangue:]"
                   moduleName = "INFCOR.temp_caseinsensitive_rename"
                   urlString = "file:///Users/adminnotte/Documents/XCode/infcor%20(original)/infcor/motDataSource.h"
-                  timestampString = "429096189.070239"
+                  timestampString = "429205389.335445"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
@@ -119,6 +119,38 @@
             endingLineNumber = "16"
             landmarkName = "@interface motDataSource"
             landmarkType = "2">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "infcor/ViewController.m"
+            timestampString = "429203908.190932"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "infcor/ViewController.m"
+            timestampString = "429203993.555347"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
