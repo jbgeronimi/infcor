@@ -17,6 +17,10 @@
 
 @implementation resultViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,8 +32,12 @@
 
 - (void)viewDidLoad
 {
-
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.searchURL];
+    NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php?mot=%@&langue=%@&param=FRANCESE DEFINIZIONE SINONIMI TALIANU", self.searchText, self.alangue];
+    cercaURL = [cercaURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //    [risultatiVC setSearchURL:[NSURL URLWithString:cercaURL]];
+    NSURL *cerca = [NSURL URLWithString:cercaURL];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:cerca];
+    NSLog(@"cerca : %@",cercaURL);
 // Requete synchrone
     NSData *theData = [NSURLConnection sendSynchronousRequest:request
                                             returningResponse:nil
@@ -57,7 +65,6 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@" count : %lu", self.risultati.count);
     return self.risultati.count;
 
 }

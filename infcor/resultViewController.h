@@ -10,7 +10,8 @@
 
 @interface resultViewController : UITableViewController
 @property (weak,nonatomic) NSArray *risultati;
-@property (strong,nonatomic) NSString *text;
+@property (weak, nonatomic) NSString *alangue;
+@property (strong,nonatomic) NSString *searchText;
 @property (strong,nonatomic) NSURL *searchURL;
 
 @end

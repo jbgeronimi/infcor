@@ -51,7 +51,13 @@
     [super viewDidLoad];
 
     UIFont *code = [UIFont fontWithName:@"Giorgio" size:20];
-    
+
+//    NSMutableURLRequest *cerca = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:cercaURL]];
+//    [cerca setHTTPMethod:@"GET"];
+//    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:cerca delegate:self];
+//    [connection start];
+    NSLog(@"search url : %@",self.searchURL);
+
     NSString *langInit = @"Corsu - Francese";
     self.alangue = @"mot_corse";
     self.view.backgroundColor = [UIColor whiteColor];
@@ -81,12 +87,13 @@
                   action:@selector(editingChanged:)
         forControlEvents:UIControlEventEditingChanged];
     self.searchText.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    UITableView *suggestTable=[[UITableView alloc] initWithFrame:CGRectMake(30, 140, 260, 200)];
-    suggestTable.autoresizingMask = UIViewAutoresizingFlexibleWidth;
- //   suggestTable.delegate = self;
- //   suggestTable.dataSource = self.suggest;
-//    [self.view addSubview:suggestTable];
     [self.view addSubview:self.searchText];
+
+    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(30, 140, 260, 200)];
+    self.suggestTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.suggestTableView.delegate = self;
+    self.suggestTableView.dataSource = self;
+    [self.view addSubview:self.suggestTableView];
 }
 
 -(void)editingChanged:(id)sender {
@@ -104,6 +111,7 @@
      options:0
      error:nil];
      self.suggest = json;
+     [self.suggestTableView reloadData];
      NSLog(@"Async JSON: %@", self.suggest);
      }];
 }
@@ -112,7 +120,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@" count : %lu", self.suggest.count);
+    NSLog(@" count : %ul", self.suggest.count);
     return self.suggest.count;
     
 }
@@ -125,7 +133,7 @@
     if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     }
-    cell.textLabel.text = self.suggest[indexPath.row][@"id"];
+    cell.textLabel.text = self.suggest[indexPath.row];
     NSLog(@"cell : %@", cell.textLabel.text);
     return cell;
 }
@@ -134,30 +142,24 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    resultViewController *motVC = [[resultViewController alloc] init];
-    motVC.text = self.suggest[indexPath.row];
+    resultViewController *risultatiVC=[[resultViewController alloc] init];
+    risultatiVC.searchText = self.suggest[indexPath.row];
+    risultatiVC.alangue = self.alangue;
+    NSLog(@"risultati VC : %@",risultatiVC.searchText);
+//    risultatiVC.searchURL = self.searchURL;
     // on garde notre fichier JSON et on affiche d'autres champs
     //    motVC.detail = self.risultati[indexPath.row][@"detail"];
     //    motVC.synonyme = self.risultati[indexPath.row][@"synonyme"];
     
-    [self.navigationController pushViewController:motVC animated:YES];
+    [self.navigationController pushViewController:risultatiVC animated:YES];
 }
 
 //si le mot a ete tape en entier et que "enter" a ete presse
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     resultViewController *risultatiVC=[[resultViewController alloc] init];
-    risultatiVC.text = self.searchText.text;
-    //un identifiant unique pour la requete
-//    NSString *UUID = [[NSUUID UUID] UUIDString];
-    NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php?mot=%@&langue=%@&param=FRANCESE DEFINIZIONE SINONIMI TALIANU", risultatiVC.text, self.alangue];
-    cercaURL = [cercaURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [risultatiVC setSearchURL:[NSURL URLWithString:cercaURL]];
-    NSMutableURLRequest *cerca = [NSMutableURLRequest requestWithURL:risultatiVC.searchURL];
-    [cerca setHTTPMethod:@"GET"];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:cerca delegate:self];
-    [connection start];
-    if (![risultatiVC.text isEqualToString:@""]){
-        NSLog(@"URL = %@",cercaURL);
+//    risultatiVC.searchText = self.searchText.text;
+    if (![risultatiVC.searchText isEqualToString:@""]){
+//        NSLog(@"URL = %@",cercaURL);
         //[self presentViewController:risultati animated:YES completion:nil];
         [self.navigationController pushViewController:risultatiVC animated:YES];
     }
