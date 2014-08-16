@@ -73,36 +73,6 @@
             endingLineNumber = "12"
             landmarkName = "@interface motDataSource"
             landmarkType = "2">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[motDataSource alangue]"
-                  moduleName = "INFCOR.temp_caseinsensitive_rename"
-                  urlString = "file:///Users/adminnotte/Documents/XCode/infcor%20(original)/infcor/motDataSource.h"
-                  timestampString = "429896157.193623"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[motDataSource setAlangue:]"
-                  moduleName = "INFCOR.temp_caseinsensitive_rename"
-                  urlString = "file:///Users/adminnotte/Documents/XCode/infcor%20(original)/infcor/motDataSource.h"
-                  timestampString = "429896157.194038"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "31">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

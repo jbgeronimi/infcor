@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		166995DC198D3D5B00FF4FFF /* MLPAutoCompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 166995D6198D3D5B00FF4FFF /* MLPAutoCompleteTextField.m */; };
-		166995DD198D3D5B00FF4FFF /* NSString+Levenshtein.m in Sources */ = {isa = PBXBuildFile; fileRef = 166995DB198D3D5B00FF4FFF /* NSString+Levenshtein.m */; };
-		166995E0198D41D000FF4FFF /* motDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 166995DF198D41D000FF4FFF /* motDataSource.m */; };
-		16C3B7F1198939E9000322E8 /* motViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C3B7F0198939E9000322E8 /* motViewController.m */; };
+		166E21D7199FB37800640F55 /* afficheMotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166E21D6199FB37800640F55 /* afficheMotViewController.m */; };
 		16C3B82A198A352B000322E8 /* CODE Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16C3B829198A352B000322E8 /* CODE Bold.otf */; };
 		16C3B82C198A353E000322E8 /* CODE Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16C3B82B198A353E000322E8 /* CODE Light.otf */; };
 		16C3B82F198A3AAF000322E8 /* Giorgio-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16C3B82D198A3AAF000322E8 /* Giorgio-Thin.ttf */; };
@@ -48,17 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		166995D5198D3D5B00FF4FFF /* MLPAutoCompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextField.h; sourceTree = "<group>"; };
-		166995D6198D3D5B00FF4FFF /* MLPAutoCompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPAutoCompleteTextField.m; sourceTree = "<group>"; };
-		166995D7198D3D5B00FF4FFF /* MLPAutoCompleteTextFieldDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextFieldDataSource.h; sourceTree = "<group>"; };
-		166995D8198D3D5B00FF4FFF /* MLPAutoCompleteTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextFieldDelegate.h; sourceTree = "<group>"; };
-		166995D9198D3D5B00FF4FFF /* MLPAutoCompletionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompletionObject.h; sourceTree = "<group>"; };
-		166995DA198D3D5B00FF4FFF /* NSString+Levenshtein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Levenshtein.h"; sourceTree = "<group>"; };
-		166995DB198D3D5B00FF4FFF /* NSString+Levenshtein.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Levenshtein.m"; sourceTree = "<group>"; };
-		166995DE198D41D000FF4FFF /* motDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = motDataSource.h; sourceTree = "<group>"; };
-		166995DF198D41D000FF4FFF /* motDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = motDataSource.m; sourceTree = "<group>"; };
-		16C3B7EF198939E9000322E8 /* motViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = motViewController.h; sourceTree = "<group>"; };
-		16C3B7F0198939E9000322E8 /* motViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = motViewController.m; sourceTree = "<group>"; };
+		166E21D5199FB37800640F55 /* afficheMotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afficheMotViewController.h; sourceTree = "<group>"; };
+		166E21D6199FB37800640F55 /* afficheMotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = afficheMotViewController.m; sourceTree = "<group>"; };
 		16C3B829198A352B000322E8 /* CODE Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CODE Bold.otf"; sourceTree = "<group>"; };
 		16C3B82B198A353E000322E8 /* CODE Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CODE Light.otf"; sourceTree = "<group>"; };
 		16C3B82D198A3AAF000322E8 /* Giorgio-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Giorgio-Thin.ttf"; sourceTree = "<group>"; };
@@ -119,20 +107,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		166995D4198D3D5B00FF4FFF /* MLPAutoCompleteTextField */ = {
-			isa = PBXGroup;
-			children = (
-				166995D5198D3D5B00FF4FFF /* MLPAutoCompleteTextField.h */,
-				166995D6198D3D5B00FF4FFF /* MLPAutoCompleteTextField.m */,
-				166995D7198D3D5B00FF4FFF /* MLPAutoCompleteTextFieldDataSource.h */,
-				166995D8198D3D5B00FF4FFF /* MLPAutoCompleteTextFieldDelegate.h */,
-				166995D9198D3D5B00FF4FFF /* MLPAutoCompletionObject.h */,
-				166995DA198D3D5B00FF4FFF /* NSString+Levenshtein.h */,
-				166995DB198D3D5B00FF4FFF /* NSString+Levenshtein.m */,
-			);
-			path = MLPAutoCompleteTextField;
-			sourceTree = "<group>";
-		};
 		16F7566319814EA200CF9F80 = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +140,6 @@
 		16F7567519814EA200CF9F80 /* infcor */ = {
 			isa = PBXGroup;
 			children = (
-				166995D4198D3D5B00FF4FFF /* MLPAutoCompleteTextField */,
 				16FC7C1C198251FD00CE1C0F /* Models */,
 				16F756A819819A5000CF9F80 /* Transitions */,
 				16F756A4198198F400CF9F80 /* Controllers */,
@@ -177,8 +150,6 @@
 				16F7568519814EA200CF9F80 /* ViewController.m */,
 				16F7568719814EA200CF9F80 /* Images.xcassets */,
 				16F7567619814EA200CF9F80 /* Supporting Files */,
-				166995DE198D41D000FF4FFF /* motDataSource.h */,
-				166995DF198D41D000FF4FFF /* motDataSource.m */,
 			);
 			path = infcor;
 			sourceTree = "<group>";
@@ -224,8 +195,8 @@
 				16F756A61981990F00CF9F80 /* prefsViewController.m */,
 				16FC7C241984101500CE1C0F /* resultViewController.h */,
 				16FC7C251984101500CE1C0F /* resultViewController.m */,
-				16C3B7EF198939E9000322E8 /* motViewController.h */,
-				16C3B7F0198939E9000322E8 /* motViewController.m */,
+				166E21D5199FB37800640F55 /* afficheMotViewController.h */,
+				166E21D6199FB37800640F55 /* afficheMotViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -352,14 +323,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				166995E0198D41D000FF4FFF /* motDataSource.m in Sources */,
-				166995DD198D3D5B00FF4FFF /* NSString+Levenshtein.m in Sources */,
-				16C3B7F1198939E9000322E8 /* motViewController.m in Sources */,
+				166E21D7199FB37800640F55 /* afficheMotViewController.m in Sources */,
 				16F7568619814EA200CF9F80 /* ViewController.m in Sources */,
 				16F756AF19819B1100CF9F80 /* SideTransition.m in Sources */,
 				16F7568019814EA200CF9F80 /* AppDelegate.m in Sources */,
 				16F756AE19819B1100CF9F80 /* SideDismissalTransition.m in Sources */,
-				166995DC198D3D5B00FF4FFF /* MLPAutoCompleteTextField.m in Sources */,
 				16FC7C1F1982522500CE1C0F /* langue.m in Sources */,
 				16F7567C19814EA200CF9F80 /* main.m in Sources */,
 				16F756A71981990F00CF9F80 /* prefsViewController.m in Sources */,

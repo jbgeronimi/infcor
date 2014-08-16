@@ -7,7 +7,7 @@
 //
 
 #import "resultViewController.h"
-#import "motViewController.h"
+#import "afficheMotViewController.h"
 //#import "AFJSONRequestOperation.h"
 //#import "AFNetworking.h"
 
@@ -88,7 +88,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    motViewController *motVC = [[motViewController alloc] init];
+    afficheMotViewController *motVC = [[afficheMotViewController alloc] init];
     motVC.searchText = self.risultati[indexPath.row][@"id"];
     motVC.alangue = self.alangue;
     motVC.params = self.params;

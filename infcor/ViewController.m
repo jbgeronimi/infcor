@@ -12,7 +12,7 @@
 #import "SideTransition.h"
 #import "AppDelegate.h"
 #import "resultViewController.h"
-#import "motViewController.h"
+#import "afficheMotViewController.h"
 //#import "langue.h"
 
 @interface ViewController ()
@@ -99,7 +99,7 @@
     self.searchText.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.searchText];
 
-    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(30, 90, 260, 200)];
+    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(20, 90, 260, 200)];
     self.suggestTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.suggestTableView.delegate = self;
     self.suggestTableView.dataSource = self;
@@ -151,7 +151,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    motViewController *motVC=[[motViewController alloc] init];
+    afficheMotViewController *motVC=[[afficheMotViewController alloc] init];
     motVC.searchText = self.suggest[indexPath.row];
     motVC.alangue = self.alangue;
     motVC.params = self.params;
@@ -199,7 +199,7 @@
 - (void)setDefaultValuesForVariables
 {
     self.params = @{@"mot_corse": @[@"FRANCESE",@"DEFINIZIONE",@"SINONIMI",@"TALIANU"],
-                    @"mot_francais" : @[@"Français",@"Définition",@"Sinonymes",@"Italien"]};
+                    @"mot_francais" : @[@"FRANCAIS",@"DEFINITION",@"SYNONIME",@"ITALIEN"]};
     self.lindex = 0;
 }
 
