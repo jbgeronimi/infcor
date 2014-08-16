@@ -25,14 +25,14 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"INFCOR - ADECEC";
+        self.title = self.searchText;
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
-    NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php?mot=%@&langue=%@&param=FRANCESE DEFINIZIONE SINONIMI TALIANU", self.searchText, self.alangue];
+    NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php?mot=%@&langue=%@&param=%@", self.searchText, self.alangue, self.params];
     cercaURL = [cercaURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //    [risultatiVC setSearchURL:[NSURL URLWithString:cercaURL]];
     NSURL *cerca = [NSURL URLWithString:cercaURL];
@@ -89,9 +89,10 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     motViewController *motVC = [[motViewController alloc] init];
-    // on garde notre fichier JSON et on affiche d'autres champs
-//    motVC.detail = self.risultati[indexPath.row][@"detail"];
-//    motVC.synonyme = self.risultati[indexPath.row][@"synonyme"];
+    motVC.searchText = self.risultati[indexPath.row][@"id"];
+    motVC.alangue = self.alangue;
+    motVC.params = self.params;
+    motVC.lindex = indexPath.row;
     
     [self.navigationController pushViewController:motVC animated:YES];
 }

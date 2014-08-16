@@ -12,6 +12,7 @@
 #import "SideTransition.h"
 #import "AppDelegate.h"
 #import "resultViewController.h"
+#import "motViewController.h"
 //#import "langue.h"
 
 @interface ViewController ()
@@ -19,6 +20,15 @@
 @end
 
 @implementation ViewController
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self setDefaultValuesForVariables];
+    }
+    return self;
+}
 
 // Present the prefsViewController as a modal
 - (void) preferences:(id)sender{
@@ -80,7 +90,7 @@
          forControlEvents:UIControlEventTouchUpInside];
   //  [self.view addSubview:prefBouton];
     
-    self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 115, 260, 25)];
+    self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 65, 260, 25)];
     [self.searchText setBorderStyle:UITextBorderStyleLine];
 //    self.searchText.delegate = self;
     [self.searchText addTarget:self
@@ -89,7 +99,7 @@
     self.searchText.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.searchText];
 
-    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(30, 140, 260, 200)];
+    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(30, 90, 260, 200)];
     self.suggestTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.suggestTableView.delegate = self;
     self.suggestTableView.dataSource = self;
@@ -120,7 +130,6 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@" count : %ul", self.suggest.count);
     return self.suggest.count;
     
 }
@@ -142,16 +151,17 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    resultViewController *risultatiVC=[[resultViewController alloc] init];
-    risultatiVC.searchText = self.suggest[indexPath.row];
-    risultatiVC.alangue = self.alangue;
-    NSLog(@"risultati VC : %@",risultatiVC.searchText);
+    motViewController *motVC=[[motViewController alloc] init];
+    motVC.searchText = self.suggest[indexPath.row];
+    motVC.alangue = self.alangue;
+    motVC.params = self.params;
+    NSLog(@"risultati VC : %@",motVC.searchText);
 //    risultatiVC.searchURL = self.searchURL;
     // on garde notre fichier JSON et on affiche d'autres champs
     //    motVC.detail = self.risultati[indexPath.row][@"detail"];
     //    motVC.synonyme = self.risultati[indexPath.row][@"synonyme"];
     
-    [self.navigationController pushViewController:risultatiVC animated:YES];
+    [self.navigationController pushViewController:motVC animated:YES];
 }
 
 //si le mot a ete tape en entier et que "enter" a ete presse
@@ -186,6 +196,12 @@
 //   return self.alangue;
 }
 
+- (void)setDefaultValuesForVariables
+{
+    self.params = @{@"mot_corse": @[@"FRANCESE",@"DEFINIZIONE",@"SINONIMI",@"TALIANU"],
+                    @"mot_francais" : @[@"Français",@"Définition",@"Sinonymes",@"Italien"]};
+    self.lindex = 0;
+}
 
 
 @end

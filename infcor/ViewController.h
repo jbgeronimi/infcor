@@ -10,13 +10,15 @@
 #import "MLPAutoCompleteTextField.h"
 //#import "langue.h"
 
-@interface ViewController : UIViewController <UIViewControllerTransitioningDelegate, UITableViewDelegate, UITableViewDataSource>{
+@interface ViewController : UIViewController <UIViewControllerTransitioningDelegate, UITableViewDelegate, UITableViewDataSource>/*{
     UITableView *suggestTableView;
-}
+}*/
 @property (strong,nonatomic) UIButton *primu;
 @property (strong,nonatomic) NSString *alangue;
 @property (strong,nonatomic) UITextField *searchText;
 @property (strong,nonatomic) NSURL *searchURL;
 @property (strong,nonatomic) NSMutableArray *suggest;
 @property (retain,nonatomic) UITableView *suggestTableView;
+@property (strong,nonatomic) NSDictionary *params;
+@property (assign,nonatomic) NSUInteger lindex;
 @end

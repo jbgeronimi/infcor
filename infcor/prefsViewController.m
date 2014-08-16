@@ -37,7 +37,7 @@
     NSArray *francais = @[@"Qui est exactement :",@"Qui commence par :", @"Qui finit par :", @"Qui contient :"];
     
     UILabel *exact = [[UILabel alloc] initWithFrame:CGRectMake(30, 60, 180, 20)];
-    if ([self.langue isEqualToString:@"co"]){
+    if ([self.langue isEqualToString:@"mot_corse"]){
         exact.text = corsu[0];
     }else{
         exact.text = francais[0];

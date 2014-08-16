@@ -23,15 +23,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self setDefaultValuesForVariables];
+
     // Override point for customization after application launch.
     ViewController *VC = [[ViewController alloc] init];
     UINavigationController *navViewController = [[UINavigationController alloc] initWithRootViewController:VC];
     self.window.rootViewController = navViewController;
     [self.window makeKeyAndVisible];
-
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
     return YES;
 }
-							
+
+- (void)setDefaultValuesForVariables
+{
+    self.params = @"FRANCESE DEFINIZIONE SINONIMI TALIANU";
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
