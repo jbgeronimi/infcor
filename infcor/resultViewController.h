@@ -12,7 +12,7 @@
 @property (weak,nonatomic) NSArray *risultati;
 @property (weak, nonatomic) NSString *alangue;
 @property (strong,nonatomic) NSString *searchText;
-@property (strong, nonatomic) NSArray *params;
+@property (strong, nonatomic) NSDictionary *params;
 @property (assign,nonatomic) NSUInteger lindex;
 @property (strong,nonatomic) NSURL *searchURL;
 

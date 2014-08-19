@@ -33,59 +33,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSArray *corsu = @[@"chì hè esattamente :",@"chì cummecia cù :",@"chì finisce cù :",@"chì cuntene :"];
-    NSArray *francais = @[@"Qui est exactement :",@"Qui commence par :", @"Qui finit par :", @"Qui contient :"];
-    
-    UILabel *exact = [[UILabel alloc] initWithFrame:CGRectMake(30, 60, 180, 20)];
-    if ([self.langue isEqualToString:@"mot_corse"]){
-        exact.text = corsu[0];
-    }else{
-        exact.text = francais[0];
-    }
-    [self.view addSubview:exact];
+    self.allParams = @{
+        @"dbb_query":@[@"FRANCESE",@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTESD",@"SINONIMI",@"ANTONIMI",@"DERIVADICOMPOSTI",@"SPRESSIONIEPRUVERBII",@"ANALUGIE",@"CITAZIONIDAAUTORI",@"BIBLIOGRAFIA",@"INDICE"],
+        @"mot_corse": @[@"FRANCESE",@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTESD",@"SINONIMI",@"ANTONIMI",@"DERIVATI COMPOSTI",@"SPRESSIONI E PRUVERBII",@"ANALUGIE",@"CITAZIONI DA AUTORI",@"BIBLIOGRAFIA",@"INDICE"],
+    @"mot_francais" : @[@"FRANCAIS",@"ITALIEN",@"ANGLAIS",@"GENRE",@"PRONONCIATION",@"DEFINITION EN CORSE",@"ETYMOLOGIE",@"GRAMMAIRE",@"VARIANTES GRAPHIQUES",@"SYNONYMES",@"ANTONYMES",@"DERIVES COMPOSES",@"EXPRESSIONS ET PROVERBES",@"ANALOGIES",@"CITATIONS D'AUTEURS",@"BIBLIOGRAPHIE",@"INDICE"]
+                    };
+// un tableau avec tous les elements de params
+    self.afficheParams=[[UITableView alloc] init];
+    self.afficheParams.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.afficheParams.delegate = self;
+    self.afficheParams.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+
+ //   UILabel *self.params[self.alangue][0] = [[UILabel alloc] initWithFrame:CGRectMake(30, 60, 180, 20)];
+  //  francese.text = self.params[self.alangue][0];
+  //  [self.view addSubview:francese];
     UISwitch *exactSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 55, 0, 0)];
     [exactSwitch addTarget:self action:@selector(exactSwitchChange:) forControlEvents:UIControlEventTouchUpInside];
     [exactSwitch setOn:YES];
-    self.un = exactSwitch;
-    [self.view addSubview:self.un];
+//    [self.view addSubview:self.un];
     
     UILabel *debut = [[UILabel alloc] initWithFrame:CGRectMake(30, 100, 180, 20)];
-    if ([self.langue isEqualToString:@"co"]){
-        debut.text = corsu[1];
-    }else{
-        debut.text = francais[1];
-    }
     [self.view addSubview:debut];
     UISwitch *debutSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 95, 0, 0)];
     [debutSwitch addTarget:self action:@selector(debutSwitch:) forControlEvents:UIControlEventValueChanged];
-    self.deux = debutSwitch;
-    [self.view addSubview:self.deux];
+//    [self.view addSubview:self.deux];
     
     
     UILabel *fin = [[UILabel alloc] initWithFrame:CGRectMake(30, 140, 180, 20)];
-    if ([self.langue isEqualToString:@"co"]){
-        fin.text = corsu[2];
-    }else{
-        fin.text = francais[2];
-    }
     [self.view addSubview:fin];
     UISwitch *finSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 135, 0, 0)];
     [finSwitch addTarget:self action:@selector(finSwitch:) forControlEvents:UIControlEventValueChanged];
-    self.trois = finSwitch;
-    [self.view addSubview:self.trois];
-    
-    
-    UILabel *contient = [[UILabel alloc] initWithFrame:CGRectMake(30, 180, 180, 20)];
-    if ([self.langue isEqualToString:@"co"]){
-        contient.text = corsu[3];
-    }else{
-        contient.text = francais[3];
-    }
-    [self.view addSubview:contient];
-    UISwitch *contientSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 175, 0, 0)];
-    [contientSwitch addTarget:self action:@selector(contientSwitch:) forControlEvents:UIControlEventValueChanged];
-    self.quattre = contientSwitch;
-    [self.view addSubview:self.quattre];
+//    [self.view addSubview:self.trois];
     
     
     
@@ -101,45 +80,72 @@
     }
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [self.allParams[@"mot_corse"] count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+    }
+    UIFont *arial= [UIFont fontWithName:@"arial" size:15];
+    cell.textLabel.font = arial;
+//    self.lindex = indexPath;
+    NSLog(@"lindex %lu",(long)self.lindex);
+    cell.textLabel.text = self.allParams[self.alangue][indexPath.row];
+    NSLog(@"params : %@",self.allParams[self.alangue][indexPath.row]);
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
+    cell.accessoryView = switchView;
+    [switchView setTag:indexPath.row];
+    [switchView setOn:[self.params[self.alangue] containsObject:self.allParams[self.alangue][indexPath.row]] animated:NO];
+    [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+    NSLog(@"etat switch %hhd",switchView.isOn);
+    return cell;
+}
+
+- (void) switchChanged:(id)sender {
+    UISwitch* switchControl = sender;
+    if(switchControl.isOn){
+        NSLog(@"contient : %@", [self.params[self.alangue] containsObject:self.allParams[self.alangue][switchControl.tag]] ? @"oui": @"non");
+        NSLog(@"a ajouter : %@",self.allParams[@"dbb_query"][switchControl.tag]);
+        if (![self.params[self.alangue] containsObject:self.allParams[self.alangue][switchControl.tag]]){
+            NSLog(@"ajouté");
+            [self.params[@"dbb_query"] addObject:self.allParams[@"dbb_query"][switchControl.tag]];
+            [self.params[@"mot_corse"] addObject:self.allParams[@"mot_corse"][switchControl.tag]];
+            [self.params[@"mot_francais"] addObject:self.allParams[@"mot_francais"][switchControl.tag]];
+            NSLog(@"params %@", self.params);
+        }
+    }
+    if (!switchControl.isOn){
+        if ([self.params[self.alangue] containsObject:self.allParams[self.alangue][switchControl.tag]]){
+        NSLog(@"efface");
+        [self.params[@"dbb_query"] removeObject:self.allParams[@"dbb_query"][switchControl.tag]];
+        [self.params[@"mot_corse"] removeObject:self.allParams[@"mot_corse"][switchControl.tag]];
+        [self.params[@"mot_francais"] removeObject:self.allParams[@"mot_francais"][switchControl.tag]];
+        }
+    }
+    if(switchControl.on){
+    }
+    NSLog( @"The switch is %@", switchControl.on ? @"ON" : @"OFF" );
+    
+}
+
 - (IBAction) goodJob:(id)sender;
 {
+    NSLog(@" dbb_selct %@",self.params[@"dbb_query"]);
+    ViewController *VC = [[ViewController alloc] init];
+    VC.params = self.params;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void) exactSwitchChange:(id)sender;{
-    if ([sender isOn]) {
-        [self.deux setOn:NO animated:YES];
-        [self.trois setOn:NO animated:YES];
-        [self.quattre setOn:NO animated:YES];
-    }
-}
 
-- (void) debutSwitch:(id)sender;{
-    if ([sender isOn]) {
-        [self.un setOn:NO animated:YES];
-        [self.trois setOn:NO animated:YES];
-        [self.quattre setOn:NO animated:YES];
-    }
-}
-
-- (void) finSwitch:(id)sender
-{
-    if ([sender isOn]) {
-        [self.un setOn:NO animated:YES];
-        [self.deux setOn:NO animated:YES];
-        [self.quattre setOn:NO animated:YES];
- }
-}
-
-- (void) contientSwitch:(id)sender
-{
-    if ([sender isOn]) {
-        [self.un setOn:NO animated:YES];
-        [self.deux setOn:NO animated:YES];
-        [self.trois setOn:NO animated:YES];
-    }
-
-}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

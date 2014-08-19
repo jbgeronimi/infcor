@@ -18,6 +18,6 @@
 @property (strong,nonatomic) NSURL *searchURL;
 @property (strong,nonatomic) NSMutableArray *suggest;
 @property (retain,nonatomic) UITableView *suggestTableView;
-@property (strong,nonatomic) NSDictionary *params;
+@property  NSDictionary *params;
 @property (assign,nonatomic) NSUInteger lindex;
 @end

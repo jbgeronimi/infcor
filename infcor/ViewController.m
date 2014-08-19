@@ -37,7 +37,8 @@
     
     prefsVC.modalPresentationStyle = UIModalPresentationCustom;
     prefsVC.transitioningDelegate = self;
-    prefsVC.langue = self.alangue;
+    prefsVC.alangue = self.alangue;
+    prefsVC.params = self.params;
     
     [self presentViewController:prefsVC animated:YES completion:nil];
 }
@@ -88,7 +89,7 @@
     [prefBouton addTarget:self
                    action:@selector(preferences:)
          forControlEvents:UIControlEventTouchUpInside];
-  //  [self.view addSubview:prefBouton];
+    [self.view addSubview:prefBouton];
     
     self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 65, 260, 25)];
     [self.searchText setBorderStyle:UITextBorderStyleLine];
@@ -198,8 +199,16 @@
 
 - (void)setDefaultValuesForVariables
 {
-    self.params = @{@"mot_corse": @[@"FRANCESE",@"DEFINIZIONE",@"SINONIMI",@"TALIANU"],
-                    @"mot_francais" : @[@"FRANCAIS",@"DEFINITION",@"SYNONIME",@"ITALIEN"]};
+    NSMutableArray *dbb = [[NSMutableArray alloc] init];
+   [dbb addObject:@"FRANCESE"];
+    NSMutableArray *corsu = [[NSMutableArray alloc] init];
+    [corsu addObject: @"FRANCESE"];
+    NSMutableArray *fcese = [[NSMutableArray alloc] init];
+    [fcese addObject:@"FRANCAIS"];
+    self.params = @{
+                    @"dbb_query":dbb,
+                    @"mot_corse":corsu,
+                    @"mot_francais" : fcese};
     self.lindex = 0;
 }
 

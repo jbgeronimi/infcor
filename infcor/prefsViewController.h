@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 //#import "langue.h"
 
-@interface prefsViewController : UIViewController
 
-//@property (readwrite, assign) id<langueDelegate>delegate;
-@property (strong, nonatomic) NSString  *langue;
-@property (strong, nonatomic) IBOutlet UISwitch *un;
-@property (weak, nonatomic) IBOutlet UISwitch *deux;
-@property (weak, nonatomic) UISwitch *trois;
-@property (weak, nonatomic) UISwitch *quattre;
+@interface prefsViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
+
+@property (strong,nonatomic) UITableView *afficheParams;
+@property NSIndexPath *lindex;
+@property (strong, nonatomic) NSString  *alangue;
+@property (copy)  NSDictionary *params;
+@property (strong,nonatomic) NSDictionary *allParams;
 @end

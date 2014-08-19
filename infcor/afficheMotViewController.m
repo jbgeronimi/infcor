@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     NSLog(@"params %@", self.params[self.alangue]);
-    NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php?mot=%@&langue=%@&param=%@", self.searchText, self.alangue, [self.params[@"mot_corse"] componentsJoinedByString:@" "]];
+    NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php?mot=%@&langue=%@&param=%@", self.searchText, self.alangue, [self.params[@"dbb_query"] componentsJoinedByString:@" "]];
     cercaURL = [cercaURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //    [risultatiVC setSearchURL:[NSURL URLWithString:cercaURL]];
     NSURL *cerca = [NSURL URLWithString:cercaURL];
@@ -48,7 +48,7 @@
     
     self.title = self.searchText;
     NSLog(@"Sync JSON: %@", self.risultati);
-    NSLog(@"JSON ligne 0 : %@",[self.risultati valueForKey:@"DEFINIZIONE"]);
+ //   NSLog(@"JSON ligne 0 : %@",[self.risultati valueForKey:@"DEFINIZIONE"]);
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.afficheMotTableView=[[UITableView alloc] init];
@@ -73,7 +73,7 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.params[@"mot_corse"] count];
+    return [self.params[self.alangue] count];
 }
 
 
@@ -86,10 +86,9 @@
     }
     UIFont *arial= [UIFont fontWithName:@"arial" size:15];
     cell.textLabel.font = arial;
-    cell.textLabel.text = [self.params[self.alangue][indexPath.row] stringByAppendingString:[self.risultati valueForKey:self.params[@"mot_corse"][indexPath.row]][0]];
+    cell.textLabel.text = [self.params[self.alangue][indexPath.row] stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]];
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.numberOfLines = 0;
-    NSLog(@"pour la clef %@",[self.risultati valueForKey:self.params[@"mot_corse"][indexPath.row]][0]);
     return cell;
 }
 
@@ -133,8 +132,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGSize maximumLabelSize = CGSizeMake(300,9999);
+    NSLog(@"la cle %@,  la valeur %@",self.params[self.alangue][indexPath.row], [self.risultati valueForKey:self.params[self.alangue][indexPath.row]][0]);
     UIFont *arial= [UIFont fontWithName:@"arial" size:15];
-    CGRect titleRect = [self rectForText:[self.params[self.alangue][indexPath.row] stringByAppendingString:[self.risultati valueForKey:self.params[@"mot_corse"][indexPath.row]][0]]
+    NSLog(@"recherche %@",[self.params[self.alangue][indexPath.row] stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]]);
+    CGRect titleRect = [self rectForText:[self.params[self.alangue][indexPath.row] stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]]
                                usingFont:arial
                            boundedBySize:maximumLabelSize];
     return titleRect.size.height + 10;
