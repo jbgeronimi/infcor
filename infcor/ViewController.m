@@ -100,6 +100,7 @@
     
     self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 65, 260, 25)];
     [self.searchText setBorderStyle:UITextBorderStyleLine];
+    [self.searchText setAutocorrectionType:UITextAutocorrectionTypeNo],
 //    self.searchText.delegate = self;
     [self.searchText addTarget:self
                   action:@selector(editingChanged:)
