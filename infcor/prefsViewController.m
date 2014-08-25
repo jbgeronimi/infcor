@@ -34,9 +34,9 @@
 {
     [super viewDidLoad];
     self.allParams = @{
-        @"dbb_query":@[@"FRANCESE",@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTESD",@"SINONIMI",@"ANTONIMI",@"DERIVADICOMPOSTI",@"SPRESSIONIEPRUVERBII",@"ANALUGIE",@"CITAZIONIDAAUTORI",@"BIBLIOGRAFIA",@"INDICE"],
-        @"mot_corse": @[@"FRANCESE",@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTESD",@"SINONIMI",@"ANTONIMI",@"DERIVATI COMPOSTI",@"SPRESSIONI E PRUVERBII",@"ANALUGIE",@"CITAZIONI DA AUTORI",@"BIBLIOGRAFIA",@"INDICE"],
-    @"mot_francais" : @[@"FRANCAIS",@"ITALIEN",@"ANGLAIS",@"GENRE",@"PRONONCIATION",@"DEFINITION EN CORSE",@"ETYMOLOGIE",@"GRAMMAIRE",@"VARIANTES GRAPHIQUES",@"SYNONYMES",@"ANTONYMES",@"DERIVES COMPOSES",@"EXPRESSIONS ET PROVERBES",@"ANALOGIES",@"CITATIONS D'AUTEURS",@"BIBLIOGRAPHIE",@"INDICE"]
+        @"dbb_query":@[@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTESD",@"SINONIMI",@"ANTONIMI",@"DERIVADICOMPOSTI",@"SPRESSIONIEPRUVERBII",@"ANALUGIE",@"CITAZIONIDAAUTORI",@"BIBLIOGRAFIA",@"INDICE"],
+        @"mot_corse": @[@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTESD",@"SINONIMI",@"ANTONIMI",@"DERIVATI COMPOSTI",@"SPRESSIONI E PRUVERBII",@"ANALUGIE",@"CITAZIONI DA AUTORI",@"BIBLIOGRAFIA",@"INDICE"],
+    @"mot_francais" : @[@"ITALIEN",@"ANGLAIS",@"GENRE",@"PRONONCIATION",@"DEFINITION EN CORSE",@"ETYMOLOGIE",@"GRAMMAIRE",@"VARIANTES GRAPHIQUES",@"SYNONYMES",@"ANTONYMES",@"DERIVES COMPOSES",@"EXPRESSIONS ET PROVERBES",@"ANALOGIES",@"CITATIONS D'AUTEURS",@"BIBLIOGRAPHIE",@"INDICE"]
                     };
 // un tableau avec tous les elements de params
     self.afficheParams=[[UITableView alloc] init];
@@ -44,46 +44,36 @@
     self.afficheParams.delegate = self;
     self.afficheParams.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-
- //   UILabel *self.params[self.alangue][0] = [[UILabel alloc] initWithFrame:CGRectMake(30, 60, 180, 20)];
-  //  francese.text = self.params[self.alangue][0];
-  //  [self.view addSubview:francese];
-    UISwitch *exactSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 55, 0, 0)];
-    [exactSwitch addTarget:self action:@selector(exactSwitchChange:) forControlEvents:UIControlEventTouchUpInside];
-    [exactSwitch setOn:YES];
-//    [self.view addSubview:self.un];
-    
-    UILabel *debut = [[UILabel alloc] initWithFrame:CGRectMake(30, 100, 180, 20)];
-    [self.view addSubview:debut];
-    UISwitch *debutSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 95, 0, 0)];
-    [debutSwitch addTarget:self action:@selector(debutSwitch:) forControlEvents:UIControlEventValueChanged];
-//    [self.view addSubview:self.deux];
-    
-    
-    UILabel *fin = [[UILabel alloc] initWithFrame:CGRectMake(30, 140, 180, 20)];
-    [self.view addSubview:fin];
-    UISwitch *finSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(210, 135, 0, 0)];
-    [finSwitch addTarget:self action:@selector(finSwitch:) forControlEvents:UIControlEventValueChanged];
-//    [self.view addSubview:self.trois];
-    
-    
     
     if (self.modalPresentationStyle == UIModalPresentationCustom) {
-        self.view.layer.borderColor = [UIColor grayColor].CGColor;
-        self.view.layer.borderWidth = 2.0f;
-        UIButton *vabe = [UIButton buttonWithType:UIButtonTypeSystem];
-        vabe.frame = CGRectMake(100, 300, 40, 20);
-        [vabe setTitle:@"OK" forState:UIControlStateNormal];
-        [vabe addTarget:self action:@selector(goodJob:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:vabe];
         
     }
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    self.view.layer.borderColor = [UIColor grayColor].CGColor;
+    self.view.layer.borderWidth = 2.0f;
+    UIButton *vabe = [UIButton buttonWithType:UIButtonTypeSystem];
+ //   vabe.frame = CGRectMake(100, 800, 40, 20);
+    [vabe setTitle:@"OK" forState:UIControlStateNormal];
+    [vabe addTarget:self action:@selector(goodJob:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:vabe];
+    return vabe;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 30.0f;
+}
+/*
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+*/
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.allParams[@"mot_corse"] count];
+    return [self.allParams[self.alangue] count ];
 }
 
 
@@ -97,7 +87,6 @@
     UIFont *arial= [UIFont fontWithName:@"arial" size:15];
     cell.textLabel.font = arial;
 //    self.lindex = indexPath;
-    NSLog(@"lindex %lu",(long)self.lindex);
     cell.textLabel.text = self.allParams[self.alangue][indexPath.row];
     NSLog(@"params : %@",self.allParams[self.alangue][indexPath.row]);
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -106,15 +95,15 @@
     [switchView setTag:indexPath.row];
     [switchView setOn:[self.params[self.alangue] containsObject:self.allParams[self.alangue][indexPath.row]] animated:NO];
     [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
-    NSLog(@"etat switch %hhd",switchView.isOn);
+//    NSLog(@"etat switch %hhd",switchView.isOn);
     return cell;
 }
 
 - (void) switchChanged:(id)sender {
     UISwitch* switchControl = sender;
     if(switchControl.isOn){
-        NSLog(@"contient : %@", [self.params[self.alangue] containsObject:self.allParams[self.alangue][switchControl.tag]] ? @"oui": @"non");
-        NSLog(@"a ajouter : %@",self.allParams[@"dbb_query"][switchControl.tag]);
+//        NSLog(@"contient : %@", [self.params[self.alangue] containsObject:self.allParams[self.alangue][switchControl.tag]] ? @"oui": @"non");
+//        NSLog(@"a ajouter : %@",self.allParams[@"dbb_query"][switchControl.tag]);
         if (![self.params[self.alangue] containsObject:self.allParams[self.alangue][switchControl.tag]]){
             NSLog(@"ajouté");
             [self.params[@"dbb_query"] addObject:self.allParams[@"dbb_query"][switchControl.tag]];
@@ -133,7 +122,7 @@
     }
     if(switchControl.on){
     }
-    NSLog( @"The switch is %@", switchControl.on ? @"ON" : @"OFF" );
+   // NSLog( @"The switch is %@", switchControl.on ? @"ON" : @"OFF" );
     
 }
 

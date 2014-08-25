@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		164D421419AA20810017F82B /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164D421319AA20810017F82B /* detailViewController.m */; };
 		166E21D7199FB37800640F55 /* afficheMotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166E21D6199FB37800640F55 /* afficheMotViewController.m */; };
 		16C3B82A198A352B000322E8 /* CODE Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16C3B829198A352B000322E8 /* CODE Bold.otf */; };
 		16C3B82C198A353E000322E8 /* CODE Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16C3B82B198A353E000322E8 /* CODE Light.otf */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		164D421219AA20810017F82B /* detailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailViewController.h; sourceTree = "<group>"; };
+		164D421319AA20810017F82B /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
 		166E21D5199FB37800640F55 /* afficheMotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afficheMotViewController.h; sourceTree = "<group>"; };
 		166E21D6199FB37800640F55 /* afficheMotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = afficheMotViewController.m; sourceTree = "<group>"; };
 		16C3B829198A352B000322E8 /* CODE Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CODE Bold.otf"; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 				16FC7C251984101500CE1C0F /* resultViewController.m */,
 				166E21D5199FB37800640F55 /* afficheMotViewController.h */,
 				166E21D6199FB37800640F55 /* afficheMotViewController.m */,
+				164D421219AA20810017F82B /* detailViewController.h */,
+				164D421319AA20810017F82B /* detailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 				166E21D7199FB37800640F55 /* afficheMotViewController.m in Sources */,
 				16F7568619814EA200CF9F80 /* ViewController.m in Sources */,
 				16F756AF19819B1100CF9F80 /* SideTransition.m in Sources */,
+				164D421419AA20810017F82B /* detailViewController.m in Sources */,
 				16F7568019814EA200CF9F80 /* AppDelegate.m in Sources */,
 				16F756AE19819B1100CF9F80 /* SideDismissalTransition.m in Sources */,
 				16FC7C1F1982522500CE1C0F /* langue.m in Sources */,

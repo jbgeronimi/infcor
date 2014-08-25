@@ -10,11 +10,10 @@
 
 @interface afficheMotViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
 
-@property (weak,nonatomic) NSArray *risultati;
-@property (weak, nonatomic) NSString *alangue;
+@property (strong,nonatomic) NSArray *risultati;
+@property (strong, nonatomic) NSString *alangue;
 @property (strong,nonatomic) UITableView *afficheMotTableView;
 @property (strong, nonatomic) NSDictionary *params;
-@property (assign,nonatomic) NSUInteger lindex;
 @property (strong,nonatomic) NSString *searchText;
 @property (strong, nonatomic) UIScrollView *motView;
 @end

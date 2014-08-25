@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface resultViewController : UITableViewController
-@property (weak,nonatomic) NSArray *risultati;
-@property (weak, nonatomic) NSString *alangue;
+@property (strong,nonatomic) NSArray *risultati;
+@property (strong, nonatomic) NSString *alangue;
 @property (strong,nonatomic) NSString *searchText;
 @property (strong, nonatomic) NSDictionary *params;
-@property (assign,nonatomic) NSUInteger lindex;
 @property (strong,nonatomic) NSURL *searchURL;
 
 @end

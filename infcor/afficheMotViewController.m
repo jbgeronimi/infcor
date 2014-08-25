@@ -31,7 +31,15 @@
 {
     [super viewDidLoad];
     NSLog(@"params %@", self.params[self.alangue]);
-    NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php?mot=%@&langue=%@&param=%@", self.searchText, self.alangue, [self.params[@"dbb_query"] componentsJoinedByString:@" "]];
+    // id : traduction du mot en corse, toujours présent au retour de la requete. On fait le choix d'imposer la traduction du mot recherché. id ne dois pas etre present pour la requete mais apres
+    if([self.alangue isEqualToString:@"mot_corse"]){
+        [self.params[@"dbb_query"] insertObject:@"FRANCESE" atIndex:0];
+        [self.params[@"mot_corse"] insertObject:@"FRANCESE" atIndex:0];
+    }else{
+        [self.params[@"mot_francais"] insertObject:@"CORSU : " atIndex:0];
+    }
+    NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php?mot=%@&langue=%@&param=%@", self.searchText, self.alangue,[self.params[@"dbb_query"] componentsJoinedByString:@" "] ];
+    if([self.alangue isEqualToString:@"mot_francais"]){[self.params[@"dbb_query"] insertObject:@"id" atIndex:0 ];}
     cercaURL = [cercaURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //    [risultatiVC setSearchURL:[NSURL URLWithString:cercaURL]];
     NSURL *cerca = [NSURL URLWithString:cercaURL];
@@ -45,9 +53,10 @@
     self.risultati = [NSJSONSerialization JSONObjectWithData:theData
                                                      options:NSJSONReadingAllowFragments
                                                        error:nil];
-    
+
     self.title = self.searchText;
     NSLog(@"Sync JSON: %@", self.risultati);
+    NSLog(@"les params %@",self.params[@"dbb_query"]);
  //   NSLog(@"JSON ligne 0 : %@",[self.risultati valueForKey:@"DEFINIZIONE"]);
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -55,10 +64,12 @@
     self.afficheMotTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.afficheMotTableView.delegate = self;
     self.afficheMotTableView.dataSource = self;
+    [self.afficheMotTableView reloadData];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
 
 //    [self afficheMot:self.alangue];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -71,22 +82,22 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return [self.params[self.alangue] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    NSString *cellIdentifier = [NSString stringWithFormat:@"cell_%ld",(long)indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
+    NSLog(@"cell %@",cellIdentifier);
     UIFont *arial= [UIFont fontWithName:@"arial" size:15];
     cell.textLabel.font = arial;
-    cell.textLabel.text = [self.params[self.alangue][indexPath.row] stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]];
+    if ([self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]) {cell.textLabel.text = [self.params[self.alangue][indexPath.row] stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]];}
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.numberOfLines = 0;
     return cell;
@@ -100,41 +111,12 @@
     return NO;
 }
 
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGSize maximumLabelSize = CGSizeMake(300,9999);
-    NSLog(@"la cle %@,  la valeur %@",self.params[self.alangue][indexPath.row], [self.risultati valueForKey:self.params[self.alangue][indexPath.row]][0]);
+    NSLog(@"la cle %@,  la valeur %@",self.params[self.alangue][indexPath.row], [self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]);
     UIFont *arial= [UIFont fontWithName:@"arial" size:15];
-    NSLog(@"recherche %@",[self.params[self.alangue][indexPath.row] stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]]);
+//    NSLog(@"recherche %@",[self.params[self.alangue][indexPath.row] stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]]);
     CGRect titleRect = [self rectForText:[self.params[self.alangue][indexPath.row] stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]]
                                usingFont:arial
                            boundedBySize:maximumLabelSize];
@@ -152,5 +134,15 @@
                                     options:NSStringDrawingUsesLineFragmentOrigin
                                     context:nil];
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    if ([[self.params[@"dbb_query"] firstObject] isEqualToString:@"FRANCESE"]) {
+            [self.params[@"dbb_query"] removeObject:@"FRANCESE"];
+            [self.params[@"mot_corse"] removeObject:@"FRANCESE"];
+            NSLog(@"a enleve fcese");
+    }
+    else if ([[self.params[@"dbb_query"] firstObject] isEqualToString:@"id" ]) {
+            [self.params[@"dbb_query"] removeObject:@"id"];
+            [self.params[@"mot_francais"] removeObject:@"CORSU : "];}
 
+}
 @end

@@ -55,7 +55,14 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES];
-}
+    if(([self.alangue isEqualToString:@"mot_corse"]) && ([self.params[@"dbb_query"] containsObject:@"FRANCESE"])){
+        [self.params[@"dbb_query"] removeObject:@"FRANCESE"];
+        [self.params[@"mot_corse"] removeObject:@"FRANCESE"];
+    }else if(([self.alangue isEqualToString:@"mot_francais"]) & ([self.params[@"dbb_query"] containsObject:@"id"])){
+        [self.params[@"dbb_query"] removeObject:@"id"];
+        [self.params[@"mot_francais"] removeObject:@"CORSU : "];
+    }
+ }
 
 - (void)viewDidLoad
 {
@@ -99,6 +106,10 @@
         forControlEvents:UIControlEventEditingChanged];
     self.searchText.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.searchText];
+    
+    [self.searchText addTarget:self
+                  action:@selector(enleveClavier)
+        forControlEvents:UIControlEventEditingDidEndOnExit];
 
     self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(20, 90, 260, 200)];
     self.suggestTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -161,20 +172,23 @@
     // on garde notre fichier JSON et on affiche d'autres champs
     //    motVC.detail = self.risultati[indexPath.row][@"detail"];
     //    motVC.synonyme = self.risultati[indexPath.row][@"synonyme"];
-    
+    [self.searchText resignFirstResponder];
     [self.navigationController pushViewController:motVC animated:YES];
 }
 
 //si le mot a ete tape en entier et que "enter" a ete presse
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
+-(BOOL)enleveClavier {
+    [self.searchText resignFirstResponder];
     resultViewController *risultatiVC=[[resultViewController alloc] init];
+    risultatiVC.params = self.params;
+    risultatiVC.alangue = self.alangue;
+    risultatiVC.searchText = self.searchText.text;
 //    risultatiVC.searchText = self.searchText.text;
     if (![risultatiVC.searchText isEqualToString:@""]){
 //        NSLog(@"URL = %@",cercaURL);
         //[self presentViewController:risultati animated:YES completion:nil];
         [self.navigationController pushViewController:risultatiVC animated:YES];
     }
-    [textField resignFirstResponder];
     return YES;
 }
 
@@ -200,11 +214,17 @@
 - (void)setDefaultValuesForVariables
 {
     NSMutableArray *dbb = [[NSMutableArray alloc] init];
-   [dbb addObject:@"FRANCESE"];
+   // [dbb addObject:@"FRANCESE" ];
+    [dbb addObject:@"DEFINIZIONE"];
+    [dbb addObject:@"SINONIMI"];
     NSMutableArray *corsu = [[NSMutableArray alloc] init];
-    [corsu addObject: @"FRANCESE"];
+ //   [corsu addObject: @"FRANCESE"];
+    [corsu addObject:@"DEFINIZIONE"];
+    [corsu addObject:@"SINONIMI"];
     NSMutableArray *fcese = [[NSMutableArray alloc] init];
-    [fcese addObject:@"FRANCAIS"];
+  //  [fcese addObject:@"FRANCAIS"];
+    [fcese addObject:@"DEFINITION EN CORSE"];
+    [fcese addObject:@"SYNONYMES"];
     self.params = @{
                     @"dbb_query":dbb,
                     @"mot_corse":corsu,

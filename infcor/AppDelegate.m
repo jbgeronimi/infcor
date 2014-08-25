@@ -36,7 +36,7 @@
 
 - (void)setDefaultValuesForVariables
 {
-    self.params = @"FRANCESE DEFINIZIONE SINONIMI TALIANU";
+  //  self.params = @"FRANCESE DEFINIZIONE SINONIMI TALIANU";
 }
 - (void)applicationWillResignActive:(UIApplication *)application
 {
