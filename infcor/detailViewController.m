@@ -18,7 +18,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
- //       self.title = [self.detailRisultati[@"id"][0]];
+ //       self.title = [self.detailRisultati valueForKey:self.params[@"dbb_query"][0]];
     }
     return self;
 }

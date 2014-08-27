@@ -69,13 +69,6 @@
     [super viewDidLoad];
 
     UIFont *code = [UIFont fontWithName:@"Giorgio" size:20];
-
-//    NSMutableURLRequest *cerca = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:cercaURL]];
-//    [cerca setHTTPMethod:@"GET"];
-//    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:cerca delegate:self];
-//    [connection start];
-    NSLog(@"search url : %@",self.searchURL);
-
     NSString *langInit = @"Corsu - Francese";
     self.alangue = @"mot_corse";
     self.view.backgroundColor = [UIColor whiteColor];
@@ -122,7 +115,6 @@
 -(void)editingChanged:(id)sender {
  //   NSLog(@" sender : %@", self.searchText.text);
     NSString *cercaString = [NSString stringWithFormat:@"http://adecec.net/infcor/try/suggestion.php?mot=%@&langue=%@", self.searchText.text, self.alangue];
-    NSLog(@"cerca : %@", cercaString);
     NSURL *cercaURL = [[NSURL alloc] initWithString:cercaString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:cercaURL];
     // Requete ASynchrone
@@ -130,9 +122,9 @@
      [NSURLConnection sendAsynchronousRequest:request
      queue:[NSOperationQueue mainQueue]
      completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-     json = [NSJSONSerialization JSONObjectWithData:data
-     options:0
-     error:nil];
+         if (data) {json = [NSJSONSerialization JSONObjectWithData:data
+                                                           options:0
+                                                             error:nil];}
      self.suggest = json;
      [self.suggestTableView reloadData];
      NSLog(@"Async JSON: %@", self.suggest);
@@ -168,12 +160,7 @@
     motVC.searchText = self.suggest[indexPath.row];
     motVC.alangue = self.alangue;
     motVC.params = self.params;
-    NSLog(@"risultati VC : %@",motVC.searchText);
-//    risultatiVC.searchURL = self.searchURL;
-    // on garde notre fichier JSON et on affiche d'autres champs
-    //    motVC.detail = self.risultati[indexPath.row][@"detail"];
-    //    motVC.synonyme = self.risultati[indexPath.row][@"synonyme"];
-    [self.searchText resignFirstResponder];
+//    [self.searchText resignFirstResponder];
     [self.navigationController pushViewController:motVC animated:YES];
 }
 
@@ -184,10 +171,9 @@
     risultatiVC.params = self.params;
     risultatiVC.alangue = self.alangue;
     risultatiVC.searchText = self.searchText.text;
-//    risultatiVC.searchText = self.searchText.text;
+    risultatiVC.title = self.searchText.text;
+
     if (![risultatiVC.searchText isEqualToString:@""]){
-//        NSLog(@"URL = %@",cercaURL);
-        //[self presentViewController:risultati animated:YES completion:nil];
         [self.navigationController pushViewController:risultatiVC animated:YES];
     }
     return YES;

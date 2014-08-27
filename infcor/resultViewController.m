@@ -26,7 +26,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = self.searchText;
+ //       self.title = self.searchText;
     }
     return self;
 }
@@ -109,6 +109,7 @@
     detVC.detailRisultati = self.risultati[indexPath.row];
     detVC.alangue = self.alangue;
     detVC.params = self.params;
+    detVC.title = self.searchText;
 
     [self.navigationController pushViewController:detVC animated:YES];
 }
