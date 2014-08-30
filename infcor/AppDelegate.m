@@ -31,6 +31,18 @@
     self.window.rootViewController = navViewController;
     [self.window makeKeyAndVisible];
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
+    NSURL *scriptUrl = [NSURL URLWithString:@"http://adecec.net/infcor/try/suggestion.php?mot=casa&langue=mot_corse"];
+    NSData *data = [NSData dataWithContentsOfURL:scriptUrl];
+    if (!data)
+        {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pas de Connexion"
+                                                        message:@"la banque INFCOR a besoin de se connecter à internet. Verifiez votre connexion"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+
+    }
     return YES;
 }
 

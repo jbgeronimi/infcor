@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		164D421419AA20810017F82B /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164D421319AA20810017F82B /* detailViewController.m */; };
 		166E21D7199FB37800640F55 /* afficheMotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166E21D6199FB37800640F55 /* afficheMotViewController.m */; };
+		1684053619B23DFB009E0709 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1684053519B23DFB009E0709 /* SystemConfiguration.framework */; };
 		16C3B82A198A352B000322E8 /* CODE Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16C3B829198A352B000322E8 /* CODE Bold.otf */; };
 		16C3B82C198A353E000322E8 /* CODE Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16C3B82B198A353E000322E8 /* CODE Light.otf */; };
 		16C3B82F198A3AAF000322E8 /* Giorgio-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16C3B82D198A3AAF000322E8 /* Giorgio-Thin.ttf */; };
@@ -50,6 +51,7 @@
 		164D421319AA20810017F82B /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
 		166E21D5199FB37800640F55 /* afficheMotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afficheMotViewController.h; sourceTree = "<group>"; };
 		166E21D6199FB37800640F55 /* afficheMotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = afficheMotViewController.m; sourceTree = "<group>"; };
+		1684053519B23DFB009E0709 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		16C3B829198A352B000322E8 /* CODE Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CODE Bold.otf"; sourceTree = "<group>"; };
 		16C3B82B198A353E000322E8 /* CODE Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CODE Light.otf"; sourceTree = "<group>"; };
 		16C3B82D198A3AAF000322E8 /* Giorgio-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Giorgio-Thin.ttf"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1684053619B23DFB009E0709 /* SystemConfiguration.framework in Frameworks */,
 				16F7567219814EA200CF9F80 /* CoreGraphics.framework in Frameworks */,
 				16F7567419814EA200CF9F80 /* UIKit.framework in Frameworks */,
 				16F7567019814EA200CF9F80 /* Foundation.framework in Frameworks */,
@@ -132,6 +135,7 @@
 		16F7566E19814EA200CF9F80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1684053519B23DFB009E0709 /* SystemConfiguration.framework */,
 				16F7566F19814EA200CF9F80 /* Foundation.framework */,
 				16F7567119814EA200CF9F80 /* CoreGraphics.framework */,
 				16F7567319814EA200CF9F80 /* UIKit.framework */,
