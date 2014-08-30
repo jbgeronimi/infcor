@@ -55,6 +55,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES];
+    //En fonction du contexte de langue il faut modifier les matrices dbb_query, mot_corse et mot_francais pour avoir l'affichage de la traduction voulue
     if(([self.alangue isEqualToString:@"mot_corse"]) && ([self.params[@"dbb_query"] containsObject:@"FRANCESE"])){
         [self.params[@"dbb_query"] removeObject:@"FRANCESE"];
         [self.params[@"mot_corse"] removeObject:@"FRANCESE"];
@@ -68,14 +69,14 @@
 {
     [super viewDidLoad];
 
-    UIFont *code = [UIFont fontWithName:@"Giorgio" size:20];
-    NSString *langInit = @"Corsu - Francese";
+    UIFont *titre = [UIFont fontWithName:@"Giorgio" size:20];
+    NSString *langInit = @"Corsu \u21c4 Francese";
     self.alangue = @"mot_corse";
     self.view.backgroundColor = [UIColor whiteColor];
     self.primu = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.primu.frame = CGRectMake(70,10, 180, 45);
     [self.primu.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.primu.titleLabel setFont:code];
+    [self.primu.titleLabel setFont:titre];
     [self.primu setTitle:langInit forState:UIControlStateNormal];
     [self.primu addTarget:self
                    action:@selector(changeLanguage:)
@@ -83,7 +84,9 @@
     self.primu.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.primu];
     
+    self.gio = [UIFont fontWithName:@"Giorgio" size:17];
     UIButton *prefBouton = [UIButton buttonWithType:UIButtonTypeSystem] ;
+    prefBouton.titleLabel.font = self.gio;
     prefBouton.frame = CGRectMake(10, 30, 40, 40);
     [prefBouton setTitle: @"pref" forState:UIControlStateNormal];
     [prefBouton addTarget:self
@@ -93,6 +96,7 @@
     
     self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 65, 260, 25)];
     [self.searchText setBorderStyle:UITextBorderStyleLine];
+    self.searchText.font = self.gio;
     [self.searchText setAutocorrectionType:UITextAutocorrectionTypeNo],
 //    self.searchText.delegate = self;
     [self.searchText addTarget:self
@@ -105,10 +109,11 @@
                   action:@selector(enleveClavier)
         forControlEvents:UIControlEventEditingDidEndOnExit];
 
-    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(20, 90, 260, 200)];
+    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(30, 90, 260, 200)];
     self.suggestTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.suggestTableView.delegate = self;
     self.suggestTableView.dataSource = self;
+    self.suggestTableView.rowHeight = 28;
     [self.view addSubview:self.suggestTableView];
 }
 
@@ -135,18 +140,31 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
+    //return 9;
     return self.suggest.count;
     
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row %2) {
+        UIColor *couleurPaire = [[UIColor alloc] initWithWhite:0.5 alpha:0.1];
+        cell.backgroundColor = couleurPaire;
+    }else{
+        UIColor *couleurImpaire = [[UIColor alloc] initWithWhite:0.5 alpha:0.2];
+        cell.backgroundColor = couleurImpaire;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    NSString *cellIdentifier = [NSString stringWithFormat:@"cell_%ld",(long)indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
+    cell.textLabel.font = self.gio;
     cell.textLabel.text = self.suggest[indexPath.row];
     NSLog(@"cell : %@", cell.textLabel.text);
     return cell;
@@ -187,11 +205,11 @@
 }
 
 - (void)changeLanguage:(UIButton *) sender {
-    if ([sender.titleLabel.text isEqualToString:@"Corsu - Francese"]){
-        [self.primu setTitle:@"Français - Corse" forState:UIControlStateNormal];
+    if ([sender.titleLabel.text isEqualToString:@"Corsu \u21c4 Francese"]){
+        [self.primu setTitle:@"Français \u21c4 Corse" forState:UIControlStateNormal];
         self.alangue = @"mot_francais";
             }else {
-            [self.primu setTitle:@"Corsu - Francese" forState:UIControlStateNormal];
+            [self.primu setTitle:@"Corsu \u21c4 Francese" forState:UIControlStateNormal];
             self.alangue = @"mot_corse";
     }
 //    NSLog(@"%@",self.alangue);

@@ -51,24 +51,37 @@
     NSData *theData = [NSURLConnection sendSynchronousRequest:request
                                             returningResponse:nil
                                                         error:nil];
-    
-    self.risultati = [NSJSONSerialization JSONObjectWithData:theData
+    // Si pas de résultats, affichage d'un msg d'erreur
+    if (!theData) {
+           }else {
+        self.risultati = [NSJSONSerialization JSONObjectWithData:theData
                                                             options:0
                                                               error:nil];
-    
+        if (self.risultati.count == 0){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pas de Résultat"
+                                                            message:@"la banque INFCOR n'a pas de réponse à proposer a votre requete"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:@"contacter l'ADECEC", nil];
+            [alert show];
+        }
     NSLog(@"Sync JSON: %@", self.risultati);
-// Requete ASynchrone
- /*   __block NSArray *json;
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                               json = [NSJSONSerialization JSONObjectWithData:data
-                                                                      options:0
-                                                                        error:nil];
-                               self.risultati = json;
-                               NSLog(@"Async JSON: %@", self.risultati);
-                           }];
--- Fin */
+    }
+}
+
+-(void)alertView:(UIAlertView *)alarm clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    else if(buttonIndex == 1){
+        UIWebView *contact = [[UIWebView alloc] init];
+        NSString *txtContact = @"http://infcor.adecec.net/mailInfcor.php?moterrone=";
+        [txtContact stringByAppendingString:self.searchText];
+        NSURLRequest *urlContact = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:txtContact]];
+        [contact loadRequest:urlContact];
+        NSLog(@"url contact");
+        [self.view addSubview:contact];
+        }
 }
 
 -(void) viewDidAppear:(BOOL)animated{
