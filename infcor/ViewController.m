@@ -69,6 +69,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0 green:0 blue:.7 alpha:.7]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:.1 alpha:1];
+    UIView *lefond = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 95)];
+    [lefond setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    lefond.backgroundColor = [UIColor colorWithRed:0 green:0 blue:.7 alpha:.7];
+    [self.view addSubview:lefond];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:@"UIKeyboardWillShowNotification"
@@ -77,11 +84,11 @@
     UIFont *titre = [UIFont fontWithName:@"Giorgio" size:20];
     NSString *langInit = @"Corsu \u21c4 Francese";
     self.alangue = @"mot_corse";
-    self.view.backgroundColor = [UIColor whiteColor];
     self.primu = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.primu.frame = CGRectMake(70,10, 180, 45);
+    self.primu.frame = CGRectMake(70,14, 180, 41);
     [self.primu.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [self.primu.titleLabel setFont:titre];
+    self.primu.tintColor = [UIColor colorWithWhite:1 alpha:1];
     [self.primu setTitle:langInit forState:UIControlStateNormal];
     [self.primu addTarget:self
                    action:@selector(changeLanguage:)
@@ -89,20 +96,24 @@
     self.primu.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.primu];
     
-    self.gio = [UIFont fontWithName:@"Giorgio" size:17];
+    self.gio = [UIFont fontWithName:@"Code BOLD" size:17];
     UIButton *prefBouton = [UIButton buttonWithType:UIButtonTypeSystem] ;
-    prefBouton.titleLabel.font = self.gio;
-    prefBouton.frame = CGRectMake(10, 30, 40, 40);
-    [prefBouton setTitle: @"pref" forState:UIControlStateNormal];
+    prefBouton.tintColor = [UIColor colorWithWhite:.8 alpha:1];
+    prefBouton.frame = CGRectMake(10, 20, 25, 25);
+    UIImage *btn = [UIImage imageNamed:@"prefs.png"];
+    //[prefBouton setTitle: @"pref" forState:UIControlStateNormal];
+    [prefBouton setImage:btn forState:UIControlStateNormal];
     [prefBouton addTarget:self
                    action:@selector(preferences:)
          forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:prefBouton];
     
-    self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 65, 260, 25)];
-    [self.searchText setBorderStyle:UITextBorderStyleLine];
+    self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 50, 260, 35)];
+    [self.searchText setBorderStyle:UITextBorderStyleRoundedRect];
     self.searchText.font = self.gio;
+    self.searchText.textColor = [UIColor whiteColor];
     [self.searchText setAutocorrectionType:UITextAutocorrectionTypeNo],
+    [self.searchText setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0.2 alpha:1]];
 //    self.searchText.delegate = self;
     [self.searchText addTarget:self
                   action:@selector(editingChanged:)
@@ -113,9 +124,10 @@
     [self.searchText addTarget:self
                   action:@selector(enleveClavier)
         forControlEvents:UIControlEventEditingDidEndOnExit];
-    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(30, 90, 260, self.view.frame.size.height - 266)];
+    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(30, 95, 260, self.view.frame.size.height - 261)];
     self.suggestTableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     self.suggestTableView.delegate = self;
+    self.suggestTableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.suggestTableView.backgroundColor = [[UIColor alloc] initWithWhite:0.5 alpha:0.08];
     self.suggestTableView.dataSource = self;
     self.suggestTableView.rowHeight = 28;
@@ -151,6 +163,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //couleur du texte
+    cell.textLabel.textColor = [UIColor colorWithWhite:.8 alpha:1];
+    //couleur des cellules
     if (indexPath.row %2) {
         UIColor *couleurPaire = [[UIColor alloc] initWithWhite:0.5 alpha:0.1];
         cell.backgroundColor = couleurPaire;

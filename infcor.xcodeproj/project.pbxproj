@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		162A0D9519B351F9007C894B /* contactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 162A0D9419B351F9007C894B /* contactViewController.m */; };
 		164D421419AA20810017F82B /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164D421319AA20810017F82B /* detailViewController.m */; };
 		166E21D7199FB37800640F55 /* afficheMotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166E21D6199FB37800640F55 /* afficheMotViewController.m */; };
 		1684053619B23DFB009E0709 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1684053519B23DFB009E0709 /* SystemConfiguration.framework */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		162A0D9319B351F9007C894B /* contactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contactViewController.h; sourceTree = "<group>"; };
+		162A0D9419B351F9007C894B /* contactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contactViewController.m; sourceTree = "<group>"; };
 		164D421219AA20810017F82B /* detailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailViewController.h; sourceTree = "<group>"; };
 		164D421319AA20810017F82B /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
 		166E21D5199FB37800640F55 /* afficheMotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afficheMotViewController.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				166E21D6199FB37800640F55 /* afficheMotViewController.m */,
 				164D421219AA20810017F82B /* detailViewController.h */,
 				164D421319AA20810017F82B /* detailViewController.m */,
+				162A0D9319B351F9007C894B /* contactViewController.h */,
+				162A0D9419B351F9007C894B /* contactViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 				16F756AF19819B1100CF9F80 /* SideTransition.m in Sources */,
 				164D421419AA20810017F82B /* detailViewController.m in Sources */,
 				16F7568019814EA200CF9F80 /* AppDelegate.m in Sources */,
+				162A0D9519B351F9007C894B /* contactViewController.m in Sources */,
 				16F756AE19819B1100CF9F80 /* SideDismissalTransition.m in Sources */,
 				16FC7C1F1982522500CE1C0F /* langue.m in Sources */,
 				16F7567C19814EA200CF9F80 /* main.m in Sources */,

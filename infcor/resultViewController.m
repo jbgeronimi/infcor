@@ -9,6 +9,7 @@
 #import "resultViewController.h"
 #import "afficheMotViewController.h"
 #import "detailViewController.h"
+#import "contactViewController.h"
 //#import "AFJSONRequestOperation.h"
 //#import "AFNetworking.h"
 
@@ -74,14 +75,13 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
     else if(buttonIndex == 1){
-        UIWebView *contact = [[UIWebView alloc] init];
+        contactViewController *contact = [[contactViewController alloc]init];
         NSString *txtContact = @"http://infcor.adecec.net/mailInfcor.php?moterrone=";
         [txtContact stringByAppendingString:self.searchText];
         NSURLRequest *urlContact = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:txtContact]];
-        [contact loadRequest:urlContact];
-        NSLog(@"url contact");
-        [self.view addSubview:contact];
-        }
+        contact.urlContact = urlContact;
+        [self.navigationController pushViewController:contact animated:YES];
+    }
 }
 
 -(void) viewDidAppear:(BOOL)animated{
