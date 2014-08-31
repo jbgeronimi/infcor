@@ -65,10 +65,15 @@
     }
  }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:@"UIKeyboardWillShowNotification"
+                                               object:nil];
+    
     UIFont *titre = [UIFont fontWithName:@"Giorgio" size:20];
     NSString *langInit = @"Corsu \u21c4 Francese";
     self.alangue = @"mot_corse";
@@ -108,10 +113,10 @@
     [self.searchText addTarget:self
                   action:@selector(enleveClavier)
         forControlEvents:UIControlEventEditingDidEndOnExit];
-
-    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(30, 90, 260, 200)];
-    self.suggestTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(30, 90, 260, self.view.frame.size.height - 266)];
+    self.suggestTableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     self.suggestTableView.delegate = self;
+    self.suggestTableView.backgroundColor = [[UIColor alloc] initWithWhite:0.5 alpha:0.08];
     self.suggestTableView.dataSource = self;
     self.suggestTableView.rowHeight = 28;
     [self.view addSubview:self.suggestTableView];
@@ -166,7 +171,6 @@
     }
     cell.textLabel.font = self.gio;
     cell.textLabel.text = self.suggest[indexPath.row];
-    NSLog(@"cell : %@", cell.textLabel.text);
     return cell;
 }
 
@@ -197,6 +201,14 @@
     return YES;
 }
 
+- (void) keyboardWillShow:(NSNotification *)note {
+    NSDictionary *userInfo = [note userInfo];
+    CGSize keySize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    //self.tableHeight = MIN(keySize.height, keySize.width);
+    CGRect newTable = self.suggestTableView.frame;
+    newTable.size.height = self.view.frame.size.height - 90 - MIN(keySize.height, keySize.width);
+    self.suggestTableView.frame = newTable;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -212,8 +224,6 @@
             [self.primu setTitle:@"Corsu \u21c4 Francese" forState:UIControlStateNormal];
             self.alangue = @"mot_corse";
     }
-//    NSLog(@"%@",self.alangue);
-//   return self.alangue;
 }
 
 - (void)setDefaultValuesForVariables
@@ -237,5 +247,8 @@
     self.lindex = 0;
 }
 
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end
