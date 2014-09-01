@@ -14,5 +14,6 @@
 @property (weak, nonatomic) NSString *alangue;
 @property (strong,nonatomic) UITableView *detailTableView;
 @property (strong, nonatomic) NSDictionary *params;
+@property (strong,nonatomic) UIFont *gio;
 
 @end

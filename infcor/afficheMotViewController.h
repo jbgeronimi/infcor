@@ -15,5 +15,6 @@
 @property (strong,nonatomic) UITableView *afficheMotTableView;
 @property (strong, nonatomic) NSDictionary *params;
 @property (strong,nonatomic) NSString *searchText;
+@property (strong,nonatomic) UIFont *gio;
 @property (strong, nonatomic) UIScrollView *motView;
 @end

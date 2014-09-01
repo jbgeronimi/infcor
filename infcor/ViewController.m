@@ -69,12 +69,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0 green:0 blue:.7 alpha:.7]];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            UITextAttributeTextColor: [UIColor whiteColor],
+                                                            UITextAttributeFont: [UIFont fontWithName:@"Code-BOLD" size:17.0f]
+                                                            }];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0.129 green:0.512 blue:1.000 alpha:1.000]];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:.1 alpha:1];
+
+    self.view.backgroundColor = [UIColor colorWithRed:0.098 green:0.048 blue:0.051 alpha:1.000];
     UIView *lefond = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 95)];
     [lefond setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-    lefond.backgroundColor = [UIColor colorWithRed:0 green:0 blue:.7 alpha:.7];
+    lefond.backgroundColor = [UIColor colorWithRed:0.129 green:0.512 blue:1.000 alpha:1.000];
     [self.view addSubview:lefond];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -113,7 +118,7 @@
     self.searchText.font = self.gio;
     self.searchText.textColor = [UIColor whiteColor];
     [self.searchText setAutocorrectionType:UITextAutocorrectionTypeNo],
-    [self.searchText setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0.2 alpha:1]];
+    [self.searchText setBackgroundColor:[UIColor colorWithRed:0.000 green:0.000 blue:0.200 alpha:0.850]];
 //    self.searchText.delegate = self;
     [self.searchText addTarget:self
                   action:@selector(editingChanged:)
@@ -197,6 +202,7 @@
     motVC.searchText = self.suggest[indexPath.row];
     motVC.alangue = self.alangue;
     motVC.params = self.params;
+    motVC.gio = self.gio;
 //    [self.searchText resignFirstResponder];
     [self.navigationController pushViewController:motVC animated:YES];
 }
@@ -209,6 +215,7 @@
     risultatiVC.alangue = self.alangue;
     risultatiVC.searchText = self.searchText.text;
     risultatiVC.title = self.searchText.text;
+    risultatiVC.gio = self.gio;
 
     if (![risultatiVC.searchText isEqualToString:@""]){
         [self.navigationController pushViewController:risultatiVC animated:YES];

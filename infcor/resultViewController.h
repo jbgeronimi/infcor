@@ -14,5 +14,6 @@
 @property (strong,nonatomic) NSString *searchText;
 @property (strong, nonatomic) NSDictionary *params;
 @property (strong,nonatomic) NSURL *searchURL;
+@property (strong,nonatomic) UIFont *gio;
 
 @end

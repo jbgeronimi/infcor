@@ -54,6 +54,12 @@
                                                         error:nil];
     // Si pas de résultats, affichage d'un msg d'erreur
     if (!theData) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pas de Connexion"
+                                                        message:@"la banque INFCOR a besoin de se connecter à internet. Verifiez votre connexion"
+                                                        delegate:self
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [alert show];
            }else {
         self.risultati = [NSJSONSerialization JSONObjectWithData:theData
                                                             options:0
@@ -123,6 +129,7 @@
     detVC.alangue = self.alangue;
     detVC.params = self.params;
     detVC.title = self.searchText;
+    detVC.gio = self.gio;
 
     [self.navigationController pushViewController:detVC animated:YES];
 }
