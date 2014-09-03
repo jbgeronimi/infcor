@@ -66,7 +66,7 @@
     self.afficheMotTableView.dataSource = self;
     [self.afficheMotTableView reloadData];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-
+//    [self.view addSubview:self.afficheMotTableView];
 //    [self afficheMot:self.alangue];
 }
 
@@ -94,11 +94,16 @@
     if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    NSLog(@"cell %@",cellIdentifier);
-    UIFont *arial= [UIFont fontWithName:@"arial" size:15];
-    cell.textLabel.font = arial;
-    if ([self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]) {cell.textLabel.text = [self.params[self.alangue][indexPath.row] stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]];}
-    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    if ([self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]) {
+        UIFont *fonte= [UIFont fontWithName:@"Sansation" size:17];
+        UIFont *fonte20 = [UIFont fontWithName:@"Sansation" size:20];
+        NSAttributedString *longDef=[[NSAttributedString alloc]initWithString:self.params[self.alangue][indexPath.row]  attributes:@{NSFontAttributeName:fonte20}];
+        NSMutableAttributedString *leTexte = [[NSMutableAttributedString alloc] initWithAttributedString:longDef];
+        NSString *mottu = [@"" stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]];
+        NSAttributedString *leMot = [[NSAttributedString alloc] initWithString:mottu attributes:@{NSFontAttributeName:fonte}];
+        [leTexte appendAttributedString:leMot];
+        cell.textLabel.attributedText = leTexte;
+    }
     cell.textLabel.numberOfLines = 0;
     return cell;
 }
@@ -113,27 +118,21 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGSize maximumLabelSize = CGSizeMake(300,9999);
-    NSLog(@"la cle %@,  la valeur %@",self.params[self.alangue][indexPath.row], [self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]);
-    UIFont *arial= [UIFont fontWithName:@"arial" size:15];
-//    NSLog(@"recherche %@",[self.params[self.alangue][indexPath.row] stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]]);
-    CGRect titleRect = [self rectForText:[self.params[self.alangue][indexPath.row] stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]]
-                               usingFont:arial
-                           boundedBySize:maximumLabelSize];
-    return titleRect.size.height + 10;
+    UIFont *fonte= [UIFont fontWithName:@"Sansation" size:17];
+    UIFont *fonte20 = [UIFont fontWithName:@"Sansation" size:20];
+    NSAttributedString *longDef=[[NSAttributedString alloc]initWithString:self.params[self.alangue][indexPath.row]  attributes:@{NSFontAttributeName:fonte20}];
+    NSMutableAttributedString *leTexte = [[NSMutableAttributedString alloc] initWithAttributedString:longDef];
+        //      NSLog(@"kmjmjk : %@",[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row][0]]);
+    NSString *mottu = [@"" stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]];
+    NSAttributedString *leMot = [[NSAttributedString alloc] initWithString:mottu attributes:@{NSFontAttributeName:fonte}];
+    [leTexte appendAttributedString:leMot];
+    CGSize maxCell = CGSizeMake(self.view.frame.size.width - 40, 9999);
+    CGRect tailleCell = [leTexte boundingRectWithSize:maxCell
+                                              options:NSStringDrawingUsesLineFragmentOrigin
+                                              context:nil];
+    return MAX(15,tailleCell.size.height + 10);
 }
 
--(CGRect)rectForText:(NSString *)text
-           usingFont:(UIFont *)font
-       boundedBySize:(CGSize)maxSize
-{
-    NSAttributedString *attrString =
-    [[NSAttributedString alloc] initWithString:text
-                                    attributes:@{ NSFontAttributeName:font}];
-    return [attrString boundingRectWithSize:maxSize
-                                    options:NSStringDrawingUsesLineFragmentOrigin
-                                    context:nil];
-}
 -(void)viewWillDisappear:(BOOL)animated{
     if ([[self.params[@"dbb_query"] firstObject] isEqualToString:@"FRANCESE"]) {
             [self.params[@"dbb_query"] removeObject:@"FRANCESE"];

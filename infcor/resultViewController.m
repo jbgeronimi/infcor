@@ -116,7 +116,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     }
 //a definir en fonction des resultats renvoyes par la base
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = self.risultati[indexPath.row][@"id"];
+    cell.textLabel.font = self.gio;
     return cell;
 }
 

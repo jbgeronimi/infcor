@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160B5FC019B7369100861E6B /* Klill-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 160B5FBF19B7369100861E6B /* Klill-Light.ttf */; };
 		162A0D9519B351F9007C894B /* contactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 162A0D9419B351F9007C894B /* contactViewController.m */; };
+		162A0D9719B5C204007C894B /* Sansation_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 162A0D9619B5C204007C894B /* Sansation_Regular.ttf */; };
 		164D421419AA20810017F82B /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164D421319AA20810017F82B /* detailViewController.m */; };
 		166E21D7199FB37800640F55 /* afficheMotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166E21D6199FB37800640F55 /* afficheMotViewController.m */; };
 		1684053619B23DFB009E0709 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1684053519B23DFB009E0709 /* SystemConfiguration.framework */; };
@@ -48,8 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		160B5FBF19B7369100861E6B /* Klill-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Klill-Light.ttf"; path = "../../../../../../GFO/200705/Fontes/klill/Klill-Light.ttf"; sourceTree = "<group>"; };
 		162A0D9319B351F9007C894B /* contactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contactViewController.h; sourceTree = "<group>"; };
 		162A0D9419B351F9007C894B /* contactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contactViewController.m; sourceTree = "<group>"; };
+		162A0D9619B5C204007C894B /* Sansation_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sansation_Regular.ttf; path = ../../../../../../Calasoc/200909Campusplex/Sansation_Regular.ttf; sourceTree = "<group>"; };
 		164D421219AA20810017F82B /* detailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailViewController.h; sourceTree = "<group>"; };
 		164D421319AA20810017F82B /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
 		166E21D5199FB37800640F55 /* afficheMotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afficheMotViewController.h; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 		16F7567619814EA200CF9F80 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				160B5FBF19B7369100861E6B /* Klill-Light.ttf */,
+				162A0D9619B5C204007C894B /* Sansation_Regular.ttf */,
 				16C3B831198A3B86000322E8 /* montre fonts */,
 				16C3B82D198A3AAF000322E8 /* Giorgio-Thin.ttf */,
 				16C3B82E198A3AAF000322E8 /* Giorgio.ttf */,
@@ -313,11 +319,13 @@
 			files = (
 				16C3B830198A3AAF000322E8 /* Giorgio.ttf in Resources */,
 				16C3B82A198A352B000322E8 /* CODE Bold.otf in Resources */,
+				160B5FC019B7369100861E6B /* Klill-Light.ttf in Resources */,
 				16F7568819814EA200CF9F80 /* Images.xcassets in Resources */,
 				16C3B832198A3B86000322E8 /* montre fonts in Resources */,
 				16C3B82F198A3AAF000322E8 /* Giorgio-Thin.ttf in Resources */,
 				16F7567A19814EA200CF9F80 /* InfoPlist.strings in Resources */,
 				16F7568319814EA200CF9F80 /* Main.storyboard in Resources */,
+				162A0D9719B5C204007C894B /* Sansation_Regular.ttf in Resources */,
 				16C3B82C198A353E000322E8 /* CODE Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

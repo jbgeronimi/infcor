@@ -68,6 +68,7 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     [[UINavigationBar appearance] setTitleTextAttributes: @{
                                                             UITextAttributeTextColor: [UIColor whiteColor],
@@ -75,22 +76,25 @@
                                                             }];
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0.129 green:0.512 blue:1.000 alpha:1.000]];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-
-    self.view.backgroundColor = [UIColor colorWithRed:0.098 green:0.048 blue:0.051 alpha:1.000];
-    UIView *lefond = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 95)];
+    self.view.backgroundColor = [UIColor colorWithRed:0.010 green:0.000 blue:0.098 alpha:1.000];
+    self.gio = [UIFont fontWithName:@"Klill" size:19];
+    // je cree une vue pour le fond bleu
+    UIView *lefond = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 115)];
     [lefond setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     lefond.backgroundColor = [UIColor colorWithRed:0.129 green:0.512 blue:1.000 alpha:1.000];
     [self.view addSubview:lefond];
+    //detection du clavier pour adapter la hauteur des suggestions
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:@"UIKeyboardWillShowNotification"
                                                object:nil];
     
-    UIFont *titre = [UIFont fontWithName:@"Giorgio" size:20];
+    UIFont *titre = [UIFont fontWithName:@"Sansation" size:20];
     NSString *langInit = @"Corsu \u21c4 Francese";
     self.alangue = @"mot_corse";
+    //corsu - francese ou  francais-corse
     self.primu = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.primu.frame = CGRectMake(70,14, 180, 41);
+    self.primu.frame = CGRectMake(70,23, self.view.frame.size.width - 140, 41);
     [self.primu.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [self.primu.titleLabel setFont:titre];
     self.primu.tintColor = [UIColor colorWithWhite:1 alpha:1];
@@ -101,25 +105,24 @@
     self.primu.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.primu];
     
-    self.gio = [UIFont fontWithName:@"Code BOLD" size:17];
+    //le bouton d'acces aux preferences
     UIButton *prefBouton = [UIButton buttonWithType:UIButtonTypeSystem] ;
     prefBouton.tintColor = [UIColor colorWithWhite:.8 alpha:1];
-    prefBouton.frame = CGRectMake(10, 20, 25, 25);
+    prefBouton.frame = CGRectMake(10, 20, 30, 30);
     UIImage *btn = [UIImage imageNamed:@"prefs.png"];
-    //[prefBouton setTitle: @"pref" forState:UIControlStateNormal];
     [prefBouton setImage:btn forState:UIControlStateNormal];
     [prefBouton addTarget:self
                    action:@selector(preferences:)
          forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:prefBouton];
     
-    self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 50, 260, 35)];
+    //la zone de saisie du texte
+    self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 66, self.view.frame.size.width - 60, 35)];
     [self.searchText setBorderStyle:UITextBorderStyleRoundedRect];
     self.searchText.font = self.gio;
     self.searchText.textColor = [UIColor whiteColor];
     [self.searchText setAutocorrectionType:UITextAutocorrectionTypeNo],
     [self.searchText setBackgroundColor:[UIColor colorWithRed:0.000 green:0.000 blue:0.200 alpha:0.850]];
-//    self.searchText.delegate = self;
     [self.searchText addTarget:self
                   action:@selector(editingChanged:)
         forControlEvents:UIControlEventEditingChanged];
@@ -129,7 +132,9 @@
     [self.searchText addTarget:self
                   action:@selector(enleveClavier)
         forControlEvents:UIControlEventEditingDidEndOnExit];
-    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(30, 95, 260, self.view.frame.size.height - 261)];
+    
+    //un tableau avec les suggestions
+    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(30, 115, self.view.frame.size.width - 60, self.view.frame.size.height - 261)];
     self.suggestTableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     self.suggestTableView.delegate = self;
     self.suggestTableView.separatorStyle = UITableViewCellSelectionStyleNone;
@@ -162,9 +167,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    //return 9;
     return self.suggest.count;
-    
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -197,17 +200,16 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    //cas ou on selectionne la suggestion -> definition du mot direct
     afficheMotViewController *motVC=[[afficheMotViewController alloc] init];
     motVC.searchText = self.suggest[indexPath.row];
     motVC.alangue = self.alangue;
     motVC.params = self.params;
     motVC.gio = self.gio;
-//    [self.searchText resignFirstResponder];
     [self.navigationController pushViewController:motVC animated:YES];
 }
 
-//si le mot a ete tape en entier et que "enter" a ete presse
+//si le mot a ete tape en entier et que "enter" a ete presse -> nouveau tableau avec toutes les possibilités associées au mot
 -(BOOL)enleveClavier {
     [self.searchText resignFirstResponder];
     resultViewController *risultatiVC=[[resultViewController alloc] init];

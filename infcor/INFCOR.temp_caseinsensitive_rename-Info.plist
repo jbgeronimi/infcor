@@ -29,9 +29,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>CODE Bold.otf</string>
-		<string>CODE Light.otf</string>
+		<string>Klill-Light.ttf</string>
 		<string>Giorgio-Thin.ttf</string>
 		<string>Giorgio.ttf</string>
+		<string>Sansation_Regular.ttf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
