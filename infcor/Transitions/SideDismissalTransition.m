@@ -5,7 +5,7 @@
 
 - (NSTimeInterval) transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 1.0f;
+    return 0.7f;
 }
 
 - (void) animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
@@ -17,9 +17,9 @@
     // TODO: Create a UIDynamicAnimator instance using the transition context's containerView as the reference view
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:[transitionContext containerView]];
     
-    // TODO: Create an instantaneous push behavior for fromVC.view that moves up and right by a factor of 100
+    // TODO: Create an instantaneous push behavior for fromVC.view that moves up and right by a factor of 10
     UIPushBehavior *push = [[UIPushBehavior alloc] initWithItems:@[fromVC.view] mode:UIPushBehaviorModeInstantaneous];
-    push.pushDirection = CGVectorMake(100, -100);
+    push.pushDirection = CGVectorMake(0, -10);
     [self.animator addBehavior:push];
     
     // TODO: Create a gravity behavior for fromVC.view pulls the view down (but not to the left or right) by a factor of 3

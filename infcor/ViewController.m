@@ -134,7 +134,7 @@
         forControlEvents:UIControlEventEditingDidEndOnExit];
     
     //un tableau avec les suggestions
-    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(30, 115, self.view.frame.size.width - 60, self.view.frame.size.height - 261)];
+    self.suggestTableView=[[UITableView alloc] initWithFrame:CGRectMake(30, 115, self.view.frame.size.width - 60, self.view.frame.size.height - 286)];
     self.suggestTableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     self.suggestTableView.delegate = self;
     self.suggestTableView.separatorStyle = UITableViewCellSelectionStyleNone;
@@ -230,7 +230,7 @@
     CGSize keySize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     //self.tableHeight = MIN(keySize.height, keySize.width);
     CGRect newTable = self.suggestTableView.frame;
-    newTable.size.height = self.view.frame.size.height - 90 - MIN(keySize.height, keySize.width);
+    newTable.size.height = self.view.frame.size.height - 115 - MIN(keySize.height, keySize.width);
     self.suggestTableView.frame = newTable;
 }
 

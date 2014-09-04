@@ -73,6 +73,7 @@
         cell.textLabel.attributedText = leTexte;}
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.numberOfLines = 0;
+
     return cell;
 }
 
@@ -92,7 +93,7 @@
     NSString *mottu = [@"" stringByAppendingString:[self.detailRisultati valueForKey:self.params[@"dbb_query"][indexPath.row]]];
     NSAttributedString *leMot = [[NSAttributedString alloc] initWithString:mottu attributes:@{NSFontAttributeName:fonte}];
     [leTexte appendAttributedString:leMot];
-    CGSize maxCell = CGSizeMake(self.view.frame.size.width - 40, 9999);
+    CGSize maxCell = CGSizeMake(self.view.frame.size.width - 20, 9999);
     CGRect tailleCell = [leTexte boundingRectWithSize:maxCell
                                               options:NSStringDrawingUsesLineFragmentOrigin
                                               context:nil];

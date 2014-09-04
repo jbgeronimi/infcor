@@ -35,7 +35,7 @@
     [super viewDidLoad];
     self.allParams = @{
         @"dbb_query":@[@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTESD",@"SINONIMI",@"ANTONIMI",@"DERIVADICOMPOSTI",@"SPRESSIONIEPRUVERBII",@"ANALUGIE",@"CITAZIONIDAAUTORI",@"BIBLIOGRAFIA",@"INDICE"],
-        @"mot_corse": @[@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTESD",@"SINONIMI",@"ANTONIMI",@"DERIVATI COMPOSTI",@"SPRESSIONI E PRUVERBII",@"ANALUGIE",@"CITAZIONI DA AUTORI",@"BIBLIOGRAFIA",@"INDICE"],
+        @"mot_corse": @[@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTE",@"SINONIMI",@"ANTONIMI",@"DERIVATI COMPOSTI",@"SPRESSIONI E PRUVERBII",@"ANALUGIE",@"CITAZIONI DA AUTORI",@"BIBLIOGRAFIA",@"INDICE"],
     @"mot_francais" : @[@"ITALIEN",@"ANGLAIS",@"GENRE",@"PRONONCIATION",@"DEFINITION EN CORSE",@"ETYMOLOGIE",@"GRAMMAIRE",@"VARIANTES GRAPHIQUES",@"SYNONYMES",@"ANTONYMES",@"DERIVES COMPOSES",@"EXPRESSIONS ET PROVERBES",@"ANALOGIES",@"CITATIONS D'AUTEURS",@"BIBLIOGRAPHIE",@"INDICE"]
                     };
 // un tableau avec tous les elements de params
@@ -44,6 +44,7 @@
     self.afficheParams.delegate = self;
     self.afficheParams.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    self.afficheParams.sectionFooterHeight = 12;
     
     if (self.modalPresentationStyle == UIModalPresentationCustom) {
         
@@ -51,10 +52,11 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    self.view.layer.borderColor = [UIColor grayColor].CGColor;
-    self.view.layer.borderWidth = 2.0f;
+    /*self.view.layer.borderColor = [UIColor blackColor].CGColor;
+    self.view.layer.borderWidth = 2.0f;*/
     UIButton *vabe = [UIButton buttonWithType:UIButtonTypeSystem];
- //   vabe.frame = CGRectMake(100, 800, 40, 20);
+    vabe.backgroundColor = [UIColor whiteColor];
+    vabe.tintColor = [UIColor blackColor];
     [vabe setTitle:@"OK" forState:UIControlStateNormal];
     [vabe addTarget:self action:@selector(goodJob:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:vabe];
@@ -63,13 +65,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 30.0f;
+    return 25.0f;
 }
-/*
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
-*/
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
@@ -84,8 +82,8 @@
     if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     }
-    UIFont *arial= [UIFont fontWithName:@"arial" size:15];
-    cell.textLabel.font = arial;
+    UIFont *fonte= [UIFont fontWithName:@"klill" size:17];
+    cell.textLabel.font = fonte;
 //    self.lindex = indexPath;
     cell.textLabel.text = self.allParams[self.alangue][indexPath.row];
     NSLog(@"params : %@",self.allParams[self.alangue][indexPath.row]);

@@ -10,4 +10,5 @@
 
 @interface contactViewController : ViewController
 @property NSURLRequest *urlContact;
+- (IBAction)close:(id)sender;
 @end
