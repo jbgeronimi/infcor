@@ -22,9 +22,9 @@
     push.pushDirection = CGVectorMake(0, -10);
     [self.animator addBehavior:push];
     
-    // TODO: Create a gravity behavior for fromVC.view pulls the view down (but not to the left or right) by a factor of 3
+    // TODO: Create a gravity behavior for fromVC.view pulls the view down (but not to the left or right) by a factor of x
     UIGravityBehavior *gravity = [[UIGravityBehavior alloc] initWithItems:@[fromVC.view]];
-    gravity.gravityDirection = CGVectorMake(0, 3);
+    gravity.gravityDirection = CGVectorMake(0, 6);
     [self.animator addBehavior:gravity];
     
     // TODO: Implement an action block on the push behavior.  Inside that action block, check if the containerView frame intersects with the fromVC view frame.  When they no longer intersect, complete the transition.

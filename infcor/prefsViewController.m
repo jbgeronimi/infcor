@@ -44,8 +44,8 @@
     self.afficheParams.delegate = self;
     self.afficheParams.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    self.afficheParams.sectionFooterHeight = 12;
-    
+    self.tableView.sectionFooterHeight = 12;
+    self.tableView.rowHeight = 35;
     if (self.modalPresentationStyle == UIModalPresentationCustom) {
         
     }

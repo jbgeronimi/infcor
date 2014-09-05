@@ -116,9 +116,19 @@
          forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:prefBouton];
     
-    //la zone de saisie du texte
+    //la zone de saisie du texte et son bouton d'effacement
     self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 66, self.view.frame.size.width - 60, 35)];
     [self.searchText setBorderStyle:UITextBorderStyleRoundedRect];
+    //le bouton
+    UIButton *effaceBouton= [UIButton buttonWithType:UIButtonTypeCustom];
+    [effaceBouton setImage:[UIImage imageNamed:@"cancel.png"] forState:UIControlStateNormal];
+    effaceBouton.frame = CGRectMake(0,0, 24, 20);
+    [effaceBouton addTarget:self
+                     action:@selector(clearTextField:)
+           forControlEvents:UIControlEventTouchUpInside];
+    self.searchText.rightViewMode = UITextFieldViewModeWhileEditing;
+    self.searchText.rightView = effaceBouton;
+    
     self.searchText.font = self.gio;
     self.searchText.textColor = [UIColor whiteColor];
     [self.searchText setAutocorrectionType:UITextAutocorrectionTypeNo],
@@ -142,6 +152,10 @@
     self.suggestTableView.dataSource = self;
     self.suggestTableView.rowHeight = 28;
     [self.view addSubview:self.suggestTableView];
+}
+
+-(void)clearTextField:(id)sender {
+    self.searchText.text = @"";
 }
 
 -(void)editingChanged:(id)sender {
