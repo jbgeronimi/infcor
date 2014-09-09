@@ -59,8 +59,7 @@
     if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    NSLog(@"cell %@",cellIdentifier);
-    UIFont *fonte= [UIFont fontWithName:@"Sansation" size:17];
+    UIFont *fonte = [UIFont fontWithName:@"Sansation" size:17];
     cell.textLabel.font = fonte;
     if ([self.detailRisultati valueForKey:self.params[@"dbb_query"][indexPath.row]]) {
         UIFont *fonte= [UIFont fontWithName:@"Sansation" size:17];

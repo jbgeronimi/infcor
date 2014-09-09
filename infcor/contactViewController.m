@@ -7,6 +7,7 @@
 //
 
 #import "contactViewController.h"
+#import "ViewController.h"
 
 @interface contactViewController ()
 
@@ -23,12 +24,21 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIWebView *contact = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 800)];
+    UIBarButtonItem *chjode = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(chjodeFinestra:)];
+    self.navigationItem.title = @"";
+    self.navigationItem.leftBarButtonItem = chjode;
+
+    UIWebView *contact = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64)];
     [contact loadRequest:self.urlContact];
     [self.view addSubview:contact];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,8 +46,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)close:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+
+- (void)chjodeFinestra:(id)sender {
+    ViewController *homeVC = [[ViewController alloc] init];
+    [self.navigationController pushViewController:homeVC animated:YES];
 }
 
 /*

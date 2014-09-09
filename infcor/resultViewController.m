@@ -82,8 +82,9 @@
     }
     else if(buttonIndex == 1){
         contactViewController *contact = [[contactViewController alloc]init];
-        NSString *txtContact = @"http://infcor.adecec.net/mailInfcor.php?moterrone=";
-        [txtContact stringByAppendingString:self.searchText];
+        NSString *txtContact = @"http://adecec.net/infcor/contact.php?mot=";
+        txtContact = [txtContact stringByAppendingString:self.searchText];
+        NSLog(@"mot %@",txtContact);
         NSURLRequest *urlContact = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:txtContact]];
         contact.urlContact = urlContact;
         [self.navigationController pushViewController:contact animated:YES];
