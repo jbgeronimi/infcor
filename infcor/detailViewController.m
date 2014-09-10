@@ -26,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.view.backgroundColor = [UIColor whiteColor];
     self.detailTableView=[[UITableView alloc] init];
     self.detailTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -34,7 +33,6 @@
     self.detailTableView.dataSource = self;
     [self.detailTableView reloadData];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    NSLog(@"le JSON seul %@", self.detailRisultati);
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,7 +86,7 @@
     UIFont *fonte20 = [UIFont fontWithName:@"Sansation" size:20];
     NSAttributedString *longDef=[[NSAttributedString alloc]initWithString:self.params[self.alangue][indexPath.row]  attributes:@{NSFontAttributeName:fonte20}];
     NSMutableAttributedString *leTexte = [[NSMutableAttributedString alloc] initWithAttributedString:longDef];
-    //      NSLog(@"kmjmjk : %@",[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row][0]]);
+    NSLog(@"indexpath %i et self.detailrisultati de indexpath : %@",indexPath.row,[self.detailRisultati valueForKey:self.params[@"dbb_query"][indexPath.row]]);
     NSString *mottu = [@"" stringByAppendingString:[self.detailRisultati valueForKey:self.params[@"dbb_query"][indexPath.row]]];
     NSAttributedString *leMot = [[NSAttributedString alloc] initWithString:mottu attributes:@{NSFontAttributeName:fonte}];
     [leTexte appendAttributedString:leMot];

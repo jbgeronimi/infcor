@@ -7,11 +7,9 @@
 //
 
 #import "resultViewController.h"
-#import "afficheMotViewController.h"
 #import "detailViewController.h"
 #import "contactViewController.h"
-//#import "AFJSONRequestOperation.h"
-//#import "AFNetworking.h"
+
 
 @interface resultViewController ()
 
@@ -21,13 +19,54 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.searchURL];
+    //    [self.resultTableView reloadData];
+    // Requete synchrone
+    if(!self.risultati){
+        NSData *theData = [NSURLConnection sendSynchronousRequest:request
+                                                returningResponse:nil
+                                                            error:nil];
+        // Si pas de résultats, affichage d'un msg d'erreur
+        if (!theData) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pas de Connexion"
+                                                            message:@"la banque INFCOR a besoin de se connecter à internet. Verifiez votre connexion"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }else {
+            self.risultati = [NSJSONSerialization JSONObjectWithData:theData
+                                                             options:0
+                                                               error:nil];
+            //       [self.resultTableView reloadData];
+            if (self.risultati.count == 0){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pas de Résultat"
+                                                                message:@"la banque INFCOR n'a pas de réponse à proposer a votre requete"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:@"contacter l'ADECEC", nil];
+                [alert show];
+            }
+        }
+        NSLog(@"self risultati %@",self.risultati);
+        // id : traduction du mot en corse, toujours présent au retour de la requete. On fait le choix d'imposer la traduction du mot recherché. id ne dois pas etre present pour la requete mot_francais mais apres
+    }
+    if(([self.alangue isEqualToString:@"mot_corse"]) && !([self.params[@"dbb_query"] containsObject:@"FRANCESE"])){
+        [self.params[@"dbb_query"] insertObject:@"FRANCESE" atIndex:0];
+        [self.params[@"mot_corse"] insertObject:@"FRANCESE" atIndex:0];
+    }else if(([self.alangue isEqualToString:@"mot_francais"]) & !([self.params[@"dbb_query"] containsObject:@"id"])){
+        [self.params[@"dbb_query"] insertObject:@"id" atIndex:0 ];
+        [self.params[@"mot_francais"] insertObject:@"CORSU : " atIndex:0];
+    }
+    [self.resultTableView reloadData];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+
+- (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithStyle:style];
     if (self) {
- //       self.title = self.searchText;
+        //       self.title = [self.detailRisultati valueForKey:self.params[@"dbb_query"][0]];
     }
     return self;
 }
@@ -35,45 +74,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //cas de mot_corse, il faut faire la ajouter FRANCESE a dbb_query
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.resultTableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 640) style:UITableViewStylePlain];
+    self.resultTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.resultTableView.delegate = self;
+    self.resultTableView.dataSource = self;
+    self.resultTableView.separatorStyle = UITableViewCellSelectionStyleNone;
+
     if(([self.alangue isEqualToString:@"mot_corse"]) && !([self.params[@"dbb_query"] containsObject:@"FRANCESE"])){
         [self.params[@"dbb_query"] insertObject:@"FRANCESE" atIndex:0];
         [self.params[@"mot_corse"] insertObject:@"FRANCESE" atIndex:0];
     }
-    //cas du mot corse, CORSU : est ajouté apres, dans view did appear
-    
+    //cas du mot_francais : id(CORSU) est ajouté apres, dans view did appear
     NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php?mot=%@&langue=%@&param=%@", self.searchText, self.alangue,[self.params[@"dbb_query"] componentsJoinedByString:@" "] ];
     cercaURL = [cercaURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //    [risultatiVC setSearchURL:[NSURL URLWithString:cercaURL]];
-    NSURL *cerca = [NSURL URLWithString:cercaURL];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:cerca];
-    NSLog(@"cerca : %@",cercaURL);
-// Requete synchrone
-    NSData *theData = [NSURLConnection sendSynchronousRequest:request
-                                            returningResponse:nil
-                                                        error:nil];
-    // Si pas de résultats, affichage d'un msg d'erreur
-    if (!theData) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pas de Connexion"
-                                                        message:@"la banque INFCOR a besoin de se connecter à internet. Verifiez votre connexion"
-                                                        delegate:self
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [alert show];
-           }else {
-        self.risultati = [NSJSONSerialization JSONObjectWithData:theData
-                                                            options:0
-                                                              error:nil];
-        if (self.risultati.count == 0){
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pas de Résultat"
-                                                            message:@"la banque INFCOR n'a pas de réponse à proposer a votre requete"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:@"contacter l'ADECEC", nil];
-            [alert show];
-        }
-    NSLog(@"Sync JSON: %@", self.risultati);
-    }
+    self.searchURL = [NSURL URLWithString:cercaURL];
 }
 
 -(void)alertView:(UIAlertView *)alarm clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -91,17 +108,6 @@
     }
 }
 
--(void) viewDidAppear:(BOOL)animated{
-    // id : traduction du mot en corse, toujours présent au retour de la requete. On fait le choix d'imposer la traduction du mot recherché. id ne dois pas etre present pour la requete mot_francais mais apres
-    if(([self.alangue isEqualToString:@"mot_corse"]) && !([self.params[@"dbb_query"] containsObject:@"FRANCESE"])){
-        [self.params[@"dbb_query"] insertObject:@"FRANCESE" atIndex:0];
-        [self.params[@"mot_corse"] insertObject:@"FRANCESE" atIndex:0];
-    }else if(([self.alangue isEqualToString:@"mot_francais"]) & !([self.params[@"dbb_query"] containsObject:@"id"])){
-        [self.params[@"dbb_query"] insertObject:@"id" atIndex:0 ];
-        [self.params[@"mot_francais"] insertObject:@"CORSU : " atIndex:0];
-    }
-    
-}
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
@@ -111,10 +117,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    
+    NSString *cellIdentifier = [NSString stringWithFormat:@"cell_%ld",(long)indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
 //a definir en fonction des resultats renvoyes par la base
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -137,12 +143,17 @@
     [self.navigationController pushViewController:detVC animated:YES];
 }
 
+-(void) viewDidAppear:(BOOL)animated{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [self.resultTableView reloadData];
+//    [super viewDidAppear:animated];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 /*
 #pragma mark - Navigation
 

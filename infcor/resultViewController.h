@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface resultViewController : UITableViewController
+@interface resultViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
+@property (strong,nonatomic) UITableView *resultTableView;
 @property (strong,nonatomic) NSArray *risultati;
 @property (strong, nonatomic) NSString *alangue;
 @property (strong,nonatomic) NSString *searchText;

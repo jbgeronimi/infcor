@@ -31,7 +31,7 @@
     self.window.rootViewController = navViewController;
     [self.window makeKeyAndVisible];
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
-    NSURL *scriptUrl = [NSURL URLWithString:@"http://adecec.net/infcor/try/suggestion.php?mot=casa&langue=mot_corse"];
+/*    NSURL *scriptUrl = [NSURL URLWithString:@"http://google.com"];
     NSData *data = [NSData dataWithContentsOfURL:scriptUrl];
     if (!data)
         {
@@ -42,9 +42,8 @@
                                               otherButtonTitles:nil];
         [alert show];
 
-    }
+    }*/
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
     return YES;
 }
 

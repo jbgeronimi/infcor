@@ -13,7 +13,6 @@
 #import "AppDelegate.h"
 #import "resultViewController.h"
 #import "afficheMotViewController.h"
-//#import "langue.h"
 
 @interface ViewController ()
 
@@ -63,16 +62,15 @@
         [self.params[@"dbb_query"] removeObject:@"id"];
         [self.params[@"mot_francais"] removeObject:@"CORSU : "];
     }
- }
-
+}
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
+    //customisation de la barre de nav
     [[UINavigationBar appearance] setTitleTextAttributes: @{
-                                                            UITextAttributeTextColor: [UIColor whiteColor],
-                                                            UITextAttributeFont: [UIFont fontWithName:@"Code-BOLD" size:17.0f]
+                                                            NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                            NSFontAttributeName: [UIFont fontWithName:@"Code-BOLD" size:17.0f]
                                                             }];
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0.129 green:0.512 blue:1.000 alpha:1.000]];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
@@ -119,7 +117,7 @@
     //la zone de saisie du texte et son bouton d'effacement
     self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 66, self.view.frame.size.width - 60, 35)];
     [self.searchText setBorderStyle:UITextBorderStyleRoundedRect];
-    //le bouton
+    //le bouton d'effacement
     UIButton *effaceBouton= [UIButton buttonWithType:UIButtonTypeCustom];
     [effaceBouton setImage:[UIImage imageNamed:@"cancel.png"] forState:UIControlStateNormal];
     effaceBouton.frame = CGRectMake(0,0, 24, 20);
@@ -133,12 +131,13 @@
     self.searchText.textColor = [UIColor whiteColor];
     [self.searchText setAutocorrectionType:UITextAutocorrectionTypeNo],
     [self.searchText setBackgroundColor:[UIColor colorWithRed:0.000 green:0.000 blue:0.200 alpha:0.850]];
+    //on interroge la base a chaque lettre tapée (editingChanged)
     [self.searchText addTarget:self
                   action:@selector(editingChanged:)
         forControlEvents:UIControlEventEditingChanged];
     self.searchText.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.searchText];
-    
+    //on range le clavier
     [self.searchText addTarget:self
                   action:@selector(enleveClavier)
         forControlEvents:UIControlEventEditingDidEndOnExit];
@@ -154,12 +153,12 @@
     [self.view addSubview:self.suggestTableView];
 }
 
+//la croix d'effacement
 -(void)clearTextField:(id)sender {
     self.searchText.text = @"";
 }
 
 -(void)editingChanged:(id)sender {
- //   NSLog(@" sender : %@", self.searchText.text);
     NSString *cercaString = [NSString stringWithFormat:@"http://adecec.net/infcor/try/suggestion.php?mot=%@&langue=%@", self.searchText.text, self.alangue];
     NSURL *cercaURL = [[NSURL alloc] initWithString:cercaString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:cercaURL];
@@ -213,6 +212,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //cas ou on selectionne la suggestion -> definition du mot direct
     afficheMotViewController *motVC=[[afficheMotViewController alloc] init];
@@ -225,24 +225,24 @@
 
 //si le mot a ete tape en entier et que "enter" a ete presse -> nouveau tableau avec toutes les possibilités associées au mot
 -(BOOL)enleveClavier {
-    [self.searchText resignFirstResponder];
     resultViewController *risultatiVC=[[resultViewController alloc] init];
     risultatiVC.params = self.params;
     risultatiVC.alangue = self.alangue;
     risultatiVC.searchText = self.searchText.text;
     risultatiVC.title = self.searchText.text;
     risultatiVC.gio = self.gio;
-
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     if (![risultatiVC.searchText isEqualToString:@""]){
         [self.navigationController pushViewController:risultatiVC animated:YES];
     }
-    return YES;
+    [self.searchText resignFirstResponder];
+  return YES;
 }
 
+//redimensionnement des suggestions en fonction de la taille du clavier
 - (void) keyboardWillShow:(NSNotification *)note {
     NSDictionary *userInfo = [note userInfo];
     CGSize keySize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    //self.tableHeight = MIN(keySize.height, keySize.width);
     CGRect newTable = self.suggestTableView.frame;
     newTable.size.height = self.view.frame.size.height - 115 - MIN(keySize.height, keySize.width);
     self.suggestTableView.frame = newTable;
@@ -289,4 +289,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+-(void)viewWillDisappear:(BOOL)animated {
+}
 @end

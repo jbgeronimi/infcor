@@ -16,21 +16,6 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO];
-}
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        self.title = self.searchText;
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    NSLog(@"params %@", self.params[self.alangue]);
     // id : traduction du mot en corse, toujours présent au retour de la requete. On fait le choix d'imposer la traduction du mot recherché. id ne dois pas etre present pour la requete mais apres
     if([self.alangue isEqualToString:@"mot_corse"]){
         [self.params[@"dbb_query"] insertObject:@"FRANCESE" atIndex:0];
@@ -38,6 +23,7 @@
     }else{
         [self.params[@"mot_francais"] insertObject:@"CORSU : " atIndex:0];
     }
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php?mot=%@&langue=%@&param=%@", self.searchText, self.alangue,[self.params[@"dbb_query"] componentsJoinedByString:@" "] ];
     if([self.alangue isEqualToString:@"mot_francais"]){[self.params[@"dbb_query"] insertObject:@"id" atIndex:0 ];}
     cercaURL = [cercaURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -53,18 +39,29 @@
     self.risultati = [NSJSONSerialization JSONObjectWithData:theData
                                                      options:NSJSONReadingAllowFragments
                                                        error:nil];
-
     self.title = self.searchText;
-    NSLog(@"Sync JSON: %@", self.risultati);
-    NSLog(@"les params %@",self.params[@"dbb_query"]);
- //   NSLog(@"JSON ligne 0 : %@",[self.risultati valueForKey:@"DEFINIZIONE"]);
+    //   NSLog(@"JSON ligne 0 : %@",[self.risultati valueForKey:@"DEFINIZIONE"]);
+    [self.afficheMotTableView reloadData];
     
+}
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        self.title = self.searchText;
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.afficheMotTableView=[[UITableView alloc] init];
     self.afficheMotTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.afficheMotTableView.delegate = self;
     self.afficheMotTableView.dataSource = self;
-    [self.afficheMotTableView reloadData];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
 //    [self.view addSubview:self.afficheMotTableView];
 //    [self afficheMot:self.alangue];
@@ -77,6 +74,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [self.afficheMotTableView reloadData];
+}
 #pragma mark - Table view data source
 
 
@@ -142,6 +143,5 @@
     else if ([[self.params[@"dbb_query"] firstObject] isEqualToString:@"id" ]) {
             [self.params[@"dbb_query"] removeObject:@"id"];
             [self.params[@"mot_francais"] removeObject:@"CORSU : "];}
-
 }
 @end

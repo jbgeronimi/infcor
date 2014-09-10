@@ -487,7 +487,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "infcor/INFCOR.temp_caseinsensitive_rename-Prefix.pch";
 				INFOPLIST_FILE = "infcor/INFCOR.temp_caseinsensitive_rename-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = INFCOR.temp_caseinsensitive_rename;
 				WRAPPER_EXTENSION = app;
 			};
@@ -501,7 +501,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "infcor/INFCOR.temp_caseinsensitive_rename-Prefix.pch";
 				INFOPLIST_FILE = "infcor/INFCOR.temp_caseinsensitive_rename-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = INFCOR.temp_caseinsensitive_rename;
 				WRAPPER_EXTENSION = app;
 			};
