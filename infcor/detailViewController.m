@@ -57,11 +57,11 @@
     if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    UIFont *fonte = [UIFont fontWithName:@"Sansation" size:17];
+    UIFont *fonte = [UIFont fontWithName:@"Klill" size:18];
     cell.textLabel.font = fonte;
     if ([self.detailRisultati valueForKey:self.params[@"dbb_query"][indexPath.row]]) {
-        UIFont *fonte= [UIFont fontWithName:@"Sansation" size:17];
-        UIFont *fonte20 = [UIFont fontWithName:@"Sansation" size:20];
+        UIFont *fonte= [UIFont fontWithName:@"Klill" size:18];
+        UIFont *fonte20 = [UIFont fontWithName:@"Klill" size:21];
         NSAttributedString *longDef=[[NSAttributedString alloc]initWithString:self.params[self.alangue][indexPath.row]  attributes:@{NSFontAttributeName:fonte20}];
         NSMutableAttributedString *leTexte = [[NSMutableAttributedString alloc] initWithAttributedString:longDef];
         NSString *mottu = [@"" stringByAppendingString:[self.detailRisultati valueForKey:self.params[@"dbb_query"][indexPath.row]]];
@@ -82,19 +82,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIFont *fonte= [UIFont fontWithName:@"Sansation" size:17];
-    UIFont *fonte20 = [UIFont fontWithName:@"Sansation" size:20];
+    UIFont *fonte= [UIFont fontWithName:@"Klill" size:18];
+    UIFont *fonte20 = [UIFont fontWithName:@"Klill" size:21];
     NSAttributedString *longDef=[[NSAttributedString alloc]initWithString:self.params[self.alangue][indexPath.row]  attributes:@{NSFontAttributeName:fonte20}];
     NSMutableAttributedString *leTexte = [[NSMutableAttributedString alloc] initWithAttributedString:longDef];
-    NSLog(@"indexpath %i et self.detailrisultati de indexpath : %@",indexPath.row,[self.detailRisultati valueForKey:self.params[@"dbb_query"][indexPath.row]]);
     NSString *mottu = [@"" stringByAppendingString:[self.detailRisultati valueForKey:self.params[@"dbb_query"][indexPath.row]]];
     NSAttributedString *leMot = [[NSAttributedString alloc] initWithString:mottu attributes:@{NSFontAttributeName:fonte}];
     [leTexte appendAttributedString:leMot];
-    CGSize maxCell = CGSizeMake(self.view.frame.size.width - 20, 9999);
+    CGSize maxCell = CGSizeMake(self.view.frame.size.width - 20, 99999);
     CGRect tailleCell = [leTexte boundingRectWithSize:maxCell
                                               options:NSStringDrawingUsesLineFragmentOrigin
                                               context:nil];
-    return MAX(20,tailleCell.size.height + 20);
+    return MAX(20,tailleCell.size.height + tailleCell.size.height / 15);
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -104,9 +103,7 @@
     }
     else{
         [self.params[@"dbb_query"] removeObject:@"id"];
-        [self.params[@"mot_francais"] removeObject:@"CORSU : "];}
-    NSLog(@"params a disappear %@",self.params);
-    
+        [self.params[@"mot_francais"] removeObject:@"CORSU : "];}    
 }
 
 @end

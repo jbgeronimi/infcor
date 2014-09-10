@@ -27,10 +27,8 @@
     NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php?mot=%@&langue=%@&param=%@", self.searchText, self.alangue,[self.params[@"dbb_query"] componentsJoinedByString:@" "] ];
     if([self.alangue isEqualToString:@"mot_francais"]){[self.params[@"dbb_query"] insertObject:@"id" atIndex:0 ];}
     cercaURL = [cercaURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    //    [risultatiVC setSearchURL:[NSURL URLWithString:cercaURL]];
     NSURL *cerca = [NSURL URLWithString:cercaURL];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:cerca];
-    NSLog(@"cerca : %@",cercaURL);
     // Requete synchrone
     NSData *theData = [NSURLConnection sendSynchronousRequest:request
                                             returningResponse:nil
@@ -40,7 +38,6 @@
                                                      options:NSJSONReadingAllowFragments
                                                        error:nil];
     self.title = self.searchText;
-    //   NSLog(@"JSON ligne 0 : %@",[self.risultati valueForKey:@"DEFINIZIONE"]);
     [self.afficheMotTableView reloadData];
     
 }
@@ -63,8 +60,6 @@
     self.afficheMotTableView.delegate = self;
     self.afficheMotTableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-//    [self.view addSubview:self.afficheMotTableView];
-//    [self afficheMot:self.alangue];
 }
 
 
@@ -96,8 +91,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     if ([self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]) {
-        UIFont *fonte= [UIFont fontWithName:@"Sansation" size:17];
-        UIFont *fonte20 = [UIFont fontWithName:@"Sansation" size:20];
+        UIFont *fonte= [UIFont fontWithName:@"Klill" size:18];
+        UIFont *fonte20 = [UIFont fontWithName:@"Klill" size:21];
         NSAttributedString *longDef=[[NSAttributedString alloc]initWithString:self.params[self.alangue][indexPath.row]  attributes:@{NSFontAttributeName:fonte20}];
         NSMutableAttributedString *leTexte = [[NSMutableAttributedString alloc] initWithAttributedString:longDef];
         NSString *mottu = [@"" stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]];
@@ -119,11 +114,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIFont *fonte= [UIFont fontWithName:@"Sansation" size:17];
-    UIFont *fonte20 = [UIFont fontWithName:@"Sansation" size:20];
+    UIFont *fonte= [UIFont fontWithName:@"Klill" size:18];
+    UIFont *fonte20 = [UIFont fontWithName:@"Klill" size:21];
     NSAttributedString *longDef=[[NSAttributedString alloc]initWithString:self.params[self.alangue][indexPath.row]  attributes:@{NSFontAttributeName:fonte20}];
     NSMutableAttributedString *leTexte = [[NSMutableAttributedString alloc] initWithAttributedString:longDef];
-        //      NSLog(@"kmjmjk : %@",[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row][0]]);
     NSString *mottu = [@"" stringByAppendingString:[self.risultati valueForKey:self.params[@"dbb_query"][indexPath.row]][0]];
     NSAttributedString *leMot = [[NSAttributedString alloc] initWithString:mottu attributes:@{NSFontAttributeName:fonte}];
     [leTexte appendAttributedString:leMot];
@@ -131,14 +125,13 @@
     CGRect tailleCell = [leTexte boundingRectWithSize:maxCell
                                               options:NSStringDrawingUsesLineFragmentOrigin
                                               context:nil];
-    return MAX(20,tailleCell.size.height + 20);
+    return MAX(20,tailleCell.size.height + tailleCell.size.height / 15);
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     if ([[self.params[@"dbb_query"] firstObject] isEqualToString:@"FRANCESE"]) {
             [self.params[@"dbb_query"] removeObject:@"FRANCESE"];
             [self.params[@"mot_corse"] removeObject:@"FRANCESE"];
-            NSLog(@"a enleve fcese");
     }
     else if ([[self.params[@"dbb_query"] firstObject] isEqualToString:@"id" ]) {
             [self.params[@"dbb_query"] removeObject:@"id"];

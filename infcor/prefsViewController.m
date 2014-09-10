@@ -84,35 +84,27 @@
     }
     UIFont *fonte= [UIFont fontWithName:@"klill" size:17];
     cell.textLabel.font = fonte;
-//    self.lindex = indexPath;
     cell.textLabel.text = self.allParams[self.alangue][indexPath.row];
-    NSLog(@"params : %@",self.allParams[self.alangue][indexPath.row]);
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
     cell.accessoryView = switchView;
     [switchView setTag:indexPath.row];
     [switchView setOn:[self.params[self.alangue] containsObject:self.allParams[self.alangue][indexPath.row]] animated:NO];
     [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
-//    NSLog(@"etat switch %hhd",switchView.isOn);
     return cell;
 }
 
 - (void) switchChanged:(id)sender {
     UISwitch* switchControl = sender;
     if(switchControl.isOn){
-//        NSLog(@"contient : %@", [self.params[self.alangue] containsObject:self.allParams[self.alangue][switchControl.tag]] ? @"oui": @"non");
-//        NSLog(@"a ajouter : %@",self.allParams[@"dbb_query"][switchControl.tag]);
         if (![self.params[self.alangue] containsObject:self.allParams[self.alangue][switchControl.tag]]){
-            NSLog(@"ajouté");
             [self.params[@"dbb_query"] addObject:self.allParams[@"dbb_query"][switchControl.tag]];
             [self.params[@"mot_corse"] addObject:self.allParams[@"mot_corse"][switchControl.tag]];
             [self.params[@"mot_francais"] addObject:self.allParams[@"mot_francais"][switchControl.tag]];
-            NSLog(@"params %@", self.params);
         }
     }
     if (!switchControl.isOn){
         if ([self.params[self.alangue] containsObject:self.allParams[self.alangue][switchControl.tag]]){
-        NSLog(@"efface");
         [self.params[@"dbb_query"] removeObject:self.allParams[@"dbb_query"][switchControl.tag]];
         [self.params[@"mot_corse"] removeObject:self.allParams[@"mot_corse"][switchControl.tag]];
         [self.params[@"mot_francais"] removeObject:self.allParams[@"mot_francais"][switchControl.tag]];
@@ -126,7 +118,6 @@
 
 - (IBAction) goodJob:(id)sender;
 {
-    NSLog(@" dbb_selct %@",self.params[@"dbb_query"]);
     ViewController *VC = [[ViewController alloc] init];
     VC.params = self.params;
     [self dismissViewControllerAnimated:YES completion:nil];

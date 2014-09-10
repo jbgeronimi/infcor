@@ -105,7 +105,7 @@
     
     //le bouton d'acces aux preferences
     UIButton *prefBouton = [UIButton buttonWithType:UIButtonTypeSystem] ;
-    prefBouton.tintColor = [UIColor colorWithWhite:.8 alpha:1];
+    prefBouton.tintColor = [UIColor colorWithWhite:.9 alpha:1];
     prefBouton.frame = CGRectMake(10, 20, 30, 30);
     UIImage *btn = [UIImage imageNamed:@"prefs.png"];
     [prefBouton setImage:btn forState:UIControlStateNormal];
@@ -172,7 +172,6 @@
                                                              error:nil];}
      self.suggest = json;
      [self.suggestTableView reloadData];
-     NSLog(@"Async JSON: %@", self.suggest);
      }];
 }
 

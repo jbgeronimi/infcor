@@ -48,7 +48,6 @@
                 [alert show];
             }
         }
-        NSLog(@"self risultati %@",self.risultati);
         // id : traduction du mot en corse, toujours présent au retour de la requete. On fait le choix d'imposer la traduction du mot recherché. id ne dois pas etre present pour la requete mot_francais mais apres
     }
     if(([self.alangue isEqualToString:@"mot_corse"]) && !([self.params[@"dbb_query"] containsObject:@"FRANCESE"])){
@@ -101,7 +100,6 @@
         contactViewController *contact = [[contactViewController alloc]init];
         NSString *txtContact = @"http://adecec.net/infcor/contact.php?mot=";
         txtContact = [txtContact stringByAppendingString:self.searchText];
-        NSLog(@"mot %@",txtContact);
         NSURLRequest *urlContact = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:txtContact]];
         contact.urlContact = urlContact;
         [self.navigationController pushViewController:contact animated:YES];
