@@ -124,7 +124,6 @@
     //le bouton d'effacement
     UIButton *effaceBouton= [UIButton buttonWithType:UIButtonTypeCustom];
     [effaceBouton setImage:[UIImage imageNamed:@"cancel.png"] forState:UIControlStateNormal];
-    //UIButton *effaceBouton = [UIButton buttonWithType:UIButtonTypeSystem];
     effaceBouton.frame = CGRectMake(0,0, 24, 20);
     [effaceBouton addTarget:self
                      action:@selector(clearTextField:)
@@ -236,7 +235,7 @@
     risultatiVC.title = self.searchText.text;
     risultatiVC.gio = self.gio;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    if (![risultatiVC.searchText isEqualToString:@""]){
+    if (risultatiVC.searchText.length > 1){
         [self.navigationController pushViewController:risultatiVC animated:YES];
     }
     [self.searchText resignFirstResponder];

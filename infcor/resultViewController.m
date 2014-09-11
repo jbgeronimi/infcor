@@ -38,7 +38,7 @@
             self.risultati = [NSJSONSerialization JSONObjectWithData:theData
                                                              options:0
                                                                error:nil];
-            //       [self.resultTableView reloadData];
+            NSLog(@"risultati %@",self.risultati);
             if (self.risultati.count == 0){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pas de Résultat"
                                                                 message:@"la banque INFCOR n'a pas de réponse à proposer a votre requete"
@@ -86,7 +86,7 @@
         [self.params[@"mot_corse"] insertObject:@"FRANCESE" atIndex:0];
     }
     //cas du mot_francais : id(CORSU) est ajouté apres, dans view did appear
-    NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/traitement.php?mot=%@&langue=%@&param=%@", self.searchText, self.alangue,[self.params[@"dbb_query"] componentsJoinedByString:@" "] ];
+    NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/debut.php?mot=%@&langue=%@&param=%@", self.searchText, self.alangue,[self.params[@"dbb_query"] componentsJoinedByString:@" "] ];
     cercaURL = [cercaURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //    [risultatiVC setSearchURL:[NSURL URLWithString:cercaURL]];
     self.searchURL = [NSURL URLWithString:cercaURL];

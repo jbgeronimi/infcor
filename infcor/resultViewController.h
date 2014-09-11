@@ -16,5 +16,6 @@
 @property (strong, nonatomic) NSDictionary *params;
 @property (strong,nonatomic) NSURL *searchURL;
 @property (strong,nonatomic) UIFont *gio;
+@property UIActivityIndicatorView *spinner;
 
 @end
