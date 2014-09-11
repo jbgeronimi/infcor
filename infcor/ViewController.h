@@ -20,5 +20,5 @@
 @property  NSDictionary *params;
 @property (assign,nonatomic) NSUInteger lindex;
 @property (strong,nonatomic) UIFont *gio;
-
+@property NSDictionary *defText;
 @end

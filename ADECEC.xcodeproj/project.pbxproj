@@ -66,23 +66,23 @@
 		16C3B82D198A3AAF000322E8 /* Giorgio-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Giorgio-Thin.ttf"; sourceTree = "<group>"; };
 		16C3B82E198A3AAF000322E8 /* Giorgio.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Giorgio.ttf; sourceTree = "<group>"; };
 		16C3B831198A3B86000322E8 /* montre fonts */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "montre fonts"; sourceTree = "<group>"; };
-		16F7566C19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = INFCOR.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16F7566C19814EA200CF9F80 /* ADECEC.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADECEC.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F7566F19814EA200CF9F80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		16F7567119814EA200CF9F80 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		16F7567319814EA200CF9F80 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		16F7567719814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "INFCOR.temp_caseinsensitive_rename-Info.plist"; sourceTree = "<group>"; };
+		16F7567719814EA200CF9F80 /* ADECEC.temp_caseinsensitive_rename-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ADECEC.temp_caseinsensitive_rename-Info.plist"; sourceTree = "<group>"; };
 		16F7567919814EA200CF9F80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16F7567B19814EA200CF9F80 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		16F7567D19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "INFCOR.temp_caseinsensitive_rename-Prefix.pch"; sourceTree = "<group>"; };
+		16F7567D19814EA200CF9F80 /* ADECEC.temp_caseinsensitive_rename-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADECEC.temp_caseinsensitive_rename-Prefix.pch"; sourceTree = "<group>"; };
 		16F7567E19814EA200CF9F80 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		16F7567F19814EA200CF9F80 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		16F7568219814EA200CF9F80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16F7568419814EA200CF9F80 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		16F7568519814EA200CF9F80 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		16F7568719814EA200CF9F80 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		16F7568D19814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = INFCOR.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16F7568D19814EA300CF9F80 /* ADECEC.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ADECEC.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F7568E19814EA300CF9F80 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		16F7569619814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "INFCOR.temp_caseinsensitive_renameTests-Info.plist"; sourceTree = "<group>"; };
+		16F7569619814EA300CF9F80 /* ADECEC.temp_caseinsensitive_renameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ADECEC.temp_caseinsensitive_renameTests-Info.plist"; sourceTree = "<group>"; };
 		16F7569819814EA300CF9F80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16F7569A19814EA300CF9F80 /* infcorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = infcorTests.m; sourceTree = "<group>"; };
 		16F756A51981990F00CF9F80 /* prefsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefsViewController.h; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 		16F7566D19814EA200CF9F80 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				16F7566C19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename.app */,
-				16F7568D19814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests.xctest */,
+				16F7566C19814EA200CF9F80 /* ADECEC.temp_caseinsensitive_rename.app */,
+				16F7568D19814EA300CF9F80 /* ADECEC.temp_caseinsensitive_renameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,10 +182,10 @@
 				16C3B82E198A3AAF000322E8 /* Giorgio.ttf */,
 				16C3B82B198A353E000322E8 /* CODE Light.otf */,
 				16C3B829198A352B000322E8 /* CODE Bold.otf */,
-				16F7567719814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename-Info.plist */,
+				16F7567719814EA200CF9F80 /* ADECEC.temp_caseinsensitive_rename-Info.plist */,
 				16F7567819814EA200CF9F80 /* InfoPlist.strings */,
 				16F7567B19814EA200CF9F80 /* main.m */,
-				16F7567D19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename-Prefix.pch */,
+				16F7567D19814EA200CF9F80 /* ADECEC.temp_caseinsensitive_rename-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -202,7 +202,7 @@
 		16F7569519814EA300CF9F80 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				16F7569619814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests-Info.plist */,
+				16F7569619814EA300CF9F80 /* ADECEC.temp_caseinsensitive_renameTests-Info.plist */,
 				16F7569719814EA300CF9F80 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -248,9 +248,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		16F7566B19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename */ = {
+		16F7566B19814EA200CF9F80 /* ADECEC.temp_caseinsensitive_rename */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 16F7569E19814EA300CF9F80 /* Build configuration list for PBXNativeTarget "INFCOR.temp_caseinsensitive_rename" */;
+			buildConfigurationList = 16F7569E19814EA300CF9F80 /* Build configuration list for PBXNativeTarget "ADECEC.temp_caseinsensitive_rename" */;
 			buildPhases = (
 				16F7566819814EA200CF9F80 /* Sources */,
 				16F7566919814EA200CF9F80 /* Frameworks */,
@@ -260,14 +260,14 @@
 			);
 			dependencies = (
 			);
-			name = INFCOR.temp_caseinsensitive_rename;
+			name = ADECEC.temp_caseinsensitive_rename;
 			productName = infcor;
-			productReference = 16F7566C19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename.app */;
+			productReference = 16F7566C19814EA200CF9F80 /* ADECEC.temp_caseinsensitive_rename.app */;
 			productType = "com.apple.product-type.application";
 		};
-		16F7568C19814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests */ = {
+		16F7568C19814EA300CF9F80 /* ADECEC.temp_caseinsensitive_renameTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 16F756A119814EA300CF9F80 /* Build configuration list for PBXNativeTarget "INFCOR.temp_caseinsensitive_renameTests" */;
+			buildConfigurationList = 16F756A119814EA300CF9F80 /* Build configuration list for PBXNativeTarget "ADECEC.temp_caseinsensitive_renameTests" */;
 			buildPhases = (
 				16F7568919814EA300CF9F80 /* Sources */,
 				16F7568A19814EA300CF9F80 /* Frameworks */,
@@ -278,9 +278,9 @@
 			dependencies = (
 				16F7569319814EA300CF9F80 /* PBXTargetDependency */,
 			);
-			name = INFCOR.temp_caseinsensitive_renameTests;
+			name = ADECEC.temp_caseinsensitive_renameTests;
 			productName = infcorTests;
-			productReference = 16F7568D19814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests.xctest */;
+			productReference = 16F7568D19814EA300CF9F80 /* ADECEC.temp_caseinsensitive_renameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -292,12 +292,15 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "___calasoc___";
 				TargetAttributes = {
+					16F7566B19814EA200CF9F80 = {
+						DevelopmentTeam = G26K4W8KP9;
+					};
 					16F7568C19814EA300CF9F80 = {
 						TestTargetID = 16F7566B19814EA200CF9F80;
 					};
 				};
 			};
-			buildConfigurationList = 16F7566719814EA200CF9F80 /* Build configuration list for PBXProject "INFCOR" */;
+			buildConfigurationList = 16F7566719814EA200CF9F80 /* Build configuration list for PBXProject "ADECEC" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -310,8 +313,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				16F7566B19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename */,
-				16F7568C19814EA300CF9F80 /* INFCOR.temp_caseinsensitive_renameTests */,
+				16F7566B19814EA200CF9F80 /* ADECEC.temp_caseinsensitive_rename */,
+				16F7568C19814EA300CF9F80 /* ADECEC.temp_caseinsensitive_renameTests */,
 			);
 		};
 /* End PBXProject section */
@@ -376,7 +379,7 @@
 /* Begin PBXTargetDependency section */
 		16F7569319814EA300CF9F80 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 16F7566B19814EA200CF9F80 /* INFCOR.temp_caseinsensitive_rename */;
+			target = 16F7566B19814EA200CF9F80 /* ADECEC.temp_caseinsensitive_rename */;
 			targetProxy = 16F7569219814EA300CF9F80 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -441,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -473,7 +476,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -484,11 +487,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: jacques paoli (G26K4W8KP9)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "infcor/INFCOR.temp_caseinsensitive_rename-Prefix.pch";
-				INFOPLIST_FILE = "infcor/INFCOR.temp_caseinsensitive_rename-Info.plist";
+				GCC_PREFIX_HEADER = "infcor/ADECEC.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "infcor/ADECEC.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = INFCOR.temp_caseinsensitive_rename;
+				PRODUCT_NAME = ADECEC.temp_caseinsensitive_rename;
+				PROVISIONING_PROFILE = "fd415dcf-2a4f-4e45-ae74-7ace6aa42784";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -498,11 +503,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: jacques paoli (G26K4W8KP9)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "infcor/INFCOR.temp_caseinsensitive_rename-Prefix.pch";
-				INFOPLIST_FILE = "infcor/INFCOR.temp_caseinsensitive_rename-Info.plist";
+				GCC_PREFIX_HEADER = "infcor/ADECEC.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "infcor/ADECEC.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = INFCOR.temp_caseinsensitive_rename;
+				PRODUCT_NAME = ADECEC.temp_caseinsensitive_rename;
+				PROVISIONING_PROFILE = "fd415dcf-2a4f-4e45-ae74-7ace6aa42784";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -522,8 +529,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "infcorTests/INFCOR.temp_caseinsensitive_renameTests-Info.plist";
-				PRODUCT_NAME = INFCOR.temp_caseinsensitive_renameTests;
+				INFOPLIST_FILE = "infcorTests/ADECEC.temp_caseinsensitive_renameTests-Info.plist";
+				PRODUCT_NAME = ADECEC.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -540,8 +547,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "infcor/infcor-Prefix.pch";
-				INFOPLIST_FILE = "infcorTests/INFCOR.temp_caseinsensitive_renameTests-Info.plist";
-				PRODUCT_NAME = INFCOR.temp_caseinsensitive_renameTests;
+				INFOPLIST_FILE = "infcorTests/ADECEC.temp_caseinsensitive_renameTests-Info.plist";
+				PRODUCT_NAME = ADECEC.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -550,7 +557,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		16F7566719814EA200CF9F80 /* Build configuration list for PBXProject "INFCOR" */ = {
+		16F7566719814EA200CF9F80 /* Build configuration list for PBXProject "ADECEC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16F7569C19814EA300CF9F80 /* Debug */,
@@ -559,7 +566,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		16F7569E19814EA300CF9F80 /* Build configuration list for PBXNativeTarget "INFCOR.temp_caseinsensitive_rename" */ = {
+		16F7569E19814EA300CF9F80 /* Build configuration list for PBXNativeTarget "ADECEC.temp_caseinsensitive_rename" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16F7569F19814EA300CF9F80 /* Debug */,
@@ -568,7 +575,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		16F756A119814EA300CF9F80 /* Build configuration list for PBXNativeTarget "INFCOR.temp_caseinsensitive_renameTests" */ = {
+		16F756A119814EA300CF9F80 /* Build configuration list for PBXNativeTarget "ADECEC.temp_caseinsensitive_renameTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16F756A219814EA300CF9F80 /* Debug */,

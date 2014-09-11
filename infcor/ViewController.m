@@ -114,12 +114,17 @@
          forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:prefBouton];
     
-    //la zone de saisie du texte et son bouton d'effacement
+    //la zone de saisie du texte, le texte par defaut  et son bouton d'effacement
     self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 66, self.view.frame.size.width - 60, 35)];
+    [self.searchText becomeFirstResponder];
+    //le texte par defaut
+   // self.searchText.placeholder = [self.defText valueForKey:self.alangue];
+    self.searchText.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[self.defText valueForKey:self.alangue] attributes:@{NSForegroundColorAttributeName:[UIColor colorWithWhite:1 alpha:0.7]}];
     [self.searchText setBorderStyle:UITextBorderStyleRoundedRect];
     //le bouton d'effacement
     UIButton *effaceBouton= [UIButton buttonWithType:UIButtonTypeCustom];
     [effaceBouton setImage:[UIImage imageNamed:@"cancel.png"] forState:UIControlStateNormal];
+    //UIButton *effaceBouton = [UIButton buttonWithType:UIButtonTypeSystem];
     effaceBouton.frame = CGRectMake(0,0, 24, 20);
     [effaceBouton addTarget:self
                      action:@selector(clearTextField:)
@@ -261,6 +266,7 @@
             [self.primu setTitle:@"Corsu \u21c4 Francese" forState:UIControlStateNormal];
             self.alangue = @"mot_corse";
     }
+    self.searchText.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[self.defText valueForKey:self.alangue] attributes:@{NSForegroundColorAttributeName:[UIColor colorWithWhite:1 alpha:0.7]}];
 }
 
 - (void)setDefaultValuesForVariables
@@ -282,6 +288,7 @@
                     @"mot_corse":corsu,
                     @"mot_francais" : fcese};
     self.lindex = 0;
+    self.defText = @{@"mot_corse":@"a parolla à traduce",@"mot_francais":@"tapez le mot à traduire"};
 }
 
 - (void) dealloc {

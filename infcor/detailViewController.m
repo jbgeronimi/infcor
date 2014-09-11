@@ -93,7 +93,7 @@
     CGRect tailleCell = [leTexte boundingRectWithSize:maxCell
                                               options:NSStringDrawingUsesLineFragmentOrigin
                                               context:nil];
-    return MAX(20,tailleCell.size.height + tailleCell.size.height / 15);
+    return tailleCell.size.height + MAX(15,tailleCell.size.height / 20);
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
