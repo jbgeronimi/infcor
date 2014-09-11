@@ -54,6 +54,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES];
+    [self.searchText becomeFirstResponder];
     //En fonction du contexte de langue il faut modifier les matrices dbb_query, mot_corse et mot_francais pour avoir l'affichage de la traduction voulue
     if(([self.alangue isEqualToString:@"mot_corse"]) && ([self.params[@"dbb_query"] containsObject:@"FRANCESE"])){
         [self.params[@"dbb_query"] removeObject:@"FRANCESE"];
@@ -116,7 +117,6 @@
     
     //la zone de saisie du texte, le texte par defaut  et son bouton d'effacement
     self.searchText = [[UITextField alloc] initWithFrame:CGRectMake(30, 66, self.view.frame.size.width - 60, 35)];
-    [self.searchText becomeFirstResponder];
     //le texte par defaut
    // self.searchText.placeholder = [self.defText valueForKey:self.alangue];
     self.searchText.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[self.defText valueForKey:self.alangue] attributes:@{NSForegroundColorAttributeName:[UIColor colorWithWhite:1 alpha:0.7]}];
