@@ -19,37 +19,16 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.searchURL];
-    //    [self.resultTableView reloadData];
-    // Requete synchrone
-    if(!self.risultati){
-        NSData *theData = [NSURLConnection sendSynchronousRequest:request
-                                                returningResponse:nil
-                                                            error:nil];
-        // Si pas de résultats, affichage d'un msg d'erreur
-        if (!theData) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pas de Connexion"
-                                                            message:@"la banque INFCOR a besoin de se connecter à internet. Verifiez votre connexion"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-        }else {
-            self.risultati = [NSJSONSerialization JSONObjectWithData:theData
-                                                             options:0
-                                                               error:nil];
-            NSLog(@"risultati %@",self.risultati);
-            if (self.risultati.count == 0){
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pas de Résultat"
-                                                                message:@"la banque INFCOR n'a pas de réponse à proposer a votre requete"
-                                                               delegate:self
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:@"contacter l'ADECEC", nil];
-                [alert show];
-            }
-        }
-        // id : traduction du mot en corse, toujours présent au retour de la requete. On fait le choix d'imposer la traduction du mot recherché. id ne dois pas etre present pour la requete mot_francais mais apres
-    }
+//Ajout d'un spinner d'attente
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.spinner.frame = [[UIScreen mainScreen] bounds];
+    self.spinner.center = CGPointMake( self.view.frame.size.width /2,(self.view.frame.size.height / 2) - 64);
+    self.spinner.color = [UIColor blackColor];
+    [self.spinner startAnimating];
+    [self.view addSubview:self.spinner];
+    
+    // id : traduction du mot en corse, toujours présent au retour de la requete. On fait le choix d'imposer la traduction du mot recherché. id ne dois pas etre present pour la requete mot_francais mais apres
     if(([self.alangue isEqualToString:@"mot_corse"]) && !([self.params[@"dbb_query"] containsObject:@"FRANCESE"])){
         [self.params[@"dbb_query"] insertObject:@"FRANCESE" atIndex:0];
         [self.params[@"mot_corse"] insertObject:@"FRANCESE" atIndex:0];
@@ -57,7 +36,8 @@
         [self.params[@"dbb_query"] insertObject:@"id" atIndex:0 ];
         [self.params[@"mot_francais"] insertObject:@"CORSU : " atIndex:0];
     }
-    [self.resultTableView reloadData];
+ 
+   // [self.resultTableView reloadData];
 }
 
 
@@ -73,9 +53,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.resultTableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 640) style:UITableViewStylePlain];
+    self.resultTableView=[[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
     self.resultTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.resultTableView.delegate = self;
     self.resultTableView.dataSource = self;
@@ -88,8 +67,35 @@
     //cas du mot_francais : id(CORSU) est ajouté apres, dans view did appear
     NSString *cercaURL = [NSString stringWithFormat:@"http://adecec.net/infcor/try/debut.php?mot=%@&langue=%@&param=%@", self.searchText, self.alangue,[self.params[@"dbb_query"] componentsJoinedByString:@" "] ];
     cercaURL = [cercaURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    //    [risultatiVC setSearchURL:[NSURL URLWithString:cercaURL]];
+//Connection à la base en mode asynchrone : utilisation de didReceiveresponse,didReceiveData,willCacheResponse,connectionDidFinishLoading
     self.searchURL = [NSURL URLWithString:cercaURL];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.searchURL];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
+ }
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    _responseData = [[NSMutableData alloc]init];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    [_responseData appendData:data];
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    NSMutableArray *json = [NSJSONSerialization JSONObjectWithData:_responseData
+                                                           options:0
+                                                             error:nil];
+    self.risultati = json;
+    [self.tableView reloadData];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [self.spinner stopAnimating];
 }
 
 -(void)alertView:(UIAlertView *)alarm clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -106,9 +112,15 @@
     }
 }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"count %lu",(unsigned long)self.risultati.count);
+    NSLog(@"data source %@",self.resultTableView.dataSource);
     return self.risultati.count;
 }
 
@@ -142,8 +154,8 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated{
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [self.resultTableView reloadData];
+
 //    [super viewDidAppear:animated];
 }
 

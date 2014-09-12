@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface resultViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
+@interface resultViewController : UITableViewController<NSURLConnectionDelegate,UITableViewDelegate,UITableViewDataSource>{
+    NSMutableData *_responseData;
+}
 @property (strong,nonatomic) UITableView *resultTableView;
 @property (strong,nonatomic) NSArray *risultati;
 @property (strong, nonatomic) NSString *alangue;
