@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "langue.h"
 
 
 @interface prefsViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>

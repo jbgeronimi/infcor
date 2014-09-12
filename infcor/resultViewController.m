@@ -37,7 +37,6 @@
         [self.params[@"mot_francais"] insertObject:@"CORSU : " atIndex:0];
     }
  
-   // [self.resultTableView reloadData];
 }
 
 
@@ -119,8 +118,6 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"count %lu",(unsigned long)self.risultati.count);
-    NSLog(@"data source %@",self.resultTableView.dataSource);
     return self.risultati.count;
 }
 

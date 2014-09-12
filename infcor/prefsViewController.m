@@ -112,7 +112,6 @@
     }
     if(switchControl.on){
     }
-   // NSLog( @"The switch is %@", switchControl.on ? @"ON" : @"OFF" );
     
 }
 
