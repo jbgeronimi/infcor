@@ -93,7 +93,7 @@
     self.alangue = @"mot_corse";
     //corsu - francese ou  francais-corse
     self.primu = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.primu.frame = CGRectMake(70,23, self.view.frame.size.width - 140, 41);
+    self.primu.frame = CGRectMake(70,22, self.view.frame.size.width - 140, 41);
     [self.primu.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [self.primu.titleLabel setFont:titre];
     self.primu.tintColor = [UIColor colorWithWhite:1 alpha:1];
@@ -107,7 +107,7 @@
     //le bouton d'acces aux preferences
     UIButton *prefBouton = [UIButton buttonWithType:UIButtonTypeSystem] ;
     prefBouton.tintColor = [UIColor colorWithWhite:.9 alpha:1];
-    prefBouton.frame = CGRectMake(10, 20, 30, 30);
+    prefBouton.frame = CGRectMake(10, 22, 30, 30);
     UIImage *btn = [UIImage imageNamed:@"prefs.png"];
     [prefBouton setImage:btn forState:UIControlStateNormal];
     [prefBouton addTarget:self

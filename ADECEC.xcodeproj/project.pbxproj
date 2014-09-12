@@ -428,6 +428,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: jacques paoli (JR79H5NA9U)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -447,6 +448,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -466,6 +468,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: jacques paoli (JR79H5NA9U)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -477,6 +480,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -494,7 +498,7 @@
 				INFOPLIST_FILE = "infcor/ADECEC.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = ADECEC.temp_caseinsensitive_rename;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a68c95ed-db1a-4661-9158-c6b16c5bcd05";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -511,7 +515,7 @@
 				INFOPLIST_FILE = "infcor/ADECEC.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = ADECEC.temp_caseinsensitive_rename;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a68c95ed-db1a-4661-9158-c6b16c5bcd05";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

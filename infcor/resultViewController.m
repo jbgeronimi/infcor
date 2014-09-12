@@ -25,7 +25,8 @@
     self.spinner.frame = [[UIScreen mainScreen] bounds];
     self.spinner.center = CGPointMake( self.view.frame.size.width /2,(self.view.frame.size.height / 2) - 64);
     self.spinner.color = [UIColor blackColor];
-    [self.spinner startAnimating];
+    self.spinner.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+   [self.spinner startAnimating];
     [self.view addSubview:self.spinner];
     
     // id : traduction du mot en corse, toujours présent au retour de la requete. On fait le choix d'imposer la traduction du mot recherché. id ne dois pas etre present pour la requete mot_francais mais apres
@@ -54,7 +55,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.resultTableView=[[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
-    self.resultTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.resultTableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     self.resultTableView.delegate = self;
     self.resultTableView.dataSource = self;
     self.resultTableView.separatorStyle = UITableViewCellSelectionStyleNone;
@@ -152,7 +153,9 @@
 
 -(void) viewDidAppear:(BOOL)animated{
     [self.resultTableView reloadData];
-
+    if(self.risultati){
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [self.spinner stopAnimating];}
 //    [super viewDidAppear:animated];
 }
 

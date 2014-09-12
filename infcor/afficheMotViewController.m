@@ -58,16 +58,6 @@
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:cerca];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [connection start];
-    // Requete synchrone
-/*    NSData *theData = [NSURLConnection sendSynchronousRequest:request
-                                            returningResponse:nil
-                                                        error:nil];
-    
-    self.risultati = [NSJSONSerialization JSONObjectWithData:theData
-                                                     options:NSJSONReadingAllowFragments
-                                                       error:nil];
-    self.title = self.searchText;
-    [self.afficheMotTableView reloadData];*/
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
