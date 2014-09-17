@@ -51,10 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		160B5FBF19B7369100861E6B /* Klill-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Klill-Light.ttf"; path = "../../../../../../GFO/200705/Fontes/klill/Klill-Light.ttf"; sourceTree = "<group>"; };
+		160B5FBF19B7369100861E6B /* Klill-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Klill-Light.ttf"; path = "../../../bulk/klill/Klill-Light.ttf"; sourceTree = "<group>"; };
 		162A0D9319B351F9007C894B /* contactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contactViewController.h; sourceTree = "<group>"; };
 		162A0D9419B351F9007C894B /* contactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contactViewController.m; sourceTree = "<group>"; };
-		162A0D9619B5C204007C894B /* Sansation_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sansation_Regular.ttf; path = ../../../../../../Calasoc/200909Campusplex/Sansation_Regular.ttf; sourceTree = "<group>"; };
+		162A0D9619B5C204007C894B /* Sansation_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sansation_Regular.ttf; path = ../../../bulk/Sansation_Regular.ttf; sourceTree = "<group>"; };
 		164D421219AA20810017F82B /* detailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailViewController.h; sourceTree = "<group>"; };
 		164D421319AA20810017F82B /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
 		166E21D5199FB37800640F55 /* afficheMotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afficheMotViewController.h; sourceTree = "<group>"; };
