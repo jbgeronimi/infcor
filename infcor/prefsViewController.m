@@ -34,17 +34,18 @@
 {
     [super viewDidLoad];
     self.allParams = @{
-        @"dbb_query":@[@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTESD",@"SINONIMI",@"ANTONIMI",@"DERIVADICOMPOSTI",@"SPRESSIONIEPRUVERBII",@"ANALUGIE",@"CITAZIONIDAAUTORI",@"BIBLIOGRAFIA",@"INDICE"],
-        @"mot_corse": @[@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTE",@"SINONIMI",@"ANTONIMI",@"DERIVATI COMPOSTI",@"SPRESSIONI E PRUVERBII",@"ANALUGIE",@"CITAZIONI DA AUTORI",@"BIBLIOGRAFIA",@"INDICE"],
-    @"mot_francais" : @[@"ITALIEN",@"ANGLAIS",@"GENRE",@"PRONONCIATION",@"DEFINITION EN CORSE",@"ETYMOLOGIE",@"GRAMMAIRE",@"VARIANTES GRAPHIQUES",@"SYNONYMES",@"ANTONYMES",@"DERIVES COMPOSES",@"EXPRESSIONS ET PROVERBES",@"ANALOGIES",@"CITATIONS D'AUTEURS",@"BIBLIOGRAPHIE",@"INDICE"]
-                    };
-// un tableau avec tous les elements de params
+                       @"dbb_query":@[@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTESD",@"SINONIMI",@"ANTONIMI",@"DERIVADICOMPOSTI",@"SPRESSIONIEPRUVERBII",@"ANALUGIE",@"CITAZIONIDAAUTORI",@"BIBLIOGRAFIA",@"INDICE"],
+                       @"affiche_mot":@[@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTESD",@"SINONIMI",@"ANTONIMI",@"DERIVADICOMPOSTI",@"SPRESSIONIEPRUVERBII",@"ANALUGIE",@"CITAZIONIDAAUTORI",@"BIBLIOGRAFIA",@"INDICE"],
+                       @"mot_corse": @[@"TALIANU",@"INGLESE",@"NATURA",@"PRUNUNCIA",@"DEFINIZIONE",@"ETIMULUGIA",@"GRAMMATICA",@"VARIANTE",@"SINONIMI",@"ANTONIMI",@"DERIVATI COMPOSTI",@"SPRESSIONI E PRUVERBII",@"ANALUGIE",@"CITAZIONI DA AUTORI",@"BIBLIOGRAFIA",@"INDICE"],
+                       @"mot_francais" : @[@"ITALIEN",@"ANGLAIS",@"GENRE",@"PRONONCIATION",@"DEFINITION EN CORSE",@"ETYMOLOGIE",@"GRAMMAIRE",@"VARIANTES GRAPHIQUES",@"SYNONYMES",@"ANTONYMES",@"DERIVES COMPOSES",@"EXPRESSIONS ET PROVERBES",@"ANALOGIES",@"CITATIONS D'AUTEURS",@"BIBLIOGRAPHIE",@"INDICE"]
+                       };
+    // un tableau avec tous les elements de params
     self.afficheParams=[[UITableView alloc] init];
     self.afficheParams.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.afficheParams.delegate = self;
     self.afficheParams.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    self.tableView.sectionFooterHeight = 12;
+    self.tableView.sectionFooterHeight = 16;
     self.tableView.rowHeight = 35;
     if (self.modalPresentationStyle == UIModalPresentationCustom) {
         
@@ -53,7 +54,7 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     /*self.view.layer.borderColor = [UIColor blackColor].CGColor;
-    self.view.layer.borderWidth = 2.0f;*/
+     self.view.layer.borderWidth = 2.0f;*/
     UIButton *vabe = [UIButton buttonWithType:UIButtonTypeSystem];
     vabe.backgroundColor = [UIColor whiteColor];
     vabe.tintColor = [UIColor blackColor];
@@ -99,15 +100,17 @@
     if(switchControl.isOn){
         if (![self.params[self.alangue] containsObject:self.allParams[self.alangue][switchControl.tag]]){
             [self.params[@"dbb_query"] addObject:self.allParams[@"dbb_query"][switchControl.tag]];
+            [self.params[@"affiche_mot"] addObject:self.allParams[@"affiche_mot"][switchControl.tag]];
             [self.params[@"mot_corse"] addObject:self.allParams[@"mot_corse"][switchControl.tag]];
             [self.params[@"mot_francais"] addObject:self.allParams[@"mot_francais"][switchControl.tag]];
         }
     }
     if (!switchControl.isOn){
         if ([self.params[self.alangue] containsObject:self.allParams[self.alangue][switchControl.tag]]){
-        [self.params[@"dbb_query"] removeObject:self.allParams[@"dbb_query"][switchControl.tag]];
-        [self.params[@"mot_corse"] removeObject:self.allParams[@"mot_corse"][switchControl.tag]];
-        [self.params[@"mot_francais"] removeObject:self.allParams[@"mot_francais"][switchControl.tag]];
+            [self.params[@"dbb_query"] removeObject:self.allParams[@"dbb_query"][switchControl.tag]];
+            [self.params[@"affiche_mot"] removeObject:self.allParams[@"affiche_mot"][switchControl.tag]];
+            [self.params[@"mot_corse"] removeObject:self.allParams[@"mot_corse"][switchControl.tag]];
+            [self.params[@"mot_francais"] removeObject:self.allParams[@"mot_francais"][switchControl.tag]];
         }
     }
     if(switchControl.on){

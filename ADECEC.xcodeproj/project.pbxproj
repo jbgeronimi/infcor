@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		160B5FC019B7369100861E6B /* Klill-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 160B5FBF19B7369100861E6B /* Klill-Light.ttf */; };
 		162A0D9519B351F9007C894B /* contactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 162A0D9419B351F9007C894B /* contactViewController.m */; };
-		162A0D9719B5C204007C894B /* Sansation_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 162A0D9619B5C204007C894B /* Sansation_Regular.ttf */; };
 		164D421419AA20810017F82B /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164D421319AA20810017F82B /* detailViewController.m */; };
 		166E21D7199FB37800640F55 /* afficheMotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166E21D6199FB37800640F55 /* afficheMotViewController.m */; };
 		167DA2AF19B9018400CC9F1C /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167DA2AE19B9018400CC9F1C /* iAd.framework */; };
@@ -38,6 +36,10 @@
 		16F756AF19819B1100CF9F80 /* SideTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F756AD19819B1100CF9F80 /* SideTransition.m */; };
 		16FC7C1F1982522500CE1C0F /* langue.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FC7C1E1982522500CE1C0F /* langue.m */; };
 		16FC7C261984101500CE1C0F /* resultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FC7C251984101500CE1C0F /* resultViewController.m */; };
+		66DA353819C978DE0046062F /* Klill-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66DA353719C978DE0046062F /* Klill-Light.ttf */; };
+		66DA353919C978DE0046062F /* Klill-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66DA353719C978DE0046062F /* Klill-Light.ttf */; };
+		66DA353B19C978F20046062F /* Sansation_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66DA353A19C978F20046062F /* Sansation_Regular.ttf */; };
+		66DA353C19C978F20046062F /* Sansation_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66DA353A19C978F20046062F /* Sansation_Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		160B5FBF19B7369100861E6B /* Klill-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Klill-Light.ttf"; path = "../../../bulk/klill/Klill-Light.ttf"; sourceTree = "<group>"; };
 		162A0D9319B351F9007C894B /* contactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contactViewController.h; sourceTree = "<group>"; };
 		162A0D9419B351F9007C894B /* contactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contactViewController.m; sourceTree = "<group>"; };
-		162A0D9619B5C204007C894B /* Sansation_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sansation_Regular.ttf; path = ../../../bulk/Sansation_Regular.ttf; sourceTree = "<group>"; };
 		164D421219AA20810017F82B /* detailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailViewController.h; sourceTree = "<group>"; };
 		164D421319AA20810017F82B /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
 		166E21D5199FB37800640F55 /* afficheMotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = afficheMotViewController.h; sourceTree = "<group>"; };
@@ -95,6 +95,8 @@
 		16FC7C1E1982522500CE1C0F /* langue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = langue.m; sourceTree = "<group>"; };
 		16FC7C241984101500CE1C0F /* resultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resultViewController.h; sourceTree = "<group>"; };
 		16FC7C251984101500CE1C0F /* resultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = resultViewController.m; sourceTree = "<group>"; };
+		66DA353719C978DE0046062F /* Klill-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Klill-Light.ttf"; path = "../../klill/Klill-Light.ttf"; sourceTree = "<group>"; };
+		66DA353A19C978F20046062F /* Sansation_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sansation_Regular.ttf; path = ../../sansation/Sansation_Regular.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,11 +177,11 @@
 		16F7567619814EA200CF9F80 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				160B5FBF19B7369100861E6B /* Klill-Light.ttf */,
-				162A0D9619B5C204007C894B /* Sansation_Regular.ttf */,
 				16C3B831198A3B86000322E8 /* montre fonts */,
+				66DA353719C978DE0046062F /* Klill-Light.ttf */,
 				16C3B82D198A3AAF000322E8 /* Giorgio-Thin.ttf */,
 				16C3B82E198A3AAF000322E8 /* Giorgio.ttf */,
+				66DA353A19C978F20046062F /* Sansation_Regular.ttf */,
 				16C3B82B198A353E000322E8 /* CODE Light.otf */,
 				16C3B829198A352B000322E8 /* CODE Bold.otf */,
 				16F7567719814EA200CF9F80 /* ADECEC.temp_caseinsensitive_rename-Info.plist */,
@@ -326,13 +328,13 @@
 			files = (
 				16C3B830198A3AAF000322E8 /* Giorgio.ttf in Resources */,
 				16C3B82A198A352B000322E8 /* CODE Bold.otf in Resources */,
-				160B5FC019B7369100861E6B /* Klill-Light.ttf in Resources */,
+				66DA353819C978DE0046062F /* Klill-Light.ttf in Resources */,
 				16F7568819814EA200CF9F80 /* Images.xcassets in Resources */,
 				16C3B832198A3B86000322E8 /* montre fonts in Resources */,
 				16C3B82F198A3AAF000322E8 /* Giorgio-Thin.ttf in Resources */,
+				66DA353B19C978F20046062F /* Sansation_Regular.ttf in Resources */,
 				16F7567A19814EA200CF9F80 /* InfoPlist.strings in Resources */,
 				16F7568319814EA200CF9F80 /* Main.storyboard in Resources */,
-				162A0D9719B5C204007C894B /* Sansation_Regular.ttf in Resources */,
 				16C3B82C198A353E000322E8 /* CODE Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +343,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66DA353919C978DE0046062F /* Klill-Light.ttf in Resources */,
+				66DA353C19C978F20046062F /* Sansation_Regular.ttf in Resources */,
 				16F7569919814EA300CF9F80 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,7 +502,7 @@
 				INFOPLIST_FILE = "infcor/ADECEC.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = ADECEC.temp_caseinsensitive_rename;
-				PROVISIONING_PROFILE = "a68c95ed-db1a-4661-9158-c6b16c5bcd05";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -515,7 +519,7 @@
 				INFOPLIST_FILE = "infcor/ADECEC.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = ADECEC.temp_caseinsensitive_rename;
-				PROVISIONING_PROFILE = "a68c95ed-db1a-4661-9158-c6b16c5bcd05";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

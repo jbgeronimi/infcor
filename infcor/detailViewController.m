@@ -18,7 +18,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
- //       self.title = [self.detailRisultati valueForKey:self.params[@"dbb_query"][0]];
+        //  self.title = [self.detailRisultati valueForKey:self.params[@"affiche_mot"][0]];
     }
     return self;
 }
@@ -59,18 +59,23 @@
     }
     UIFont *fonte = [UIFont fontWithName:@"Klill" size:18];
     cell.textLabel.font = fonte;
-    if ([self.detailRisultati valueForKey:self.params[@"dbb_query"][indexPath.row]]) {
-        UIFont *fonte= [UIFont fontWithName:@"Klill" size:18];
-        UIFont *fonte20 = [UIFont fontWithName:@"Klill" size:21];
-        NSAttributedString *longDef=[[NSAttributedString alloc]initWithString:self.params[self.alangue][indexPath.row]  attributes:@{NSFontAttributeName:fonte20}];
-        NSMutableAttributedString *leTexte = [[NSMutableAttributedString alloc] initWithAttributedString:longDef];
-        NSString *mottu = [@"" stringByAppendingString:[self.detailRisultati valueForKey:self.params[@"dbb_query"][indexPath.row]]];
+    UIFont *fonte20 = [UIFont fontWithName:@"Klill" size:21];
+    NSAttributedString *longDef=[[NSAttributedString alloc]initWithString:self.params[self.alangue][indexPath.row]  attributes:@{NSFontAttributeName:fonte20}];
+    NSMutableAttributedString *leTexte = [[NSMutableAttributedString alloc] initWithAttributedString:longDef];
+    if(([[self.params valueForKey:@"affiche_mot"][0] valueForKey:self.alangue]) && (indexPath.row < 1)){
+        NSString *mottu = [@"" stringByAppendingString:[self.detailRisultati valueForKey:[[self.params valueForKey:@"affiche_mot"][0] valueForKey:self.alangue]]];
+        NSAttributedString *leMot = [[NSAttributedString alloc] initWithString:mottu attributes:@{NSFontAttributeName:fonte}];
+        [leTexte appendAttributedString:leMot];
+        cell.textLabel.attributedText = leTexte;
+    }
+    else{
+        NSString *mottu = [@"" stringByAppendingString:[self.detailRisultati valueForKey:self.params[@"affiche_mot"][indexPath.row]]];
         NSAttributedString *leMot = [[NSAttributedString alloc] initWithString:mottu attributes:@{NSFontAttributeName:fonte}];
         [leTexte appendAttributedString:leMot];
         cell.textLabel.attributedText = leTexte;}
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.numberOfLines = 0;
-
+    
     return cell;
 }
 
@@ -86,9 +91,16 @@
     UIFont *fonte20 = [UIFont fontWithName:@"Klill" size:21];
     NSAttributedString *longDef=[[NSAttributedString alloc]initWithString:self.params[self.alangue][indexPath.row]  attributes:@{NSFontAttributeName:fonte20}];
     NSMutableAttributedString *leTexte = [[NSMutableAttributedString alloc] initWithAttributedString:longDef];
-    NSString *mottu = [@"" stringByAppendingString:[self.detailRisultati valueForKey:self.params[@"dbb_query"][indexPath.row]]];
-    NSAttributedString *leMot = [[NSAttributedString alloc] initWithString:mottu attributes:@{NSFontAttributeName:fonte}];
-    [leTexte appendAttributedString:leMot];
+    if(([[self.params valueForKey:@"affiche_mot"][0] valueForKey:self.alangue]) && (indexPath.row < 1)){
+        NSString *mottu = [@"" stringByAppendingString:[self.detailRisultati valueForKey:[[self.params valueForKey:@"affiche_mot"][0] valueForKey:self.alangue]]];
+        NSAttributedString *leMot = [[NSAttributedString alloc] initWithString:mottu attributes:@{NSFontAttributeName:fonte}];
+        [leTexte appendAttributedString:leMot];
+    }
+    else{
+        NSString *mottu = [@"" stringByAppendingString:[self.detailRisultati valueForKey:self.params[@"affiche_mot"][indexPath.row]]];
+        NSAttributedString *leMot = [[NSAttributedString alloc] initWithString:mottu attributes:@{NSFontAttributeName:fonte}];
+        [leTexte appendAttributedString:leMot];
+    }
     CGSize maxCell = CGSizeMake(self.view.frame.size.width - 20, 99999);
     CGRect tailleCell = [leTexte boundingRectWithSize:maxCell
                                               options:NSStringDrawingUsesLineFragmentOrigin
@@ -97,13 +109,6 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    if(([self.alangue isEqualToString:@"mot_corse"]) & ([self.params[@"dbb_query"] containsObject:@"FRANCESE"])) {
-        [self.params[@"dbb_query"] removeObject:@"FRANCESE"];
-        [self.params[@"mot_corse"] removeObject:@"FRANCESE"];
-    }
-    else{
-        [self.params[@"dbb_query"] removeObject:@"id"];
-        [self.params[@"mot_francais"] removeObject:@"CORSU : "];}    
 }
 
 @end
